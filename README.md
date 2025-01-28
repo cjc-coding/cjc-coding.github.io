@@ -1,4 +1,5 @@
 # cjc-coding.github.io
-<div style="width: 100%; height: 300px; background-image: url('[file:///C:/Users/CHO/Downloads/florian-olivo-4hbJ-eymZ1o-unsplash.jpg](https://github.com/cjc-coding/cjc-coding.github.io/blob/main/florian-olivo-4hbJ-eymZ1o-unsplash.jpg?raw=true)'); background-position: center; background-size: cover;">
+<div style="width: 100%; height: 300px; background-image: url('![florian-olivo-4hbJ-eymZ1o-unsplash](https://github.com/user-attachments/assets/9e2c1e72-0555-4497-9c33-ba3d3038f5ad)'); background-position: center; background-size: cover;">
 </div>
+
 
