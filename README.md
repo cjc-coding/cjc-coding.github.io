@@ -2,6 +2,3 @@
 <div style="width: 100%; height: 300px; background-image: url('[![florian-olivo-4hbJ-eymZ1o-unsplash](https://github.com/user-attachments/assets/9e2c1e72-0555-4497-9c33-ba3d3038f5ad)](https://private-user-images.githubusercontent.com/57625736/407304164-2c451689-14bc-4a97-a6a8-67cabdf16226.jpg?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3MzgwNjU4MDMsIm5iZiI6MTczODA2NTUwMywicGF0aCI6Ii81NzYyNTczNi80MDczMDQxNjQtMmM0NTE2ODktMTRiYy00YTk3LWE2YTgtNjdjYWJkZjE2MjI2LmpwZz9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNTAxMjglMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjUwMTI4VDExNTgyM1omWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPTcxOTc1YjM2Y2EzMmEwZTUyOWQ0ZDc5MzBjODUyOTA5NzA3MWQ1ZGFkYTNmYjkwZTM3ZWE0OGRkZGZhYjcyMDAmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0In0.HQPsMUXHclec9R0xGiqfz5ezjHxCYnkA3WjqT-ZUQUg)'); background-position: center; background-size: cover;">
 </div>
 
-
-
-![florian-olivo-4hbJ-eymZ1o-unsplash](https://github.com/user-attachments/assets/2c451689-14bc-4a97-a6a8-67cabdf16226)
