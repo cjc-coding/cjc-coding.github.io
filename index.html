@@ -3,12 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Page</title>
+    <title>My Page - Coding Ground</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap" rel="stylesheet">
     <style>
-        .title-img {
-            width: 100%;
-            height: 200px;
+        :root {
+            --primary-color: #4a69bd;
+            --secondary-color: #6a89cc;
+            --background-color: #f4f7f6;
+            --font-color: #333;
+            --card-bg-color: #ffffff;
+            --shadow-color: rgba(0, 0, 0, 0.1);
+        }
+
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
             margin: 0;
+            background-color: var(--background-color);
+            color: var(--font-color);
+        }
+
+        .hero {
+            width: 100%;
+            height: 300px;
             background-image: url('https://raw.githubusercontent.com/cjc-coding/cjc-coding.github.io/main/florian-olivo-4hbJ-eymZ1o-unsplash.jpg');
             background-position: center;
             background-size: cover;
@@ -16,47 +34,146 @@
             align-items: center;
             justify-content: center;
             position: relative;
+            text-align: center;
         }
-        .title-img::before{
+
+        .hero::before {
+            content: '';
             position: absolute;
+            top: 0;
+            left: 0;
             width: 100%;
             height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+
+        .hero-content {
+            position: relative;
             z-index: 1;
-            background-color: rgba(0, 0, 0, 0.3);
-        }
-        .title-img h1{
             color: white;
-            font-size: 50px;
-            text-shadow: 0px 0px 10px rgba(255, 255, 255, 0.9);
         }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin: 0;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-top: 10px;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .info-section {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .info-section h2 {
+            font-size: 2rem;
+            color: var(--primary-color);
+        }
+        
+        .info-section a {
+            font-size: 1.2rem;
+            color: var(--secondary-color);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .info-section a:hover {
+            color: var(--primary-color);
+            text-decoration: underline;
+        }
+
+        .links-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            padding: 0;
+            list-style: none;
+        }
+
+        .card {
+            background-color: var(--card-bg-color);
+            border-radius: 12px;
+            box-shadow: 0 4px 15px var(--shadow-color);
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .card a {
+            display: block;
+            padding: 30px;
+            text-decoration: none;
+            color: var(--font-color);
+            font-size: 1.5rem;
+            font-weight: 700;
+            text-align: center;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .card a:hover {
+            background-color: var(--primary-color);
+            color: white;
+        }
+        
+        hr {
+            border: 0;
+            height: 1px;
+            background-image: linear-gradient(to right, rgba(0, 0, 0, 0), var(--secondary-color), rgba(0, 0, 0, 0));
+            margin: 40px 0;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            margin-top: 50px;
+            color: #777;
+        }
+
     </style>
 </head>
 <body>
-    <div class="title-img">
-        <h1>Welcome to Coding Ground!</h1>
-    </div>
-    <h1>코딩그라운드-수업참고자료</h1>
-    <h1>cjc-coding.github.io</h1>
-    <a href="tel:01030390089"><h2>010-3039-0089</h2></a>
-    <hr>
-    <ol>
-        <li><a href="https://branched-headlight-e2e.notion.site/180efb27efe680c69cb8f98a9c4de246?pvs=4"><h2>파이썬</h2></a></li>
-        <li><a href="https://branched-headlight-e2e.notion.site/C-180efb27efe680f89a8fff5158c78438?pvs=4"><h2>C언어</h2></a></li>
-        <li>
-            <a href="https://branched-headlight-e2e.notion.site/JAVA-169efb27efe6804f9a19f6f70c7b909d?pvs=4"><h2>Java</h2></a>
-        </li>
-        <li>
-            <a href="https://branched-headlight-e2e.notion.site/19eefb27efe6803780c9fef6c9ea9967?pvs=4"><h2>알고리즘</h2></a>
-        </li>
-        <li>
-            <a href="https://carpal-turtle-d06.notion.site/1be202e51d49809190def4f55480b64c?v=1be202e51d498008a02d000c2aa2a596&pvs=4"><h2>연습문제</h2></a>
-        </li>
-        <li>
-            <a href="https://gitmind.com/app/docs/mz0elea2"><h2>웹개발 플로우</h2></a>
-        </li>
+    <header class="hero">
+        <div class="hero-content">
+            <h1>Welcome to Coding Ground!</h1>
+            <p>cjc-coding.github.io</p>
+        </div>
+    </header>
 
-        
-        
-    </ol>
+    <main class="container">
+        <section class="info-section">
+            <h2>코딩그라운드 - 수업참고자료</h2>
+            <a href="tel:01030390089">010-3039-0089</a>
+        </section>
+
+        <hr>
+
+        <ul class="links-grid">
+            <li class="card"><a href="https://branched-headlight-e2e.notion.site/180efb27efe680c69cb8f98a9c4de246?pvs=4">파이썬</a></li>
+            <li class="card"><a href="https://branched-headlight-e2e.notion.site/C-180efb27efe680f89a8fff5158c78438?pvs=4">C언어</a></li>
+            <li class="card"><a href="https://branched-headlight-e2e.notion.site/JAVA-169efb27efe6804f9a19f6f70c7b909d?pvs=4">Java</a></li>
+            <li class="card"><a href="https://branched-headlight-e2e.notion.site/19eefb27efe6803780c9fef6c9ea9967?pvs=4">알고리즘</a></li>
+            <li class="card"><a href="https://carpal-turtle-d06.notion.site/1be202e51d49809190def4f55480b64c?v=1be202e51d498008a02d000c2aa2a596&pvs=4">연습문제</a></li>
+            <li class="card"><a href="https://gitmind.com/app/docs/mz0elea2">웹개발 플로우</a></li>
+        </ul>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Coding Ground. All Rights Reserved.</p>
+    </footer>
+
 </body>
 </html>
