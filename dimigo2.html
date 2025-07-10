@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>프로젝트 디미고</title>
+    <title>디미고 완전 정복: 입시 전략부터 합격 로드맵까지</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -12,7 +12,7 @@
     <style>
         body {
             font-family: 'Noto Sans KR', sans-serif;
-            background-color: #f0f4f8;
+            background-color: #f8fafc;
         }
         .chart-container {
             position: relative;
@@ -20,262 +20,219 @@
             max-width: 600px;
             margin-left: auto;
             margin-right: auto;
-            height: 300px;
+            height: 350px;
             max-height: 400px;
         }
-        @media (min-width: 768px) {
+        @media (max-width: 768px) {
             .chart-container {
-                height: 350px;
+                height: 300px;
             }
         }
-        .kpi-card {
-            background-color: white;
-            border-radius: 0.75rem;
-            padding: 1.5rem;
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-            text-align: center;
-            border-left: 5px solid #9B5DE5;
-        }
-        .flow-item::before {
+        .timeline-container::before {
             content: '';
             position: absolute;
-            top: 5rem;
+            top: 0;
             left: 50%;
             transform: translateX(-50%);
-            width: 2px;
-            height: calc(100% - 4rem);
-            background-color: #00CCBF;
+            width: 3px;
+            height: 100%;
+            background-color: #e2e8f0;
+            z-index: 1;
         }
-        .flow-item:last-child::before {
-            display: none;
+        .timeline-item {
+            position: relative;
+            z-index: 2;
         }
-        .flow-dot {
+        .timeline-dot {
             position: absolute;
-            top: 3.5rem;
+            top: 1.25rem;
             left: 50%;
-            transform: translateX(-50%);
+            transform: translate(-50%, -50%);
             width: 1.5rem;
             height: 1.5rem;
             border-radius: 9999px;
-            background-color: #F15BB5;
-            border: 3px solid white;
-            z-index: 10;
+            border: 4px solid #f8fafc;
+            z-index: 3;
         }
-        .swot-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 1.5rem;
+        .timeline-content {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
-        @media (min-width: 768px) {
-            .swot-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
+        .timeline-content:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
         }
     </style>
 </head>
 <body class="bg-slate-50 text-gray-800">
 
-    <!--
-    Narrative Plan:
-    1. Introduction: Hook with the business title and core value proposition.
-    2. The Dimigo Admission Maze: Visually compare the two admission tracks (General vs. Special) using stacked bar charts to highlight the strategic importance of each component.
-    3. Financial Blueprint: Break down the initial investment with a donut chart and visualize the revenue model with a bar chart. This answers the "What does it cost and how does it make money?" question for investors.
-    4. 18-Month Success Roadmap: Use an HTML/CSS-based timeline to show the structured, long-term student journey, emphasizing the academy's project-based philosophy. This demonstrates operational planning.
-    5. Market Positioning (SWOT): Present the SWOT analysis in a clear four-quadrant grid to give a quick overview of the business environment.
-    6. Conclusion: Reinforce the three key success factors.
-    Color Palette Name: Energetic & Playful (#00F5D4, #00CCBF, #9B5DE5, #F15BB5, #FEE440)
-    SVG/Mermaid Confirmation: Neither Mermaid JS nor SVG graphics were used in this output. All diagrams are built with HTML/CSS and all charts are rendered on Canvas via Chart.js.
-    Visualization Choices:
-    - Dimigo Admission Score Breakdown: Goal=Compare. Chosen=Stacked Bar Chart (Chart.js). Justification=Perfect for comparing the composition of the total score (200 points) between the two different admission tracks, visually emphasizing the dramatic shift in evaluation criteria.
-    - Initial Investment Breakdown: Goal=Inform/Composition. Chosen=Donut Chart (Chart.js). Justification=Effectively shows the proportion of each cost category within the total startup capital.
-    - Tiered Revenue Model: Goal=Compare. Chosen=Bar Chart (Chart.js). Justification=A simple and clear way to compare the price points of the different service tiers.
-    - 18-Month Curriculum Roadmap: Goal=Organize/Change. Chosen=HTML/CSS Vertical Timeline. Justification=With SVG/Mermaid disallowed, a structured HTML flow chart is the best method to represent a process over time, providing clarity and a professional look.
-    - SWOT Analysis: Goal=Organize. Chosen=HTML/CSS Grid. Justification=A four-quadrant layout is the standard and most intuitive way to present a SWOT analysis. Using styled cards and Unicode icons provides visual appeal without graphics.
+    <!-- 
+    SVG/Mermaid Confirmation: Neither Mermaid JS nor SVG graphics were used in this output. 
+    All charts are rendered on Canvas via Chart.js. The timeline is built with HTML/CSS.
     -->
 
     <div class="container mx-auto p-4 md:p-8">
 
-        <header class="text-center mb-12">
+        <header class="text-center mb-12 md:mb-16">
             <h1 class="text-4xl md:text-5xl font-extrabold text-gray-900 leading-tight">
-                <span class="text-[#9B5DE5]">코딩그라운드 프로젝트 디미고</span>
+                <span class="text-[#9B5DE5]">디미고 완전 정복</span>: 전략과 로드맵
             </h1>
             <p class="mt-4 text-lg text-gray-600 max-w-3xl mx-auto">
-                한국디지털미디어고등학교 입시 시장을 정밀 분석하여, 데이터 기반의 성공 전략
+                한국디지털미디어고등학교 합격을 위한 입시 전형 분석부터 18개월 완성 커리큘럼까지, 모든 것을 담았습니다.
             </p>
         </header>
 
-        <main class="space-y-16">
+        <div class="max-w-5xl mx-auto mb-16 md:mb-24">
+            <img src="https://placehold.co/1200x400/9B5DE5/FFFFFF?text=Dimigo+Success+Roadmap" alt="디미고 합격 로드맵 비전 이미지" class="w-full h-auto rounded-xl shadow-lg object-cover">
+        </div>
+
+        <main class="space-y-16 md:space-y-24">
 
             <section id="admission-strategy">
-                <div class="text-center mb-8">
+                <div class="text-center mb-12">
                     <h2 class="text-3xl font-bold text-gray-900">디미고 입시, 두 개의 길과 전략</h2>
-                    <p class="mt-2 text-md text-gray-500">일반전형과 특별전형의 핵심 평가 요소 비교</p>
+                    <p class="mt-3 text-md text-gray-500 max-w-2xl mx-auto">일반전형과 특별전형의 핵심 평가 요소를 비교하여, 자신에게 맞는 최적의 길을 선택하고 집중해야 합니다.</p>
                 </div>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                    <div class="bg-white rounded-xl shadow-lg p-6">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
+                    <div class="bg-white rounded-xl shadow-lg p-6 md:p-8">
                         <h3 class="text-xl font-bold text-center mb-4">일반전형 배점 구조 (총 200점)</h3>
-                        <p class="text-center text-sm text-gray-500 mb-4">내신 성적이 절대적이지만, 'IT 소질·적성검사'가 새로운 변수로 작용합니다.</p>
+                        <p class="text-center text-sm text-gray-500 mb-4 h-12">내신 성적이 절대적이지만, 'IT 소질·적성검사'가 새로운 변수로 작용합니다.</p>
                         <div class="chart-container">
                             <canvas id="generalAdmissionChart"></canvas>
                         </div>
                     </div>
-                    <div class="bg-white rounded-xl shadow-lg p-6">
+                    <div class="bg-white rounded-xl shadow-lg p-6 md:p-8">
                         <h3 class="text-xl font-bold text-center mb-4">특별전형 배점 구조 (총 200점)</h3>
-                        <p class="text-center text-sm text-gray-500 mb-4">'활동 증빙 자료' 즉, 포트폴리오의 질이 당락을 결정합니다.</p>
+                        <p class="text-center text-sm text-gray-500 mb-4 h-12">'활동 증빙 자료' 즉, 포트폴리오의 깊이와 완성도가 당락을 결정합니다.</p>
                         <div class="chart-container">
                             <canvas id="specialAdmissionChart"></canvas>
                         </div>
                     </div>
                 </div>
             </section>
-            <!--/*
-            <section id="financials">
-                <div class="text-center mb-8">
-                    <h2 class="text-3xl font-bold text-gray-900">사업 재무 청사진</h2>
-                    <p class="mt-2 text-md text-gray-500">초기 투자 비용의 구성과 핵심 수익 모델을 분석합니다.</p>
-                </div>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-                    <div class="bg-white rounded-xl shadow-lg p-6">
-                        <h3 class="text-xl font-bold text-center mb-4">초기 창업 비용 분석 (총 약 1.74억원)</h3>
-                        <p class="text-center text-sm text-gray-500 mb-4">안정적인 시작을 위한 필수 투자 항목별 비중입니다.</p>
-                        <div class="chart-container h-[300px] md:h-[350px]">
-                            <canvas id="investmentChart"></canvas>
-                        </div>
-                    </div>
-                    <div class="bg-white rounded-xl shadow-lg p-6">
-                        <h3 class="text-xl font-bold text-center mb-4">계층적 수익 모델</h3>
-                        <p class="text-center text-sm text-gray-500 mb-4">서비스 가치에 따라 차등화된 수강료 책정으로 수익성을 극대화합니다.</p>
-                        <div class="chart-container h-[300px] md:h-[350px]">
-                            <canvas id="revenueChart"></canvas>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            */-->
-
+            
             <section id="roadmap">
                 <div class="text-center mb-12">
                     <h2 class="text-3xl font-bold text-gray-900">18개월 합격 로드맵</h2>
-                    <p class="mt-2 text-md text-gray-500">단순 지식 전달을 넘어, 입시와 완벽하게 동기화된 '포트폴리오 생성' 여정입니다.</p>
+                    <p class="mt-3 text-md text-gray-500 max-w-2xl mx-auto">단순 지식 전달을 넘어, 입시와 완벽하게 동기화된 '포트폴리오 생성' 여정입니다.</p>
                 </div>
-                <div class="relative max-w-3xl mx-auto">
-                    <div class="flow-item relative pl-8 md:pl-0 md:w-1/2 md:ml-auto md:pr-8 pb-12">
-                        <div class="flow-dot"></div>
-                        <div class="bg-white rounded-xl shadow-lg p-6 border-l-4 border-[#00F5D4]">
-                            <p class="font-bold text-sm text-[#00CCBF]">중2 / 1학기</p>
-                            <h4 class="font-bold text-lg mt-1">컴퓨팅 사고력 배양</h4>
-                            <p class="text-sm text-gray-600 mt-2">파이썬 기초 문법을 마스터하고 첫 GitHub 저장소를 생성하여 코딩 능력을 증명합니다.</p>
+                <div class="relative timeline-container max-w-3xl mx-auto py-8">
+                    
+                    <!-- Stage 1 -->
+                    <div class="timeline-item md:grid md:grid-cols-2 md:gap-x-12 mb-12">
+                        <div class="md:text-right md:pr-12">
+                            <p class="font-bold text-lg text-[#00CCBF]">STEP 1</p>
+                            <h3 class="text-2xl font-bold text-gray-800">중2 / 1학기</h3>
+                            <p class="text-md text-gray-500">컴퓨팅 사고력 배양</p>
+                        </div>
+                        <div class="relative mt-4 md:mt-0">
+                            <div class="timeline-dot bg-[#00F5D4]"></div>
+                            <div class="timeline-content bg-white rounded-xl shadow-lg p-6 border-l-4 border-[#00F5D4]">
+                                <h4 class="font-bold text-lg text-gray-900">목표: 코딩의 기초 확립 및 증명</h4>
+                                <ul class="mt-3 list-disc list-inside text-gray-700 space-y-2 text-sm">
+                                    <li><strong>스크래치로 원리 이해:</strong> 블록 코딩으로 프로그래밍 원리(순차, 반복, 조건)를 시각적으로 체득 후 파이썬으로 전환합니다.</li>
+                                    <li><strong>알고리즘 기초 훈련:</strong> 자료구조(리스트, 딕셔너리)를 배우고 정렬, 탐색 등 기본 알고리즘을 훈련합니다.</li>
+                                    <li><strong>Git 버전 관리 시작:</strong> Git과 GitHub를 활용하여 자신의 코딩 학습 과정을 체계적으로 기록하고 관리합니다.</li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
-                     <div class="flow-item relative pl-8 md:pl-0 md:w-1/2 md:mr-auto md:text-right md:pl-8 pb-12">
-                        <div class="flow-dot"></div>
-                        <div class="bg-white rounded-xl shadow-lg p-6 text-left border-r-4 md:border-r-0 md:border-l-4 border-[#00F5D4]">
-                            <p class="font-bold text-sm text-[#00CCBF]">중2 / 2학기</p>
-                            <h4 class="font-bold text-lg mt-1">포트폴리오 기반 구축</h4>
-                            <p class="text-sm text-gray-600 mt-2">웹 프론트엔드 기초를 학습하여 개인 포트폴리오 웹사이트를 제작하고 IT 올림피아드를 준비합니다.</p>
+
+                    <!-- Stage 2 -->
+                    <div class="timeline-item md:grid md:grid-cols-2 md:gap-x-12 mb-12">
+                         <div class="md:col-start-2">
+                            <p class="font-bold text-lg text-[#00CCBF]">STEP 2</p>
+                            <h3 class="text-2xl font-bold text-gray-800">중2 / 2학기</h3>
+                            <p class="text-md text-gray-500">포트폴리오 기반 구축</p>
+                        </div>
+                        <div class="relative mt-4 md:mt-0 md:col-start-1 md:row-start-1 md:text-right">
+                            <div class="timeline-dot bg-[#00CCBF]"></div>
+                            <div class="timeline-content bg-white rounded-xl shadow-lg p-6 border-r-4 md:border-r-0 md:border-l-4 border-[#00CCBF]">
+                                <h4 class="font-bold text-lg text-gray-900">목표: 웹 기술 습득 및 시각적 결과물 제작</h4>
+                                <ul class="mt-3 list-disc list-inside text-gray-700 space-y-2 text-sm">
+                                    <li><strong>반응형 웹 개발:</strong> HTML, CSS, JS를 활용해 모든 기기에서 작동하는 개인 포트폴리오 웹사이트를 제작합니다.</li>
+                                    <li><strong>동적 기능 구현:</strong> JavaScript를 통해 간단한 API를 연동하고, 인터랙티브한 웹 기능을 구현하는 경험을 쌓습니다.</li>
+                                    <li><strong>대회 및 자격증 준비:</strong> 정보처리기능사 필기를 준비하고, 디미고 IT 올림피아드 대비 문제 풀이를 시작합니다.</li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
-                    <div class="flow-item relative pl-8 md:pl-0 md:w-1/2 md:ml-auto md:pr-8 pb-12">
-                        <div class="flow-dot"></div>
-                        <div class="bg-white rounded-xl shadow-lg p-6 border-l-4 border-[#9B5DE5]">
-                            <p class="font-bold text-sm text-[#9B5DE5]">중3 / 1학기</p>
-                            <h4 class="font-bold text-lg mt-1">핵심 프로젝트 기획/개발</h4>
-                            <p class="text-sm text-gray-600 mt-2">웹, 보안, AI 등 심화 트랙을 선택하여 핵심 개인 프로젝트 개발에 착수하고 관련 자격증을 취득합니다.</p>
+
+                    <!-- Stage 3 -->
+                    <div class="timeline-item md:grid md:grid-cols-2 md:gap-x-12 mb-12">
+                        <div class="md:text-right md:pr-12">
+                            <p class="font-bold text-lg text-[#9B5DE5]">STEP 3</p>
+                            <h3 class="text-2xl font-bold text-gray-800">중3 / 1학기</h3>
+                            <p class="text-md text-gray-500">핵심 프로젝트 기획/개발</p>
+                        </div>
+                        <div class="relative mt-4 md:mt-0">
+                            <div class="timeline-dot bg-[#9B5DE5]"></div>
+                            <div class="timeline-content bg-white rounded-xl shadow-lg p-6 border-l-4 border-[#9B5DE5]">
+                                <h4 class="font-bold text-lg text-gray-900">목표: 자신만의 특색있는 프로젝트 시작</h4>
+                                <ul class="mt-3 list-disc list-inside text-gray-700 space-y-2 text-sm">
+                                    <li><strong>심화 트랙 선택 및 학습:</strong> 웹(Node.js), 보안(리눅스), AI(Pandas) 등 관심 트랙의 핵심 기술을 학습합니다.</li>
+                                    <li><strong>개인 프로젝트 개발 착수:</strong> 아이디어 구상, 기술 스택 선정, 설계, 개발까지 주도적으로 진행합니다.</li>
+                                    <li><strong>자격증 취득 실행:</strong> 리눅스마스터 2급, 네트워크관리사 2급 등 가산점 획득을 위한 자격증 취득을 목표로 합니다.</li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
-                    <div class="flow-item relative pl-8 md:pl-0 md:w-1/2 md:mr-auto md:text-right md:pl-8 pb-12">
-                        <div class="flow-dot"></div>
-                        <div class="bg-white rounded-xl shadow-lg p-6 text-left border-r-4 md:border-r-0 md:border-l-4 border-[#F15BB5]">
-                            <p class="font-bold text-sm text-[#F15BB5]">중3 / 여름방학</p>
-                            <h4 class="font-bold text-lg mt-1">포트폴리오 완성</h4>
-                            <p class="text-sm text-gray-600 mt-2">핵심 프로젝트를 완성하고 최종 보고서, 발표 영상 등을 제작하며 자기소개서 초안을 작성합니다.</p>
+
+                    <!-- Stage 4 -->
+                    <div class="timeline-item md:grid md:grid-cols-2 md:gap-x-12 mb-12">
+                        <div class="md:col-start-2">
+                            <p class="font-bold text-lg text-[#F15BB5]">STEP 4</p>
+                            <h3 class="text-2xl font-bold text-gray-800">중3 / 여름방학</h3>
+                            <p class="text-md text-gray-500">포트폴리오 완성</p>
+                        </div>
+                        <div class="relative mt-4 md:mt-0 md:col-start-1 md:row-start-1 md:text-right">
+                            <div class="timeline-dot bg-[#F15BB5]"></div>
+                            <div class="timeline-content bg-white rounded-xl shadow-lg p-6 border-r-4 md:border-r-0 md:border-l-4 border-[#F15BB5]">
+                                <h4 class="font-bold text-lg text-gray-900">목표: 프로젝트 최종 산출 및 문서화</h4>
+                                <ul class="mt-3 list-disc list-inside text-gray-700 space-y-2 text-sm">
+                                    <li><strong>코드 품질 향상:</strong> 리팩토링 및 주석 작성을 통해 누가 봐도 이해하기 쉬운 코드를 완성합니다.</li>
+                                    <li><strong>기술 블로그 작성:</strong> 프로젝트 개발 과정, 겪었던 어려움, 해결 방법을 상세히 기록하여 기술적 깊이를 증명합니다.</li>
+                                    <li><strong>자기소개서 스토리라인 구성:</strong> 포트폴리오 경험을 바탕으로 성장 스토리를 구체화하여 자기소개서 초안을 작성합니다.</li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
-                     <div class="flow-item relative pl-8 md:pl-0 md:w-1/2 md:ml-auto md:pr-8 pb-12">
-                        <div class="flow-dot"></div>
-                        <div class="bg-white rounded-xl shadow-lg p-6 border-l-4 border-[#FEE440]">
-                            <p class="font-bold text-sm text-[#E7C400]">중3 / 2학기</p>
-                            <h4 class="font-bold text-lg mt-1">최종 입시 대비</h4>
-                            <p class="text-sm text-gray-600 mt-2">자기소개서를 완성하고, 포트폴리오 기반의 심층 기술 면접에 대비한 집중 훈련을 실시합니다.</p>
+                    
+                    <!-- Stage 5 -->
+                    <div class="timeline-item md:grid md:grid-cols-2 md:gap-x-12">
+                        <div class="md:text-right md:pr-12">
+                            <p class="font-bold text-lg text-[#FEE440]">STEP 5</p>
+                            <h3 class="text-2xl font-bold text-gray-800">중3 / 2학기</h3>
+                            <p class="text-md text-gray-500">최종 입시 대비</p>
+                        </div>
+                        <div class="relative mt-4 md:mt-0">
+                            <div class="timeline-dot bg-[#FEE440]"></div>
+                            <div class="timeline-content bg-white rounded-xl shadow-lg p-6 border-l-4 border-[#FEE440]">
+                                <h4 class="font-bold text-lg text-gray-900">목표: 실전 면접 완벽 대비</h4>
+                                <ul class="mt-3 list-disc list-inside text-gray-700 space-y-2 text-sm">
+                                    <li><strong>자기소개서 최종 완성:</strong> 1:1 첨삭을 통해 논리 구조와 표현력을 강화하여 최종본을 완성합니다.</li>
+                                    <li><strong>실전형 기술 면접:</strong> 포트폴리오 기반 압박 질문, 라이브 코딩 등 실전과 같은 모의 면접을 반복 훈련합니다.</li>
+                                    <li><strong>인성/토론 면접 준비:</strong> 최신 IT 트렌드 및 디미고 인재상과 관련된 주제로 토론하며 소양을 기릅니다.</li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
                 </div>
             </section>
-            <!--
-            <section id="swot">
-                <div class="text-center mb-8">
-                    <h2 class="text-3xl font-bold text-gray-900">시장 내 포지션 (SWOT 분석)</h2>
-                    <p class="mt-2 text-md text-gray-500">사업의 내외부 환경을 분석하여 전략적 방향을 설정합니다.</p>
-                </div>
-                <div class="swot-grid max-w-4xl mx-auto">
-                    <div class="bg-green-100 p-6 rounded-xl shadow">
-                        <h4 class="font-bold text-xl text-green-800 flex items-center"><span class="text-2xl mr-2">💪</span> 강점 (Strengths)</h4>
-                        <ul class="mt-2 list-disc list-inside text-green-700 space-y-1">
-                            <li>'디미고 입시' 단일 목표 집중으로 전문성 극대화</li>
-                            <li>결과물 중심 교육(포트폴리오)으로 높은 가치 제공</li>
-                            <li>프리미엄 가격 정책을 통한 수익성 확보</li>
-                        </ul>
-                    </div>
-                    <div class="bg-red-100 p-6 rounded-xl shadow">
-                        <h4 class="font-bold text-xl text-red-800 flex items-center"><span class="text-2xl mr-2">⚠️</span> 약점 (Weaknesses)</h4>
-                        <ul class="mt-2 list-disc list-inside text-red-700 space-y-1">
-                            <li>디미고 입시 정책 변화에 따른 사업 리스크</li>
-                            <li>실무+입시 겸비한 전문 강사 확보의 어려움</li>
-                            <li>초기 브랜드 인지도 및 합격 실적 부재</li>
-                        </ul>
-                    </div>
-                    <div class="bg-blue-100 p-6 rounded-xl shadow">
-                        <h4 class="font-bold text-xl text-blue-800 flex items-center"><span class="text-2xl mr-2">✨</span> 기회 (Opportunities)</h4>
-                        <ul class="mt-2 list-disc list-inside text-blue-700 space-y-1">
-                            <li>경쟁사 정보 채널 부재로 인한 콘텐츠 마케팅 선점</li>
-                            <li>'IT 소질검사' 도입으로 인한 잠재 고객층 확대</li>
-                            <li>'투자'로 인식되는 교육비에 대한 높은 지불 의사</li>
-                        </ul>
-                    </div>
-                    <div class="bg-yellow-100 p-6 rounded-xl shadow">
-                        <h4 class="font-bold text-xl text-yellow-800 flex items-center"><span class="text-2xl mr-2">📉</span> 위협 (Threats)</h4>
-                        <ul class="mt-2 list-disc list-inside text-yellow-700 space-y-1">
-                            <li>기존 시장 강자와의 직접적인 경쟁</li>
-                            <li>입시 정책의 예측 불가능성</li>
-                            <li>경기 변동에 따른 사교육비 지출 감소 가능성</li>
-                        </ul>
-                    </div>
-                </div>
-            </section>
-            -->
         </main>
-        <!--
+
         <footer class="text-center mt-16 pt-8 border-t border-gray-200">
-             <h3 class="text-2xl font-bold text-gray-900">핵심 성공 요인</h3>
-             <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-6 max-w-5xl mx-auto">
-                <div class="kpi-card">
-                    <h4 class="text-lg font-bold text-[#9B5DE5]">깊이 있는 전문성</h4>
-                    <p class="mt-1 text-gray-600">변화하는 입시 제도를 꿰뚫는 분석력과 해석 능력</p>
-                </div>
-                <div class="kpi-card">
-                    <h4 class="text-lg font-bold text-[#9B5DE5]">포트폴리오 중심 교육</h4>
-                    <p class="mt-1 text-gray-600">'지식'이 아닌 '결과물'을 만들어주는 서비스 지향</p>
-                </div>
-                 <div class="kpi-card">
-                    <h4 class="text-lg font-bold text-[#9B5DE5]">신뢰 기반 마케팅</h4>
-                    <p class="mt-1 text-gray-600">콘텐츠를 통해 미래를 함께 설계하는 전략적 파트너로 포지셔닝</p>
-                </div>
-             </div>
-            
+             <p class="text-md text-gray-500">체계적인 전략과 로드맵은 합격의 가장 확실한 나침반입니다.</p>
+             <p class="mt-2 text-sm text-gray-400">프로젝트 디미고와 함께라면, 당신의 꿈은 현실이 됩니다.</p>
         </footer>
-        -->
     </div>
 
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             
             const vibrantPalette = ['#9B5DE5', '#F15BB5', '#FEE440', '#00CCBF', '#00F5D4'];
-            const vibrantPaletteSoft = ['#9b5de533', '#f15bb533', '#fee44033', '#00ccbf33', '#00f5d433'];
 
             const wrapLabel = (str, maxWidth = 16) => {
-                if (str.length <= maxWidth) {
-                    return str;
-                }
+                if (str.length <= maxWidth) return str;
                 const words = str.split(' ');
                 const lines = [];
                 let currentLine = '';
@@ -287,20 +244,14 @@
                         currentLine = (currentLine + ' ' + word).trim();
                     }
                 });
-                if (currentLine) {
-                    lines.push(currentLine.trim());
-                }
+                if (currentLine) lines.push(currentLine.trim());
                 return lines;
             };
 
             const tooltipTitleCallback = (tooltipItems) => {
                 const item = tooltipItems[0];
                 let label = item.chart.data.labels[item.dataIndex];
-                if (Array.isArray(label)) {
-                    return label.join(' ');
-                } else {
-                    return label;
-                }
+                return Array.isArray(label) ? label.join(' ') : label;
             };
             
             const defaultChartOptions = {
@@ -310,23 +261,16 @@
                     legend: {
                         position: 'bottom',
                         labels: {
-                            font: {
-                                family: "'Noto Sans KR', sans-serif",
-                                size: 12
-                            }
+                            font: { family: "'Noto Sans KR', sans-serif", size: 12 },
+                            boxWidth: 20,
+                            padding: 20
                         }
                     },
                     tooltip: {
                         enabled: true,
-                        callbacks: {
-                           title: tooltipTitleCallback
-                        },
-                        titleFont: {
-                            family: "'Noto Sans KR', sans-serif"
-                        },
-                        bodyFont: {
-                             family: "'Noto Sans KR', sans-serif"
-                        }
+                        callbacks: { title: tooltipTitleCallback },
+                        titleFont: { family: "'Noto Sans KR', sans-serif" },
+                        bodyFont: { family: "'Noto Sans KR', sans-serif" }
                     }
                 }
             };
@@ -336,7 +280,7 @@
                 datasets: [{
                     label: '배점',
                     data: [120, 40, 20, 20],
-                    backgroundColor: vibrantPalette,
+                    backgroundColor: [vibrantPalette[3], vibrantPalette[2], vibrantPalette[4], vibrantPalette[1]],
                     borderColor: '#ffffff',
                     borderWidth: 2
                 }]
@@ -349,15 +293,10 @@
                     ...defaultChartOptions,
                     indexAxis: 'y',
                     scales: {
-                        x: {
-                            max: 200,
-                            title: { display: true, text: '점수' }
-                        }
+                        x: { max: 200, title: { display: true, text: '점수' } },
+                        y: { ticks: { font: { size: 14 } } }
                     },
-                    plugins: {
-                       ...defaultChartOptions.plugins,
-                       legend: { display: false }
-                    }
+                    plugins: { ...defaultChartOptions.plugins, legend: { display: false } }
                 }
             });
 
@@ -366,7 +305,7 @@
                 datasets: [{
                     label: '배점',
                     data: [60, 60, 40, 20, 20],
-                    backgroundColor: vibrantPalette,
+                    backgroundColor: [vibrantPalette[0], vibrantPalette[3], vibrantPalette[1], vibrantPalette[2], vibrantPalette[4]],
                     borderColor: '#ffffff',
                     borderWidth: 2
                 }]
@@ -379,65 +318,10 @@
                     ...defaultChartOptions,
                     indexAxis: 'y',
                     scales: {
-                        x: {
-                            max: 200,
-                            title: { display: true, text: '점수' }
-                        }
+                        x: { max: 200, title: { display: true, text: '점수' } },
+                        y: { ticks: { font: { size: 14 } } }
                     },
-                    plugins: {
-                       ...defaultChartOptions.plugins,
-                       legend: { display: false }
-                    }
-                }
-            });
-            
-            const investmentRawLabels = ['임차보증금', '인테리어 공사', '교육용 장비', '가구 및 집기', '초기 마케팅', '예비비'];
-            const investmentData = {
-                labels: investmentRawLabels.map(label => wrapLabel(label)),
-                datasets: [{
-                    label: '비용 (만원)',
-                    data: [4000, 4900, 1830, 800, 500, 1083],
-                    backgroundColor: vibrantPalette,
-                    hoverOffset: 4
-                }]
-            };
-
-            new Chart(document.getElementById('investmentChart'), {
-                type: 'doughnut',
-                data: investmentData,
-                options: defaultChartOptions
-            });
-
-            const revenueData = {
-                labels: ['일반전형 대비반 (Tier 1)', '특별전형 포트폴리오반 (Tier 2)'],
-                datasets: [{
-                    label: '월 수강료 (원)',
-                    data: [350000, 600000],
-                    backgroundColor: [vibrantPalette[0], vibrantPalette[1]],
-                    borderColor: '#ffffff',
-                    borderWidth: 2,
-                    barPercentage: 0.5
-                }]
-            };
-
-            new Chart(document.getElementById('revenueChart'), {
-                type: 'bar',
-                data: revenueData,
-                options: {
-                    ...defaultChartOptions,
-                    plugins: {
-                        ...defaultChartOptions.plugins,
-                        legend: { display: false },
-                    },
-                    scales: {
-                        y: {
-                            ticks: {
-                                callback: function(value) {
-                                    return value.toLocaleString('ko-KR') + '원';
-                                }
-                            }
-                        }
-                    }
+                    plugins: { ...defaultChartOptions.plugins, legend: { display: false } }
                 }
             });
         });
