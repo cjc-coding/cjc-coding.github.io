@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>태전 퓨처 랩스: SW 입시 전략 인포그래픽</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            background-color: #0C0C0C;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 320px;
+            max-height: 450px;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 400px;
+            }
+        }
+        .gradient-text {
+            background: linear-gradient(90deg, #F9C80E, #FF4365);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .card {
+            background-color: #1E1E1E;
+            border: 1px solid #333;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(255, 67, 101, 0.2);
+        }
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            top: 1.25rem;
+            left: -33px;
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            background-color: #444;
+            border: 4px solid #F9C80E;
+            z-index: 1;
+        }
+        .timeline-item:last-child .timeline-line {
+            display: none;
+        }
+    </style>
+</head>
+<body class="text-gray-200">
+
+    <div class="container mx-auto p-4 sm:p-6 md:p-8">
+
+        <header class="text-center py-12 md:py-16">
+            <h1 class="text-4xl md:text-6xl font-black mb-4 gradient-text">태전 퓨처 랩스</h1>
+            <p class="text-xl md:text-2xl font-light text-gray-300">인수를 통한 시장 선점, 결과로 증명하는 SW 입시 전략</p>
+            <p class="text-md text-gray-500 mt-2">태전지구 유일, 입시 포트폴리오 전문 아카데미</p>
+        </header>
+
+        <main>
+            <section id="acquisition" class="my-20">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-3 text-white">새로운 전략: 인수를 통한 시장 지배</h2>
+                    <p class="max-w-3xl mx-auto text-lg text-gray-400">신규 설립의 리스크를 최소화하고 시장에 즉시 진입하기 위해, 태전지구 내 핵심 위치의 '윤성진실전코딩학원' 인수를 추진합니다. 이는 안정적인 학생 기반 위에 본원의 특화된 입시 프로그램을 접목하는 '퀀텀 점프' 전략입니다.</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-center text-center">
+                    <div class="card rounded-xl p-8 h-full">
+                        <h3 class="text-2xl font-bold text-[#059BFF] mb-4">인수 대상 현황</h3>
+                        <p class="text-6xl font-extrabold text-white">50<span class="text-2xl font-semibold text-gray-400">명</span></p>
+                        <p class="text-lg text-gray-300">현재 평균 수강생</p>
+                        <hr class="my-4 border-gray-700">
+                        <p class="text-4xl font-bold text-white">1,000<span class="text-xl font-semibold text-gray-400">만원</span></p>
+                        <p class="text-lg text-gray-300">현재 월 매출</p>
+                    </div>
+                    <div class="text-6xl text-center text-gray-500 font-thin self-center">→</div>
+                    <div class="card rounded-xl p-8 h-full border-2 border-[#3DDC97]">
+                        <h3 class="text-2xl font-bold text-[#3DDC97] mb-4">인수 후 목표 (1년 내)</h3>
+                        <p class="text-6xl font-extrabold text-white">100+<span class="text-2xl font-semibold text-gray-400">명</span></p>
+                        <p class="text-lg text-gray-300">프리미엄 과정 전환</p>
+                        <hr class="my-4 border-gray-700">
+                        <p class="text-4xl font-bold text-white">4,000+<span class="text-xl font-semibold text-gray-400">만원</span></p>
+                        <p class="text-lg text-gray-300">목표 월 매출</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="opportunity" class="my-16">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-3 text-white">기회의 땅, 태전지구: 왜 지금인가?</h2>
+                    <p class="max-w-3xl mx-auto text-lg text-gray-400">태전지구는 높은 교육열과 소득 수준을 갖춘 가구가 급증하는 신흥 주거 중심지입니다. 2025년 코딩 교육 의무화와 맞물려, 최상위권 입시를 위한 전문 교육 수요는 폭발적으로 증가할 것입니다.</p>
+                </div>
+                <div class="mt-12 card rounded-xl p-6 md:p-8">
+                    <h3 class="text-2xl font-bold text-center mb-4 text-white">태전지구 핵심 학교 학생 수 현황</h3>
+                    <p class="text-center text-gray-400 mb-6">핵심 5개교에만 5,000명 이상의 학생이 밀집해 있어, 고도로 집중된 타겟 마케팅과 강력한 입소문 효과를 기대할 수 있는 최적의 환경입니다.</p>
+                    <div class="chart-container">
+                        <canvas id="studentPopulationChart"></canvas>
+                    </div>
+                </div>
+            </section>
+            
+            <section id="competition" class="my-16">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-3 text-white">경쟁 환경 재편 및 전략적 우위</h2>
+                    <p class="max-w-3xl mx-auto text-lg text-gray-400">가장 강력한 지역 경쟁자를 인수함으로써 '경쟁'을 '기회'로 전환합니다. 이는 시장 진입과 동시에 독점적 위치를 확보하는 가장 빠른 길입니다.</p>
+                </div>
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch">
+                    <div class="card rounded-xl p-6 md:p-8">
+                         <h3 class="text-2xl font-bold text-center mb-4 text-white">경쟁력 비교 분석</h3>
+                         <p class="text-center text-gray-400 mb-6">'태전 퓨처 랩스'는 인수를 통해 접근성, 전문성, 결과 중심의 3박자를 모두 갖춘 독보적인 포지션을 즉시 구축합니다.</p>
+                        <div class="chart-container">
+                            <canvas id="competitorRadarChart"></canvas>
+                        </div>
+                    </div>
+                     <div class="card rounded-xl p-6 md:p-8 flex flex-col justify-center">
+                        <h3 class="text-2xl font-bold text-center mb-6 text-white">인수 기반 SWOT 분석</h3>
+                        <div class="grid grid-cols-2 gap-4 text-sm">
+                            <div class="bg-gray-800/50 p-4 rounded-lg">
+                                <h4 class="font-bold text-lg text-[#3DDC97]">강점 (S)</h4>
+                                <ul class="list-disc list-inside mt-2 text-gray-300">
+                                    <li>**즉시 수익 창출 (학생 50명)**</li>
+                                    <li>**지역 내 브랜드 인지도 확보**</li>
+                                    <li>입시 포트폴리오 특화</li>
+                                </ul>
+                            </div>
+                            <div class="bg-gray-800/50 p-4 rounded-lg">
+                                <h4 class="font-bold text-lg text-[#FF4365]">약점 (W)</h4>
+                                <ul class="list-disc list-inside mt-2 text-gray-300">
+                                    <li>**높은 초기 인수 비용**</li>
+                                    <li>기존 시스템 통합 필요</li>
+                                </ul>
+                            </div>
+                            <div class="bg-gray-800/50 p-4 rounded-lg">
+                                <h4 class="font-bold text-lg text-[#059BFF]">기회 (O)</h4>
+                                <ul class="list-disc list-inside mt-2 text-gray-300">
+                                    <li>**기존 학생 대상 상위과정 전환**</li>
+                                    <li>코딩 교육 의무화</li>
+                                    <li>정부 창업 지원금</li>
+                                </ul>
+                            </div>
+                            <div class="bg-gray-800/50 p-4 rounded-lg">
+                                <h4 class="font-bold text-lg text-[#F9C80E]">위협 (T)</h4>
+                                <ul class="list-disc list-inside mt-2 text-gray-300">
+                                    <li>온라인 교육 확산</li>
+                                    <li>우수 강사 채용 난이도</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="solution" class="my-16">
+                 <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-3 text-white">인수 후 성장 전략: 4단계 프로그램 업그레이드</h2>
+                    <p class="max-w-3xl mx-auto text-lg text-gray-400">기존 학원의 일반 과정을 본원의 결과 중심 4단계 로드맵으로 전환하여, 학생들에게 더 높은 가치를 제공하고 수익성을 극대화합니다.</p>
+                </div>
+
+                <div class="max-w-2xl mx-auto">
+                    <div class="relative pl-8">
+                        <div class="absolute left-0 top-5 bottom-0 w-0.5 bg-gray-700"></div>
+                        <div class="mb-12 timeline-item">
+                            <h3 class="text-2xl font-bold text-[#F9C80E]">1단계: 파운데이션 트랙</h3>
+                            <p class="text-gray-400 text-sm mb-2">초등 4~6학년 대상</p>
+                            <div class="card p-4 rounded-lg">
+                                <p class="font-semibold text-white">흥미와 논리력 배양</p>
+                                <p class="text-sm text-gray-300">스크래치, 로블록스 등 게임과 접목한 블록코딩으로 컴퓨팅 사고력의 기초를 다집니다.</p>
+                            </div>
+                        </div>
+                         <div class="mb-12 timeline-item">
+                            <h3 class="text-2xl font-bold text-[#059BFF]">2단계: 인터미디어트 트랙</h3>
+                            <p class="text-gray-400 text-sm mb-2">중등 1~3학년 대상</p>
+                            <div class="card p-4 rounded-lg">
+                                <p class="font-semibold text-white">텍스트 코딩 전환</p>
+                                <p class="text-sm text-gray-300">파이썬(Python)을 중심으로 CS 핵심 개념을 배우고, 텍스트 기반 프로그래밍에 익숙해집니다.</p>
+                            </div>
+                        </div>
+                         <div class="mb-12 timeline-item">
+                            <h3 class="text-2xl font-bold text-[#3DDC97]">3단계: 포트폴리오 집중반</h3>
+                            <p class="text-gray-400 text-sm mb-2">고등 1~3학년 대상 (Signature)</p>
+                            <div class="card p-4 rounded-lg border-2 border-[#3DDC97]">
+                                <p class="font-bold text-white">SW 특기자 전형 대비</p>
+                                <p class="text-sm text-gray-300">웹/앱 개발, AI 프로젝트 등 실제 입시에 제출할 3~4개의 수준 높은 포트폴리오를 완성합니다.</p>
+                            </div>
+                        </div>
+                         <div class="timeline-item">
+                            <h3 class="text-2xl font-bold text-[#FF4365]">4단계: KOI 대비반</h3>
+                            <p class="text-gray-400 text-sm mb-2">상위권 학생 대상 (Signature)</p>
+                             <div class="card p-4 rounded-lg border-2 border-[#FF4365]">
+                                <p class="font-bold text-white">정보 올림피아드 입상</p>
+                                <p class="text-sm text-gray-300">C++과 고급 알고리즘 집중 훈련을 통해 경시대회 수상이라는 '골든 티켓'을 확보합니다.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="financials" class="my-16">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-3 text-white">인수 기반 재무 계획</h2>
+                    <p class="max-w-3xl mx-auto text-lg text-gray-400">인수 비용을 포함한 초기 투자 계획과, 인수 후 즉시 발생하는 매출을 기반으로 한 안정적인 성장 모델을 제시합니다.</p>
+                </div>
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                    <div class="card rounded-xl p-6 md:p-8">
+                        <h3 class="text-2xl font-bold text-center mb-4 text-white">초기 투자 비용 (인수 포함)</h3>
+                        <p class="text-center text-gray-400 mb-6">총 2.2억 원의 초기 자본은 학원 인수 비용과 초기 운영 자금으로 구성됩니다.</p>
+                        <div class="grid grid-cols-1 md:grid-cols-5 gap-6 items-center">
+                            <div class="md:col-span-2 chart-container h-64 md:h-auto">
+                                <canvas id="startupCostChart"></canvas>
+                            </div>
+                            <div class="md:col-span-3 space-y-3">
+                                <div>
+                                    <div class="flex justify-between items-baseline mb-1">
+                                        <h4 class="font-semibold text-gray-300">학원 인수 비용</h4>
+                                        <p class="font-bold text-lg" style="color: #FF4365;">12,000<span class="text-sm font-normal text-gray-400">만원</span></p>
+                                    </div>
+                                    <div class="w-full bg-gray-700 rounded-full h-2"><div class="h-2 rounded-full" style="width: 54.5%; background-color: #FF4365;"></div></div>
+                                </div>
+                                <div>
+                                    <div class="flex justify-between items-baseline mb-1">
+                                        <h4 class="font-semibold text-gray-300">시설 개선/보증금</h4>
+                                        <p class="font-bold text-lg" style="color: #F9C80E;">5,000<span class="text-sm font-normal text-gray-400">만원</span></p>
+                                    </div>
+                                    <div class="w-full bg-gray-700 rounded-full h-2"><div class="h-2 rounded-full" style="width: 22.7%; background-color: #F9C80E;"></div></div>
+                                </div>
+                                 <div>
+                                    <div class="flex justify-between items-baseline mb-1">
+                                        <h4 class="font-semibold text-gray-300">초기 운영 자금</h4>
+                                        <p class="font-bold text-lg" style="color: #3DDC97;">5,000<span class="text-sm font-normal text-gray-400">만원</span></p>
+                                    </div>
+                                    <div class="w-full bg-gray-700 rounded-full h-2"><div class="h-2 rounded-full" style="width: 22.7%; background-color: #3DDC97;"></div></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card rounded-xl p-6 md:p-8">
+                        <h3 class="text-2xl font-bold text-center mb-4 text-white">월 고정비용 분석</h3>
+                        <p class="text-center text-gray-400 mb-6">인수 후 월 평균 약 1,500만원의 고정비가 예상되며, 인건비와 임대료가 주요 비중을 차지합니다.</p>
+                         <div class="grid grid-cols-1 md:grid-cols-5 gap-6 items-center">
+                            <div class="md:col-span-2 chart-container h-64 md:h-auto">
+                                <canvas id="fixedCostChart"></canvas>
+                            </div>
+                            <div class="md:col-span-3 space-y-3">
+                                <div>
+                                    <div class="flex justify-between items-baseline mb-1">
+                                        <h4 class="font-semibold text-gray-300">강사 급여</h4>
+                                        <p class="font-bold text-lg" style="color: #FF4365;">600<span class="text-sm font-normal text-gray-400">만원</span></p>
+                                    </div>
+                                    <div class="w-full bg-gray-700 rounded-full h-2"><div class="h-2 rounded-full" style="width: 40%; background-color: #FF4365;"></div></div>
+                                </div>
+                                <div>
+                                    <div class="flex justify-between items-baseline mb-1">
+                                        <h4 class="font-semibold text-gray-300">임대료</h4>
+                                        <p class="font-bold text-lg" style="color: #F9C80E;">400<span class="text-sm font-normal text-gray-400">만원</span></p>
+                                    </div>
+                                    <div class="w-full bg-gray-700 rounded-full h-2"><div class="h-2 rounded-full" style="width: 26.7%; background-color: #F9C80E;"></div></div>
+                                </div>
+                                 <div>
+                                    <div class="flex justify-between items-baseline mb-1">
+                                        <h4 class="font-semibold text-gray-300">관리직 급여</h4>
+                                        <p class="font-bold text-lg" style="color: #3DDC97;">300<span class="text-sm font-normal text-gray-400">만원</span></p>
+                                    </div>
+                                    <div class="w-full bg-gray-700 rounded-full h-2"><div class="h-2 rounded-full" style="width: 20%; background-color: #3DDC97;"></div></div>
+                                </div>
+                                <div>
+                                    <div class="flex justify-between items-baseline mb-1">
+                                        <h4 class="font-semibold text-gray-300">마케팅/기타</h4>
+                                        <p class="font-bold text-lg" style="color: #059BFF;">200<span class="text-sm font-normal text-gray-400">만원</span></p>
+                                    </div>
+                                    <div class="w-full bg-gray-700 rounded-full h-2"><div class="h-2 rounded-full" style="width: 13.3%; background-color: #059BFF;"></div></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="mt-8 card rounded-xl p-6 md:p-8">
+                    <h3 class="text-2xl font-bold text-center mb-4 text-white">3개년 매출 및 이익 추이 (인수 후)</h3>
+                    <p class="text-center text-gray-400 mb-6">인수를 통해 1차년도부터 즉시 안정적인 매출을 확보하고, 2차년도에 흑자 전환, 3차년도에는 5억 원 이상의 매출을 목표로 합니다.</p>
+                    <div class="chart-container">
+                        <canvas id="revenueProfitTrendChart"></canvas>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer class="text-center py-12 mt-16 border-t border-gray-800">
+            <h3 class="text-2xl font-bold text-white">함께 성장할 투자 파트너를 찾습니다.</h3>
+            <p class="text-gray-400 mt-2 mb-6">본 사업의 비전과 성장 가능성에 대해 더 자세한 정보를 원하시면 언제든지 연락 주십시오.</p>
+            <a href="tel:01030390089" class="bg-gradient-to-r from-[#FF4365] to-[#F9C80E] text-black font-bold py-3 px-8 rounded-full hover:opacity-90 transition-opacity duration-300 text-lg">
+                투자 문의하기
+            </a>
+            <p class="text-xs text-gray-600 mt-8">Taejeon Future Labs, Gwangju-si, Gyeonggi-do. All Rights Reserved.</p>
+        </footer>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+
+            const wrapLabel = (label, maxLength) => {
+                if (typeof label !== 'string' || label.length <= maxLength) {
+                    return label;
+                }
+                const words = label.split(' ');
+                const lines = [];
+                let currentLine = '';
+                for (const word of words) {
+                    if ((currentLine + ' ' + word).trim().length > maxLength && currentLine.length > 0) {
+                        lines.push(currentLine);
+                        currentLine = word;
+                    } else {
+                        currentLine = (currentLine + ' ' + word).trim();
+                    }
+                }
+                if (currentLine.length > 0) {
+                    lines.push(currentLine);
+                }
+                return lines;
+            };
+
+            const tooltipTitleCallback = (tooltipItems) => {
+                const item = tooltipItems[0];
+                let label = item.chart.data.labels[item.dataIndex];
+                if (Array.isArray(label)) {
+                    return label.join(' ');
+                }
+                return label;
+            };
+            
+            const energeticPalette = {
+                red: '#FF4365',
+                yellow: '#F9C80E',
+                green: '#3DDC97',
+                blue: '#059BFF',
+                purple: '#9b59b6',
+                dark: '#1E1E1E',
+                light: '#F3F3F3'
+            };
+            
+            const chartDefaultOptions = {
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        display: false
+                    },
+                    tooltip: {
+                        callbacks: { 
+                            title: tooltipTitleCallback,
+                            label: function(context) {
+                                let label = context.dataset.label || '';
+                                if (label) {
+                                    label += ': ';
+                                }
+                                if (context.parsed !== null) {
+                                    const value = context.dataset.isCurrency === false ? context.parsed : new Intl.NumberFormat('ko-KR').format(context.parsed);
+                                    const unit = context.dataset.unit || '';
+                                    label += value + unit;
+                                }
+                                return label;
+                            }
+                        },
+                        titleFont: { size: 14 },
+                        bodyFont: { size: 12 },
+                        backgroundColor: 'rgba(0,0,0,0.8)',
+                        titleColor: '#FFFFFF',
+                        bodyColor: '#FFFFFF',
+                        padding: 10,
+                        cornerRadius: 4,
+                    }
+                },
+            };
+
+            const studentPopulationCtx = document.getElementById('studentPopulationChart');
+            if(studentPopulationCtx) {
+                new Chart(studentPopulationCtx, {
+                    type: 'bar',
+                    data: {
+                        labels: ['한아람초', '태전초', ['광주광남중'], '태전중', '태전고'],
+                        datasets: [{
+                            label: '학생 수',
+                            data: [1286, 634, 1199, 1111, 989],
+                            backgroundColor: [energeticPalette.red, energeticPalette.yellow, energeticPalette.green, energeticPalette.blue, energeticPalette.purple],
+                            borderColor: '#333',
+                            borderWidth: 2,
+                            borderRadius: 6,
+                            unit: '명',
+                            isCurrency: false
+                        }]
+                    },
+                    options: {
+                        ...chartDefaultOptions,
+                        plugins: { ...chartDefaultOptions.plugins, legend: { display: true, labels: { color: energeticPalette.light } } },
+                        scales: {
+                            y: { beginAtZero: true, ticks: { color: energeticPalette.light }, grid: { color: 'rgba(255, 255, 255, 0.1)' } },
+                            x: { ticks: { color: energeticPalette.light }, grid: { color: 'rgba(255, 255, 255, 0.05)' } }
+                        }
+                    }
+                });
+            }
+
+            const competitorRadarCtx = document.getElementById('competitorRadarChart');
+            if(competitorRadarCtx) {
+                new Chart(competitorRadarCtx, {
+                    type: 'radar',
+                    data: {
+                        labels: ['입시 전문성', '지역 접근성', ['소수정예', '관리'], '결과 중심', '저렴한 비용'],
+                        datasets: [
+                            { label: '태전 퓨처 랩스 (인수 후)', data: [5, 5, 5, 5, 3], fill: true, backgroundColor: 'rgba(255, 67, 101, 0.3)', borderColor: energeticPalette.red, pointBackgroundColor: energeticPalette.red },
+                            { label: '타 지역 전문학원', data: [4, 2, 4, 4, 3], fill: true, backgroundColor: 'rgba(5, 155, 255, 0.3)', borderColor: energeticPalette.blue, pointBackgroundColor: energeticPalette.blue },
+                            { label: '온라인 교육', data: [3, 1, 1, 2, 5], fill: true, backgroundColor: 'rgba(249, 200, 14, 0.3)', borderColor: energeticPalette.yellow, pointBackgroundColor: energeticPalette.yellow }
+                        ]
+                    },
+                    options: {
+                        ...chartDefaultOptions,
+                        plugins: { ...chartDefaultOptions.plugins, legend: { display: true, labels: { color: energeticPalette.light } } },
+                         scales: { r: { angleLines: { color: 'rgba(255, 255, 255, 0.2)' }, grid: { color: 'rgba(255, 255, 255, 0.2)' }, pointLabels: { color: energeticPalette.light, font: { size: 12 } }, ticks: { color: 'rgba(255, 255, 255, 0.7)', backdropColor: 'transparent', stepSize: 1 }, suggestedMin: 0, suggestedMax: 5 } }
+                    }
+                });
+            }
+
+            const startupCostCtx = document.getElementById('startupCostChart');
+            if(startupCostCtx) {
+                const startupCostLabels = ['학원 인수 비용', wrapLabel('시설 개선/보증금', 16), '초기 운영 자금'];
+                new Chart(startupCostCtx, {
+                    type: 'doughnut',
+                    data: {
+                        labels: startupCostLabels,
+                        datasets: [{ label: '비용', data: [12000, 5000, 5000], backgroundColor: [energeticPalette.red, energeticPalette.yellow, energeticPalette.green], borderColor: '#1E1E1E', borderWidth: 4, hoverOffset: 10, unit: '만원' }]
+                    },
+                     options: { ...chartDefaultOptions, cutout: '60%' }
+                });
+            }
+
+            const fixedCostCtx = document.getElementById('fixedCostChart');
+            if(fixedCostCtx) {
+                new Chart(fixedCostCtx, {
+                    type: 'doughnut',
+                    data: {
+                        labels: ['강사 급여', '임대료', '관리직 급여', '마케팅/기타'],
+                        datasets: [{ label: '비용', data: [600, 400, 300, 200], backgroundColor: [energeticPalette.red, energeticPalette.yellow, energeticPalette.green, energeticPalette.blue], borderColor: '#1E1E1E', borderWidth: 4, hoverOffset: 10, unit: '만원' }]
+                    },
+                    options: { ...chartDefaultOptions, cutout: '60%' }
+                });
+            }
+
+            const revenueProfitTrendCtx = document.getElementById('revenueProfitTrendChart');
+            if(revenueProfitTrendCtx) {
+                new Chart(revenueProfitTrendCtx, {
+                    type: 'bar',
+                    data: {
+                        labels: ['1차년도', '2차년도', '3차년도'],
+                        datasets: [
+                            { type: 'bar', label: '예상 매출', data: [25000, 42000, 56000], backgroundColor: 'rgba(61, 220, 151, 0.7)', borderColor: energeticPalette.green, order: 2, unit: '만원' },
+                            { type: 'line', label: '영업 이익', data: [2000, 15000, 26000], backgroundColor: energeticPalette.yellow, borderColor: energeticPalette.yellow, tension: 0.4, fill: false, order: 1, unit: '만원' }
+                        ]
+                    },
+                    options: {
+                       ...chartDefaultOptions,
+                       plugins: { ...chartDefaultOptions.plugins, legend: { display: true, labels: { color: energeticPalette.light } } },
+                       scales: {
+                            y: { beginAtZero: false, ticks: { color: energeticPalette.light, callback: function(value) { return new Intl.NumberFormat('ko-KR').format(value/10000) + '억'; } }, grid: { color: 'rgba(255, 255, 255, 0.1)' } },
+                            x: { ticks: { color: energeticPalette.light }, grid: { color: 'rgba(255, 255, 255, 0.05)' } }
+                        }
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>
