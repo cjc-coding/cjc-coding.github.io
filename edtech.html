@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>코딩그라운드 | 24주 풀스택 교육과정</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            background-color: #f8fafc;
+        }
+        .gradient-text {
+            background: linear-gradient(90deg, #118AB2, #073B4C);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .flow-arrow::after {
+            content: '→';
+            font-size: 2rem;
+            color: #9ca3af;
+            margin: 0 0.5rem;
+            display: none;
+        }
+        @media (min-width: 768px) {
+            .flow-arrow::after {
+                display: inline-block;
+            }
+        }
+        .flow-arrow:last-child::after {
+            content: '';
+        }
+        .chart-container { 
+            position: relative; 
+            width: 100%; 
+            max-width: 600px; 
+            margin-left: auto; 
+            margin-right: auto; 
+            height: 300px;
+            max-height: 400px; 
+        }
+        @media (min-width: 768px) { 
+            .chart-container { 
+                height: 350px; 
+            } 
+        }
+        .tab-btn-active {
+            background-color: #118AB2 !important;
+            color: #ffffff !important;
+            border-bottom-color: #073B4C !important;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-gray-800">
+    <!-- Chosen Palette: Energetic & Playful -->
+    <!-- Application Structure Plan: The infographic is structured as a narrative scroll, guiding the user from the high-level vision to the granular details. It begins with an overview of the 24-week journey through charts, establishing context. The core of the content, the detailed curriculum, is managed through an interactive tab system to prevent information overload and allow for user-driven exploration of the 5 stages. This is followed by a showcase of the resulting skills (Tech Stack) and the ultimate application of those skills (Capstone Projects). This top-down structure—from 'why' (vision) to 'what' (curriculum) to 'how' (projects)—provides a clear, logical, and engaging user flow. -->
+    <!-- Visualization & Content Choices: 
+        - Curriculum Composition: Goal: Compare/Organize. Viz: Horizontal Stacked Bar Chart (Chart.js/Canvas). Interaction: Tooltips on hover. Justification: Instantly visualizes the proportion and sequence of the 5 stages, giving a bird's-eye view of the program's structure. NO SVG.
+        - Skill Focus Distribution: Goal: Inform/Compare. Viz: Donut Chart (Chart.js/Canvas). Interaction: Tooltips. Justification: Provides a high-impact, easily digestible summary of where learning time is allocated. NO SVG.
+        - Weekly Curriculum Details: Goal: Organize. Viz: Interactive Tabs (HTML/CSS/JS). Interaction: Click to reveal content for each of the 5 stages. Justification: This is the best method to manage the density of a 24-week curriculum on a single page, empowering users to focus on the stage they are interested in without overwhelming them. NO SVG/Mermaid.
+        - Technology Stack: Goal: Organize/Inform. Viz: Styled Cards with Unicode Icons (HTML/CSS). Interaction: None. Justification: A visually clean, scannable grid is perfect for showcasing the key technologies learned. It's direct and clear. NO SVG.
+        - Capstone Project Process: Goal: Organize. Viz: HTML/CSS Flow Diagram. Interaction: None. Justification: A simple, linear visual flow is sufficient to clearly communicate the 4-step capstone process. Adding complexity is unnecessary here. NO SVG/Mermaid.
+    -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+
+    <header class="text-center py-12 md:py-20 bg-white shadow-md">
+        <div class="container mx-auto px-6">
+            <h1 class="text-4xl md:text-6xl font-black gradient-text">에듀테크 인재의 미래를 설계하다</h1>
+            <p class="mt-4 text-lg md:text-2xl" style="color: #073B4C;">코딩그라운드 24주 풀스택 전문가 양성 과정</p>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-6 py-12">
+
+        <section id="overview" class="mb-20">
+            <h2 class="text-3xl font-bold text-center mb-4" style="color: #073B4C;">한 눈에 보는 24주 여정</h2>
+            <p class="text-center text-gray-600 max-w-3xl mx-auto mb-12">이 과정은 5개의 핵심 단계를 통해, 이론적 기초부터 실무 프로젝트까지 완벽한 성장 로드맵을 제공하여 '천재형 개발자'를 양성합니다.</p>
+            <div class="grid grid-cols-1 lg:grid-cols-5 gap-8 items-center">
+                <div class="bg-white rounded-lg shadow-lg p-6 lg:col-span-3">
+                    <h3 class="text-xl font-bold mb-4 text-center">단계별 학습 기간 (총 24주)</h3>
+                    <div class="chart-container h-32 md:h-40">
+                        <canvas id="curriculumTimelineChart"></canvas>
+                    </div>
+                </div>
+                <div class="bg-white rounded-lg shadow-lg p-6 lg:col-span-2">
+                    <h3 class="text-xl font-bold mb-4 text-center">주요 기술 학습 비중</h3>
+                    <div class="chart-container h-64 md:h-72">
+                        <canvas id="skillFocusChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="curriculum-details" class="mb-20">
+            <h2 class="text-3xl font-bold text-center mb-4" style="color: #073B4C;">주차별 상세 커리큘럼</h2>
+            <p class="text-center text-gray-600 max-w-3xl mx-auto mb-12">아래 탭을 클릭하여 각 단계별 상세 학습 목표와 내용을 확인해보세요.</p>
+            
+            <div class="bg-white rounded-lg shadow-lg p-2 md:p-4">
+                <div class="flex flex-wrap border-b-2 border-gray-200">
+                    <button data-tab="stage1" class="tab-btn flex-1 text-center py-3 px-2 font-bold border-b-4 tab-btn-active">1단계: 기반</button>
+                    <button data-tab="stage2" class="tab-btn flex-1 text-center py-3 px-2 font-bold text-gray-500 border-b-4 border-transparent">2단계: 백엔드</button>
+                    <button data-tab="stage3" class="tab-btn flex-1 text-center py-3 px-2 font-bold text-gray-500 border-b-4 border-transparent">3단계: 프론트엔드</button>
+                    <button data-tab="stage4" class="tab-btn flex-1 text-center py-3 px-2 font-bold text-gray-500 border-b-4 border-transparent">4단계: 통합/배포</button>
+                    <button data-tab="stage5" class="tab-btn flex-1 text-center py-3 px-2 font-bold text-gray-500 border-b-4 border-transparent">5단계: 프로젝트</button>
+                </div>
+
+                <div id="stage1" class="tab-content p-4 md:p-6">
+                    <h3 class="text-2xl font-bold mb-2">1단계: 기반 다지기 (1-4주)</h3>
+                    <p class="mb-6 text-gray-600">컴퓨터 과학의 핵심 원리와 필수 개발 도구에 대한 공통된 이해를 갖추는 단계입니다.</p>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 text-center">
+                        <div class="border-l-4 border-blue-500 bg-blue-50 p-4"><b>1주차:</b><br>프로그래머처럼 생각하기</div>
+                        <div class="border-l-4 border-blue-500 bg-blue-50 p-4"><b>2주차:</b><br>버전 관리와 협업</div>
+                        <div class="border-l-4 border-blue-500 bg-blue-50 p-4"><b>3주차:</b><br>데이터베이스 기초</div>
+                        <div class="border-l-4 border-blue-500 bg-blue-50 p-4"><b>4주차:</b><br>핵심 언어 집중 학습</div>
+                    </div>
+                </div>
+                <div id="stage2" class="tab-content p-4 md:p-6 hidden">
+                    <h3 class="text-2xl font-bold mb-2">2단계: 백엔드 심화 (5-10주)</h3>
+                    <p class="mb-6 text-gray-600">Spring 생태계에 능숙한 엔터프라이즈급 백엔드 개발자를 양성하는 단계입니다.</p>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 text-center">
+                        <div class="border-l-4 border-green-500 bg-green-50 p-4"><b>5-6주차:</b><br>Spring Core & MVC</div>
+                        <div class="border-l-4 border-green-500 bg-green-50 p-4"><b>7-8주차:</b><br>JPA와 데이터 영속성</div>
+                        <div class="border-l-4 border-green-500 bg-green-50 p-4"><b>9주차:</b><br>API 설계와 보안</div>
+                        <div class="col-span-1 sm:col-span-2 lg:col-span-3 border-l-4 border-green-500 bg-green-50 p-4"><b>10주차:</b><br>미니 프로젝트와 테스트</div>
+                    </div>
+                </div>
+                <div id="stage3" class="tab-content p-4 md:p-6 hidden">
+                    <h3 class="text-2xl font-bold mb-2">3단계: 프론트엔드 마스터 (11-16주)</h3>
+                    <p class="mb-6 text-gray-600">동적이고 유지보수가 용이하며 반응형인 최신 사용자 인터페이스를 제작하는 단계입니다.</p>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 text-center">
+                        <div class="border-l-4 border-yellow-500 bg-yellow-50 p-4"><b>11-12주차:</b><br>React 기초와 TypeScript</div>
+                        <div class="border-l-4 border-yellow-500 bg-yellow-50 p-4"><b>13-14주차:</b><br>React 심화와 상태 관리</div>
+                        <div class="border-l-4 border-yellow-500 bg-yellow-50 p-4"><b>15주차:</b><br>프로덕션 레벨 프론트엔드</div>
+                        <div class="col-span-1 sm:col-span-2 lg:col-span-3 border-l-4 border-yellow-500 bg-yellow-50 p-4"><b>16주차:</b><br>미니 프로젝트와 API 연동</div>
+                    </div>
+                </div>
+                 <div id="stage4" class="tab-content p-4 md:p-6 hidden">
+                    <h3 class="text-2xl font-bold mb-2">4단계: 풀스택 통합과 배포 (17-20주)</h3>
+                    <p class="mb-6 text-gray-600">애플리케이션을 완성하고 실제 운영 환경과 유사한 클라우드에 배포하는 전 과정을 경험합니다.</p>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 text-center">
+                         <div class="border-l-4 border-red-500 bg-red-50 p-4"><b>17주차:</b><br>풀스택 애플리케이션 조립</div>
+                        <div class="border-l-4 border-red-500 bg-red-50 p-4"><b>18주차:</b><br>Docker 컨테이너화</div>
+                        <div class="border-l-4 border-red-500 bg-red-50 p-4"><b>19주차:</b><br>AWS 클라우드 배포</div>
+                        <div class="border-l-4 border-red-500 bg-red-50 p-4"><b>20주차:</b><br>CI/CD와 자동화</div>
+                    </div>
+                </div>
+                <div id="stage5" class="tab-content p-4 md:p-6 hidden">
+                     <h3 class="text-2xl font-bold mb-2">5단계: 에듀테크 캡스톤 프로젝트 (21-24주)</h3>
+                    <p class="mb-6 text-gray-600">팀 환경에서 애자일 방법론을 적용하여, 실무 중심의 포트폴리오용 최종 프로젝트를 완성합니다.</p>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 text-center">
+                        <div class="border-l-4 border-indigo-500 bg-indigo-50 p-4"><b>21주차:</b><br>기획 및 설계</div>
+                        <div class="border-l-4 border-indigo-500 bg-indigo-50 p-4"><b>22주차:</b><br>스프린트 1: MVP 개발</div>
+                        <div class="border-l-4 border-indigo-500 bg-indigo-50 p-4"><b>23주차:</b><br>스프린트 2: 기능 확장</div>
+                        <div class="border-l-4 border-indigo-500 bg-indigo-50 p-4"><b>24주차:</b><br>최종 발표 및 회고</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="tech-stack" class="mb-20">
+            <h2 class="text-3xl font-bold text-center mb-4" style="color: #073B4C;">핵심 기술 스택</h2>
+            <p class="text-center text-gray-600 max-w-3xl mx-auto mb-12">2025년 이후의 산업 트렌드를 주도할 핵심 기술 스택을 마스터합니다.</p>
+            <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-6 text-center">
+                <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow"><span class="text-4xl">☕</span><p class="font-bold mt-2">Java & Spring</p></div>
+                <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow"><span class="text-4xl">⚛️</span><p class="font-bold mt-2">React & Next.js</p></div>
+                <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow"><span class="text-4xl">ʦ</span><p class="font-bold mt-2">TypeScript</p></div>
+                <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow"><span class="text-4xl">🐬</span><p class="font-bold mt-2">MariaDB</p></div>
+                <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow"><span class="text-4xl">🐳</span><p class="font-bold mt-2">Docker</p></div>
+            </div>
+        </section>
+
+        <section id="capstone">
+            <h2 class="text-3xl font-bold text-center mb-4" style="color: #073B4C;">최종 관문: 코그 에듀테크 챌린지</h2>
+            <p class="text-center text-gray-600 max-w-3xl mx-auto mb-12">단순한 과제가 아닌, 실제 비즈니스 문제를 해결하는 에듀테크 서비스를 직접 개발하며 학습의 정점을 찍습니다.</p>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-white rounded-lg shadow-lg p-6 border-t-4" style="border-color: #FF6B6B;">
+                    <h3 class="font-bold text-xl mb-3">A: 마이크로 LMS 구축</h3>
+                    <p class="text-gray-600">온라인 강좌 생성, 수강, 진도 관리가 가능한 경량화된 학습 관리 시스템을 개발하여 에듀테크의 핵심을 경험합니다.</p>
+                </div>
+                <div class="bg-white rounded-lg shadow-lg p-6 border-t-4" style="border-color: #FFD166;">
+                    <h3 class="font-bold text-xl mb-3">B: AI 어휘 퀴즈 생성기</h3>
+                    <p class="text-gray-600">AI API를 활용, 텍스트를 분석하여 개인화된 어휘 퀴즈를 생성하는 도구를 개발하여 AI 기술 적용 능력을 증명합니다.</p>
+                </div>
+                <div class="bg-white rounded-lg shadow-lg p-6 border-t-4" style="border-color: #06D6A0;">
+                    <h3 class="font-bold text-xl mb-3">C: 협업 스터디 플래너</h3>
+                    <p class="text-gray-600">개인/그룹별 학습 계획 수립, 시간 측정, 현황 공유를 통해 학습 공동체를 활성화하는 웹 애플리케이션을 개발합니다.</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="text-center py-10 mt-20" style="background-color: #073B4C; color: #FFFFFF;">
+        <p class="font-bold">코딩그라운드 | 에듀테크의 미래를 이끌어갈 당신을 기다립니다.</p>
+        <p class="text-sm opacity-70 mt-2">© 2025 Cheonjae Education Inc. All rights reserved.</p>
+    </footer>
+
+    <script>
+        const tooltipTitleCallback = (tooltipItems) => {
+            const item = tooltipItems[0];
+            let label = item.chart.data.labels[item.dataIndex];
+            if (Array.isArray(label)) {
+                return label.join(' ');
+            }
+            return label;
+        };
+        
+        const sharedTooltipOptions = {
+            callbacks: {
+                title: tooltipTitleCallback,
+                label: function(context) {
+                    let label = context.dataset.label || '';
+                    if (label) {
+                        label += ': ';
+                    }
+                    if (context.parsed.x !== null) {
+                        label += context.parsed.x + '주';
+                    }
+                    return label;
+                }
+            },
+            backgroundColor: '#073B4C',
+            titleFont: { size: 14, weight: 'bold', family: "'Noto Sans KR', sans-serif" },
+            bodyFont: { size: 12, family: "'Noto Sans KR', sans-serif" },
+            padding: 10,
+            cornerRadius: 6,
+        };
+
+        const palette = {
+            red: '#EF4444',
+            yellow: '#F59E0B',
+            green: '#10B981',
+            blue: '#3B82F6',
+            navy: '#1E3A8A',
+            indigo: '#6366F1'
+        };
+
+        const timelineCtx = document.getElementById('curriculumTimelineChart').getContext('2d');
+        new Chart(timelineCtx, {
+            type: 'bar',
+            data: {
+                labels: ['총 24주 과정'],
+                datasets: [
+                    { label: '기반 다지기', data: [4], backgroundColor: palette.blue },
+                    { label: '백엔드 심화', data: [6], backgroundColor: palette.navy },
+                    { label: '프론트엔드 마스터', data: [6], backgroundColor: palette.green },
+                    { label: '통합과 배포', data: [4], backgroundColor: palette.yellow },
+                    { label: '캡스톤 프로젝트', data: [4], backgroundColor: palette.indigo },
+                ]
+            },
+            options: {
+                indexAxis: 'y',
+                maintainAspectRatio: false,
+                responsive: true,
+                plugins: {
+                    tooltip: sharedTooltipOptions,
+                    legend: { position: 'bottom', labels: { boxWidth: 15, padding: 15 } }
+                },
+                scales: {
+                    x: { stacked: true, grid: { display: false }, ticks: { display: false } },
+                    y: { stacked: true, grid: { display: false }, ticks: { display: false } }
+                }
+            }
+        });
+
+        const focusCtx = document.getElementById('skillFocusChart').getContext('2d');
+        new Chart(focusCtx, {
+            type: 'doughnut',
+            data: {
+                labels: ['백엔드 심화', '프론트엔드 마스터', '기반 다지기', '통합 & 배포', '캡스톤 프로젝트'],
+                datasets: [{
+                    label: '학습 주차',
+                    data: [6, 6, 4, 4, 4],
+                    backgroundColor: [palette.navy, palette.green, palette.blue, palette.yellow, palette.indigo],
+                    borderColor: '#ffffff',
+                    borderWidth: 4,
+                }]
+            },
+            options: {
+                maintainAspectRatio: false,
+                responsive: true,
+                plugins: {
+                    tooltip: {
+                         callbacks: {
+                            title: tooltipTitleCallback,
+                            label: function(context) {
+                                let label = context.label || '';
+                                if (label) {
+                                    label += ': ';
+                                }
+                                let value = context.parsed || 0;
+                                label += value + '주';
+                                return label;
+                            }
+                        },
+                        backgroundColor: '#073B4C',
+                        titleFont: { size: 14, weight: 'bold', family: "'Noto Sans KR', sans-serif" },
+                        bodyFont: { size: 12, family: "'Noto Sans KR', sans-serif" },
+                        padding: 10,
+                        cornerRadius: 6,
+                    },
+                    legend: {
+                        position: 'right',
+                        labels: {
+                            boxWidth: 15,
+                            padding: 20
+                        }
+                    }
+                },
+                cutout: '60%'
+            }
+        });
+
+        const tabs = document.querySelectorAll('.tab-btn');
+        const contents = document.querySelectorAll('.tab-content');
+        tabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                const targetId = tab.dataset.tab;
+
+                tabs.forEach(t => {
+                    t.classList.remove('tab-btn-active');
+                    t.classList.add('text-gray-500', 'border-transparent');
+                });
+                tab.classList.add('tab-btn-active');
+                tab.classList.remove('text-gray-500', 'border-transparent');
+
+                contents.forEach(content => {
+                    if (content.id === targetId) {
+                        content.classList.remove('hidden');
+                    } else {
+                        content.classList.add('hidden');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
