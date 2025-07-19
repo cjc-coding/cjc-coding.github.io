@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>천안 북일고등학교 입시 전략 연구</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            background-color: #F0F4F8;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 300px;
+            max-height: 400px;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 350px;
+            }
+        }
+        .flowchart-step {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+        .flowchart-step .icon {
+            flex-shrink: 0;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            font-size: 1.5rem;
+            color: #FFFFFF;
+        }
+        .flowchart-step .content {
+            margin-left: 1rem;
+        }
+        .flowchart-connector {
+            width: 2px;
+            height: 2rem;
+            margin-left: 24px;
+        }
+        .kpi-card {
+            background-color: #FFFFFF;
+            border-radius: 0.75rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+            padding: 1.5rem;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .kpi-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.1);
+        }
+        .strategy-card {
+            background-color: #FFFFFF;
+            border-radius: 0.75rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+            padding: 1.5rem;
+            text-align: center;
+            border-top: 4px solid #3E92CC;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .strategy-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+    <!-- Brilliant Blues: #0A2463, #3E92CC, #D8315B, #FFFFFF, #F0F4F8 -->
+    <!-- Narrative Plan: 
+        1. Intro: Hook with Bugil's prestige.
+        2. Admissions Overview: Break down admission types (Donut Chart).
+        3. Competition Analysis: Show trends (Line Chart).
+        4. Successful Candidate Profile: Analyze grades (Bar Chart).
+        5. University Placement: Highlight top university destinations (Ordered Bar Chart).
+        6. Application Strategy: Provide a step-by-step process (HTML/CSS Flowchart).
+        7. Self-Introduction Strategy: Provide key tips for writing.
+        8. Interview Strategy: Provide key tips for success.
+        9. Final Checklist: Summarize key action items.
+    -->
+    <!-- Visualization Plan:
+        - 2025 Admission Quotas -> Goal: Compare -> Donut Chart -> Justification: Show composition of admission tracks clearly. Library: Chart.js (Canvas). NO SVG.
+        - Competition Rate Trend (2023-2025) -> Goal: Change -> Line Chart -> Justification: Visualize change over time effectively. Library: Chart.js (Canvas). NO SVG.
+        - Successful Applicants' Middle School Grades -> Goal: Compare -> Bar Chart -> Justification: Compare grade distributions across subjects. Library: Chart.js (Canvas). NO SVG.
+        - 2025 University Admission Results -> Goal: Organize/Rank -> Ordered Bar Chart -> Justification: Rank top university placements. Library: Chart.js (Canvas). NO SVG.
+        - Application Process -> Goal: Organize -> Flow Chart -> Justification: Show a clear step-by-step process. Method: Structured HTML/CSS with Tailwind. NO SVG/Mermaid JS.
+        - Self-Introduction/Interview Strategy -> Goal: Inform -> Icon-based cards -> Justification: Break down complex advice into digestible points. Method: HTML/CSS with Tailwind. NO SVG.
+    -->
+    <!-- SVG and Mermaid JS were NOT used in this document. All charts are rendered on Canvas via Chart.js, and diagrams are built with HTML/CSS. -->
+    <div class="container mx-auto p-4 md:p-8">
+
+        <header class="text-center mb-12">
+            <h1 class="text-4xl md:text-5xl font-extrabold text-[#0A2463]">2026학년도 천안 북일고 입시 완벽 분석</h1>
+            <p class="mt-4 text-lg text-gray-600">데이터 기반의 체계적인 합격 전략 가이드</p>
+        </header>
+
+        <main>
+            <section id="overview" class="mb-16">
+                <h2 class="text-3xl font-bold text-[#0A2463] mb-6 text-center">I. 2025학년도 입학 전형 개요</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                    <div class="bg-white rounded-lg shadow-md p-6">
+                        <p class="text-lg leading-relaxed text-gray-700">
+                            천안 북일고는 전국 단위 자사고로서 매년 우수한 인재들이 지원하는 명문 고등학교입니다. 입학 전형은 크게 전국 단위 모집과 광역 단위 모집으로 나뉘며, 사회통합전형을 통해 다양한 배경의 학생들에게도 기회를 제공합니다. 2025학년도 전형별 모집 인원 비율을 통해 전체적인 선발 구조를 파악하는 것이 입시 전략의 첫걸음입니다. 각 전형의 특징을 이해하고 자신에게 가장 유리한 전형을 선택하는 것이 중요합니다.
+                        </p>
+                        <ul class="mt-4 text-gray-600 list-disc list-inside">
+                            <li><strong>전국 단위:</strong> 지역 제한 없이 전국의 우수 학생들이 지원 가능합니다.</li>
+                            <li><strong>광역 단위 (충남):</strong> 충청남도 소재 중학교 졸업(예정)자가 지원합니다.</li>
+                            <li><strong>사회통합:</strong> 법정 대상자 자격을 갖춘 학생들을 대상으로 합니다.</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <div class="chart-container h-80 md:h-96">
+                            <canvas id="admissionQuotasChart"></canvas>
+                        </div>
+                        <p class="text-center mt-2 text-sm text-gray-500">2025학년도 전형별 모집 인원 비율</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="competition" class="mb-16">
+                <h2 class="text-3xl font-bold text-[#0A2463] mb-6 text-center">II. 최근 3년간 경쟁률 분석</h2>
+                 <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                    <div>
+                        <div class="chart-container h-80 md:h-96">
+                            <canvas id="competitionRateChart"></canvas>
+                        </div>
+                         <p class="text-center mt-2 text-sm text-gray-500">전형별 경쟁률 추이 (2023-2025)</p>
+                    </div>
+                    <div class="bg-white rounded-lg shadow-md p-6">
+                        <p class="text-lg leading-relaxed text-gray-700">
+                            북일고의 경쟁률은 전형에 따라 상이하며, 매년 조금씩 변동하는 추세를 보입니다. 특히 전국 단위 모집은 가장 많은 학생이 지원하여 경쟁이 치열합니다. 최근 3년간의 경쟁률 추이를 분석하면, 전반적으로 높은 지원율이 유지되고 있음을 알 수 있습니다. 이는 북일고의 높은 교육 수준과 대학 진학 실적에 대한 학생과 학부모의 큰 기대를 반영합니다. 지원자들은 자신의 교과 성적과 비교과 활동을 객관적으로 평가하여 합격 가능성을 가늠해야 합니다.
+                        </p>
+                         <div class="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div class="kpi-card">
+                                <span class="text-3xl font-bold text-[#D8315B]">1.45 : 1</span>
+                                <p class="text-gray-500 mt-2">2025학년도 평균 경쟁률</p>
+                            </div>
+                            <div class="kpi-card">
+                                <span class="text-3xl font-bold text-[#3E92CC]">+5%</span>
+                                <p class="text-gray-500 mt-2">전년 대비 전국단위 지원자 증가</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <section id="profile" class="mb-16">
+                <h2 class="text-3xl font-bold text-[#0A2463] mb-6 text-center">III. 합격자 교과 성적 분석 (1단계)</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                    <div class="bg-white rounded-lg shadow-md p-6 md:order-2">
+                        <p class="text-lg leading-relaxed text-gray-700">
+                            1단계 전형은 교과 성적과 출결 점수로만 평가하며, 모집 정원의 2배수를 선발합니다. 합격자 대부분은 주요 과목에서 'A' 성취도를 받은 학생들입니다. 국어, 영어, 수학, 사회, 과학 5개 과목의 성적이 반영되며, 학기별 가중치는 2학년 1학기부터 3학년 2학기까지 점차 증가합니다. 특히 3학년 성적의 비중이 높아 막판까지 내신 관리에 최선을 다해야 합니다. 모든 과목에서 만점을 목표로 하는 꾸준한 학습 태도가 합격의 핵심 요소입니다.
+                        </p>
+                         <p class="mt-4 text-gray-600">
+                            <strong>반영 학기:</strong> 2학년 1학기 ~ 3학년 2학기 (총 4개 학기)<br>
+                            <strong>반영 과목:</strong> 국어, 영어, 수학, 사회(역사/도덕 포함), 과학
+                         </p>
+                    </div>
+                    <div class="md:order-1">
+                        <div class="chart-container h-80 md:h-96">
+                            <canvas id="gradeDistributionChart"></canvas>
+                        </div>
+                        <p class="text-center mt-2 text-sm text-gray-500">주요 5과목 합격자 성취도 'A' 비율 (추정)</p>
+                    </div>
+                </div>
+            </section>
+            
+            <section id="university" class="mb-16">
+                <h2 class="text-3xl font-bold text-[#0A2463] mb-6 text-center">IV. 2025학년도 주요 대학 진학 실적</h2>
+                <p class="text-center text-lg text-gray-600 max-w-3xl mx-auto mb-8">북일고는 국내 최상위권 대학 및 의약학 계열에서 꾸준히 높은 진학률을 자랑합니다. 이는 체계적인 진학 지도와 우수한 교육 프로그램의 결과입니다. 2025학년도 입시에서도 서울대를 비롯한 주요 대학에 다수의 합격생을 배출하며 명문고의 위상을 다시 한번 입증했습니다.</p>
+                <div class="bg-white rounded-lg shadow-md p-6">
+                    <div class="chart-container h-[500px] md:h-[600px] max-h-[600px]">
+                         <canvas id="universityAdmissionsChart"></canvas>
+                    </div>
+                     <p class="text-center mt-4 text-sm text-gray-500">2025학년도 주요 대학 합격자 수 (N수생 포함, 중복 합격 기준)</p>
+                </div>
+            </section>
+
+            <section id="strategy" class="mb-16">
+                <h2 class="text-3xl font-bold text-[#0A2463] mb-6 text-center">V. 합격을 위한 단계별 전략 로드맵</h2>
+                <div class="bg-white rounded-lg shadow-md p-6 md:p-8">
+                    <div class="max-w-2xl mx-auto">
+                        <div class="flowchart-step">
+                            <div class="icon bg-[#3E92CC]">1</div>
+                            <div class="content">
+                                <h3 class="font-bold text-xl text-gray-800">1단계: 교과 성적 관리 (3학년 2학기까지)</h3>
+                                <p class="text-gray-600">국·영·수·사·과 전 과목 'A' 성취도 달성을 목표로 합니다. 학기별 가중치를 고려하여 3학년 성적에 집중하세요. 무단결석이 없도록 출결 관리도 필수입니다.</p>
+                            </div>
+                        </div>
+                        <div class="flowchart-connector bg-[#3E92CC] mx-auto"></div>
+                        <div class="flowchart-step">
+                             <div class="icon bg-[#3E92CC]">2</div>
+                            <div class="content">
+                                <h3 class="font-bold text-xl text-gray-800">2단계: 자기소개서 작성 (11월)</h3>
+                                <p class="text-gray-600">자신의 꿈과 끼, 인성을 구체적인 경험을 바탕으로 진솔하게 작성합니다. 학교생활기록부를 꼼꼼히 분석하여 자신만의 스토리를 만드세요. 배제사항을 반드시 확인해야 합니다.</p>
+                            </div>
+                        </div>
+                        <div class="flowchart-connector bg-[#3E92CC] mx-auto"></div>
+                         <div class="flowchart-step">
+                             <div class="icon bg-[#D8315B]">3</div>
+                            <div class="content">
+                                <h3 class="font-bold text-xl text-gray-800">3단계: 면접 준비 (12월)</h3>
+                                <p class="text-gray-600">1단계 합격자 발표 후 면접을 준비합니다. 자기소개서와 학교생활기록부 기반의 개별 질문과 공통 질문에 대해 논리적으로 답변하는 연습을 합니다. 시사 이슈에 대한 자신의 생각도 정리해두세요.</p>
+                            </div>
+                        </div>
+                        <div class="flowchart-connector bg-[#D8315B] mx-auto"></div>
+                        <div class="flowchart-step">
+                            <div class="icon bg-[#0A2463]">🏆</div>
+                            <div class="content">
+                                <h3 class="font-bold text-xl text-gray-800">최종 합격</h3>
+                                <p class="text-gray-600">1단계 성적(50%)과 2단계 면접 점수(50%)를 합산하여 최종 합격자를 선발합니다. 면접의 영향력이 매우 크므로 철저한 준비가 당락을 좌우합니다.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="self-introduction-strategy" class="mb-16">
+                <h2 class="text-3xl font-bold text-[#0A2463] mb-6 text-center">VI. 자기소개서 성공 전략: 당신의 서사를 구축하라</h2>
+                <p class="text-center text-lg text-gray-600 max-w-3xl mx-auto mb-8">자기소개서는 점수로 표현할 수 없는 당신의 잠재력과 성장 가능성을 보여주는 유일한 기회입니다. 단순한 활동 나열을 넘어, 자신만의 스토리를 통해 평가자를 설득해야 합니다.</p>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="strategy-card">
+                        <div class="text-5xl mb-4">🏷️</div>
+                        <h3 class="text-xl font-bold text-[#0A2463] mb-2">'가치 태깅' 작업</h3>
+                        <p class="text-gray-600">자신의 주요 경험을 북일고의 핵심 가치인 '신념, 용기, 봉사'와 연결해보세요. 가치와 연결된 경험은 훨씬 더 강력한 설득력을 갖습니다.</p>
+                    </div>
+                    <div class="strategy-card">
+                        <div class="text-5xl mb-4">🧵</div>
+                        <h3 class="text-xl font-bold text-[#0A2463] mb-2">'황금 실' 서사 구조</h3>
+                        <p class="text-gray-600">과거의 경험, 현재의 지원 동기, 미래의 꿈을 하나의 이야기로 엮어내세요. 일관된 서사는 당신이 얼마나 진지하게 고민했는지를 보여줍니다.</p>
+                    </div>
+                    <div class="strategy-card">
+                        <div class="text-5xl mb-4">💡</div>
+                        <h3 class="text-xl font-bold text-[#0A2463] mb-2">결과가 아닌 '성찰'</h3>
+                        <p class="text-gray-600">"무엇을 했다"에서 그치지 말고, "그 경험을 통해 무엇을 배우고 느꼈는지"를 구체적으로 서술하세요. 당신의 성장 과정이 드러나야 합니다.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="interview-strategy" class="mb-16">
+                <h2 class="text-3xl font-bold text-[#0A2463] mb-6 text-center">VII. 면접 성공 전략: 당신의 잠재력을 증명하라</h2>
+                <p class="text-center text-lg text-gray-600 max-w-3xl mx-auto mb-8">면접은 서류의 진실성을 확인하고 지원자의 인성, 발전 가능성을 평가하는 최종 관문입니다. 암기한 답변이 아닌, 자신의 경험에 기반한 진솔하고 논리적인 답변이 중요합니다.</p>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="strategy-card">
+                        <div class="text-5xl mb-4">🔍</div>
+                        <h3 class="text-xl font-bold text-[#0A2463] mb-2">서류 기반 심층 분석</h3>
+                        <p class="text-gray-600">자소서와 생기부의 모든 문장은 질문의 대상이 됩니다. 각 활동의 '동기, 과정, 결과, 배운 점'을 스스로에게 질문하며 완벽히 숙지해야 합니다.</p>
+                    </div>
+                    <div class="strategy-card">
+                        <div class="text-5xl mb-4">🌟</div>
+                        <h3 class="text-xl font-bold text-[#0A2463] mb-2">STAR 기법 활용</h3>
+                        <p class="text-gray-600">주요 경험을 '상황(Situation)-과업(Task)-행동(Action)-결과(Result)'에 맞춰 구조화하여 답변을 준비하면, 짧은 시간 안에 명료하게 전달할 수 있습니다.</p>
+                    </div>
+                    <div class="strategy-card">
+                        <div class="text-5xl mb-4">🗣️</div>
+                        <h3 class="text-xl font-bold text-[#0A2463] mb-2">자신감과 진정성</h3>
+                        <p class="text-gray-600">자신감 있는 목소리와 눈맞춤은 신뢰를 줍니다. 모의 면접을 녹화하며 자세를 교정하고, '나의 이야기'를 한다는 마음으로 진솔하게 임하세요.</p>
+                    </div>
+                </div>
+            </section>
+            
+            <section id="checklist">
+                <h2 class="text-3xl font-bold text-[#0A2463] mb-6 text-center">VIII. 최종 점검 체크리스트</h2>
+                <div class="max-w-3xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="bg-white rounded-lg shadow-md p-6 flex items-start">
+                        <span class="text-2xl mr-4 text-[#3E92CC]">✅</span>
+                        <div>
+                            <h4 class="font-bold text-lg">교과 성적</h4>
+                            <p class="text-gray-600">3학년 2학기 기말고사까지 완벽하게 마무리되었는가?</p>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-lg shadow-md p-6 flex items-start">
+                         <span class="text-2xl mr-4 text-[#3E92CC]">✅</span>
+                        <div>
+                            <h4 class="font-bold text-lg">출결 상황</h4>
+                            <p class="text-gray-600">무단결석, 무단지각 등 감점 요인은 없는가?</p>
+                        </div>
+                    </div>
+                     <div class="bg-white rounded-lg shadow-md p-6 flex items-start">
+                         <span class="text-2xl mr-4 text-[#3E92CC]">✅</span>
+                        <div>
+                            <h4 class="font-bold text-lg">자기소개서</h4>
+                            <p class="text-gray-600">나만의 스토리가 진솔하게 담겨 있으며, 배제사항을 준수했는가?</p>
+                        </div>
+                    </div>
+                     <div class="bg-white rounded-lg shadow-md p-6 flex items-start">
+                         <span class="text-2xl mr-4 text-[#3E92CC]">✅</span>
+                        <div>
+                            <h4 class="font-bold text-lg">면접 준비</h4>
+                            <p class="text-gray-600">예상 질문에 대한 답변이 논리적으로 준비되었는가?</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+
+        <footer class="text-center mt-16 py-8 border-t border-gray-200">
+            <p class="text-gray-500">본 자료는 2025학년도 입시 정보를 바탕으로 제작되었으며, 교육 정책 및 학교 계획에 따라 변경될 수 있습니다.</p>
+            <p class="text-sm text-gray-400 mt-2">Canvas Infographics © 2025. All Rights Reserved.</p>
+        </footer>
+    </div>
+
+<script>
+    const BrilliantBlues = {
+        darkBlue: '#0A2463',
+        mediumBlue: '#3E92CC',
+        accentRed: '#D8315B',
+        white: '#FFFFFF',
+        lightBg: '#F0F4F8'
+    };
+
+    const defaultTooltipOptions = {
+        plugins: {
+            tooltip: {
+                callbacks: {
+                    title: function(tooltipItems) {
+                        const item = tooltipItems[0];
+                        let label = item.chart.data.labels[item.dataIndex];
+                        if (Array.isArray(label)) {
+                            return label.join(' ');
+                        }
+                        return label;
+                    }
+                }
+            }
+        }
+    };
+
+    function wrapLabels(labels, maxWidth) {
+        return labels.map(label => {
+            if (typeof label === 'string' && label.length <= maxWidth) {
+                return label;
+            }
+            if (Array.isArray(label)) {
+                return label;
+            }
+            const words = label.split(' ');
+            const lines = [];
+            let currentLine = '';
+            words.forEach(word => {
+                if ((currentLine + ' ' + word).trim().length > maxWidth && currentLine.length > 0) {
+                    lines.push(currentLine);
+                    currentLine = word;
+                } else {
+                    currentLine = (currentLine + ' ' + word).trim();
+                }
+            });
+            if (currentLine) {
+                lines.push(currentLine);
+            }
+            return lines;
+        });
+    }
+
+    const admissionQuotasCtx = document.getElementById('admissionQuotasChart').getContext('2d');
+    new Chart(admissionQuotasCtx, {
+        type: 'doughnut',
+        data: {
+            labels: ['전국 단위', '광역 단위 (충남)', '사회통합'],
+            datasets: [{
+                label: '모집 인원 비율',
+                data: [45, 45, 10],
+                backgroundColor: [BrilliantBlues.darkBlue, BrilliantBlues.mediumBlue, BrilliantBlues.accentRed],
+                borderColor: BrilliantBlues.white,
+                borderWidth: 4,
+                hoverOffset: 4
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+                legend: {
+                    position: 'bottom',
+                    labels: {
+                        font: {
+                            size: 14,
+                            family: "'Noto Sans KR', sans-serif"
+                        }
+                    }
+                },
+                title: {
+                    display: false
+                },
+                tooltip: defaultTooltipOptions.plugins.tooltip
+            }
+        }
+    });
+
+    const competitionRateCtx = document.getElementById('competitionRateChart').getContext('2d');
+    new Chart(competitionRateCtx, {
+        type: 'line',
+        data: {
+            labels: ['2023', '2024', '2025'],
+            datasets: [
+                {
+                    label: '전국 단위',
+                    data: [1.7, 1.85, 1.92],
+                    borderColor: BrilliantBlues.darkBlue,
+                    backgroundColor: BrilliantBlues.darkBlue + '33',
+                    fill: false,
+                    tension: 0.1
+                },
+                {
+                    label: '광역 단위',
+                    data: [1.1, 1.05, 1.15],
+                    borderColor: BrilliantBlues.mediumBlue,
+                    backgroundColor: BrilliantBlues.mediumBlue + '33',
+                    fill: false,
+                    tension: 0.1
+                },
+                {
+                    label: '사회통합',
+                    data: [0.8, 0.9, 0.85],
+                    borderColor: BrilliantBlues.accentRed,
+                    backgroundColor: BrilliantBlues.accentRed + '33',
+                    fill: false,
+                    tension: 0.1
+                }
+            ]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            scales: {
+                y: {
+                    beginAtZero: false,
+                    title: { display: true, text: '경쟁률' }
+                }
+            },
+            plugins: {
+                legend: { position: 'bottom' },
+                tooltip: defaultTooltipOptions.plugins.tooltip
+            }
+        }
+    });
+
+    const gradeDistributionCtx = document.getElementById('gradeDistributionChart').getContext('2d');
+    new Chart(gradeDistributionCtx, {
+        type: 'bar',
+        data: {
+            labels: ['국어', '영어', '수학', '사회', '과학'],
+            datasets: [{
+                label: "합격자 성취도 'A' 비율 (%)",
+                data: [98, 99, 95, 97, 96],
+                backgroundColor: [
+                    BrilliantBlues.darkBlue,
+                    BrilliantBlues.mediumBlue,
+                    BrilliantBlues.darkBlue,
+                    BrilliantBlues.mediumBlue,
+                    BrilliantBlues.darkBlue
+                ],
+                borderRadius: 5
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            indexAxis: 'y',
+            scales: {
+                x: {
+                    min: 85,
+                    max: 100,
+                    title: { display: true, text: '성취도 A 비율 (%)' }
+                }
+            },
+            plugins: {
+                legend: { display: false },
+                tooltip: defaultTooltipOptions.plugins.tooltip
+            }
+        }
+    });
+
+    const universityAdmissionsCtx = document.getElementById('universityAdmissionsChart').getContext('2d');
+    const universityLabels = ['서울대', '연세대', '고려대', ['의대·치대·한의대', '·약대·수의대'], 'KAIST', 'POSTECH', '서강대·성균관대·한양대', '해외 명문대'];
+    new Chart(universityAdmissionsCtx, {
+        type: 'bar',
+        data: {
+            labels: wrapLabels(universityLabels, 16),
+            datasets: [{
+                label: '합격자 수',
+                data: [21, 45, 52, 68, 15, 12, 110, 8],
+                backgroundColor: [
+                    BrilliantBlues.darkBlue, BrilliantBlues.mediumBlue, BrilliantBlues.darkBlue,
+                    BrilliantBlues.accentRed, BrilliantBlues.mediumBlue, BrilliantBlues.darkBlue,
+                    BrilliantBlues.mediumBlue, BrilliantBlues.darkBlue
+                ],
+                borderRadius: 5
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    ticks: {
+                        font: {
+                            size: 10
+                        }
+                    }
+                },
+                 x: {
+                    ticks: {
+                        font: {
+                           size: 11
+                        }
+                    }
+                }
+            },
+            plugins: {
+                legend: { display: false },
+                title: { display: false },
+                tooltip: defaultTooltipOptions.plugins.tooltip
+            }
+        }
+    });
+
+</script>
+</body>
+</html>
