@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI 융합 풀스택 개발자 로드맵</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            background-color: #0F172A; /* Darker Navy */
+            color: #E2E8F0; /* Lighter Gray */
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            height: 350px;
+            max-height: 450px;
+        }
+        .kpi-card {
+            background-color: rgba(30, 41, 59, 0.5); /* bg-slate-800 with opacity */
+            border: 1px solid #1E40AF; /* border-blue-800 */
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+        .kpi-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(96, 165, 250, 0.2); /* shadow-blue-300 */
+        }
+        .text-gold { color: #FBBF24; } /* amber-400 */
+        .bg-gold { background-color: #FBBF24; }
+        .section-card {
+            background-color: #1E293B; /* slate-800 */
+            border-radius: 0.75rem;
+            padding: 2rem;
+            margin-bottom: 2.5rem;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+        .week-item {
+            display: flex;
+            align-items: flex-start;
+            padding: 1rem 0;
+            border-bottom: 1px solid #334155; /* slate-700 */
+        }
+        .week-item:last-child {
+            border-bottom: none;
+        }
+        .week-number {
+            font-weight: 700;
+            color: #FBBF24; /* amber-400 */
+            width: 6rem;
+            flex-shrink: 0;
+            padding-top: 0.125rem;
+        }
+        .week-content {
+            flex-grow: 1;
+        }
+        .week-content b {
+            color: #F1F5F9; /* slate-100 */
+        }
+        .week-content ul {
+            list-style-position: outside;
+            padding-left: 1.25rem;
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <div class="container mx-auto p-4 md:p-8 max-w-7xl">
+
+        <header class="text-center my-12 md:my-16">
+            <h1 class="text-4xl md:text-6xl font-black text-white mb-4">AI 융합 풀스택 개발자 로드맵</h1>
+            <p class="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto">
+                하루 8시간, 총 25주 집중 교육을 통해 엔터프라이즈 기술과 AI 서비스를 모두 마스터하는 전문가 양성 과정
+            </p>
+        </header>
+
+        <main>
+            <section id="intro" class="mb-20 md:mb-24 text-center">
+                <h2 class="text-3xl font-bold text-white mb-2">왜 '퓨전(Fusion)' 커리큘럼인가?</h2>
+                <div class="w-24 h-1.5 bg-gold mb-6 mx-auto"></div>
+                <p class="max-w-3xl mx-auto mb-10 text-gray-300">
+                    현대 시장은 단순히 작동하는 서비스를 넘어, 지능적으로 반응하는 서비스를 요구합니다. 본 커리큘럼은 안정성이 검증된 Java/Spring Boot와 데이터 과학의 표준인 Python의 융합을 통해, 실제 비즈니스 가치를 창출하는 'AI 증강 개발자'를 양성하는 가장 효과적인 경로입니다.
+                </p>
+            </section>
+
+            <section class="mb-20 md:mb-24 text-center">
+                 <h2 class="text-3xl font-bold text-white mb-12 text-center">전체 학습 과정 (1000시간)</h2>
+                 <div class="bg-slate-800 p-4 rounded-xl shadow-2xl max-w-2xl mx-auto">
+                     <div class="chart-container">
+                        <canvas id="totalHoursChart"></canvas>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Detailed Curriculum Section -->
+            <section id="detailed-curriculum">
+                <h2 class="text-3xl font-bold text-white mb-12 text-center">주차별 상세 커리큘럼</h2>
+
+                <!-- Part 1 -->
+                <div class="section-card">
+                    <h3 class="text-2xl font-bold text-white mb-1"><span class="text-gold">Part 1.</span> 엔터프라이즈 초석 다지기</h3>
+                    <p class="text-gray-400 mb-6">(1-9주차 / 360시간)</p>
+                    <div class="week-item">
+                        <div class="week-number">1-2주차</div>
+                        <div class="week-content">
+                            <b>Java Core & Software Craftsmanship</b>
+                            <ul class="list-disc text-gray-400 mt-2 space-y-1">
+                                <li>최신 Java(17+) 기능: Records, Sealed Classes, Pattern Matching</li>
+                                <li>객체 지향 설계 원칙(SOLID) 심화 및 실제 적용</li>
+                                <li>고급 Git 워크플로우: GitFlow 브랜칭 전략, Interactive Rebase</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="week-item">
+                        <div class="week-number">3주차</div>
+                        <div class="week-content">
+                            <b>빌드 도구 & TDD</b>
+                             <ul class="list-disc text-gray-400 mt-2 space-y-1">
+                                <li>Maven/Gradle 빌드 생명주기 및 의존성 관리</li>
+                                <li>테스트 주도 개발(TDD) 사이클: JUnit 5, Mockito를 활용한 단위/통합 테스트</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="week-item">
+                        <div class="week-number">4-5주차</div>
+                        <div class="week-content">
+                            <b>데이터베이스 & 영속성</b>
+                             <ul class="list-disc text-gray-400 mt-2 space-y-1">
+                                <li>PostgreSQL 기반 관계형 데이터베이스 설계 (정규화, 인덱싱)</li>
+                                <li>Spring Data JPA & Hibernate: ORM, Entity 생명주기, 로딩 전략(Lazy/Eager)</li>
+                                <li>Querydsl을 이용한 타입-세이프(Type-safe) 동적 쿼리 작성</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="week-item">
+                        <div class="week-number">6-7주차</div>
+                        <div class="week-content">
+                            <b>Spring Boot & REST API</b>
+                             <ul class="list-disc text-gray-400 mt-2 space-y-1">
+                                <li>Spring 핵심: IoC/DI, AOP, 자동 구성(Auto-configuration)</li>
+                                <li>Spring MVC를 이용한 RESTful API 개발 (@RestController, @RequestBody)</li>
+                                <li>Spring Security & JWT: 인증/인가, 암호화, 토큰 기반 보안 구현</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="week-item">
+                        <div class="week-number">8주차</div>
+                        <div class="week-content">
+                            <b>프론트엔드 & React</b>
+                             <ul class="list-disc text-gray-400 mt-2 space-y-1">
+                                <li>최신 JavaScript(ES6+), HTML5, CSS3(Flexbox, Grid)</li>
+                                <li>React: 함수형 컴포넌트, Hooks(useState, useEffect), React Router</li>
+                                <li>Axios를 사용한 백엔드 API 비동기 통신 및 상태 관리</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="week-item">
+                        <div class="week-number">9주차</div>
+                        <div class="week-content">
+                            <b>프로덕션 준비</b>
+                             <ul class="list-disc text-gray-400 mt-2 space-y-1">
+                                <li>Docker: Dockerfile 작성, 이미지 빌드, 컨테이너 실행</li>
+                                <li>Docker Compose를 이용한 다중 컨테이너 환경 구성</li>
+                                <li>CI/CD 기초: GitHub Actions를 이용한 자동 빌드/테스트 파이프라인</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 1 -->
+                <div class="section-card">
+                    <h3 class="text-2xl font-bold text-white mb-1"><span class="text-gold">Project 1.</span> 핵심 서비스 플랫폼 구축</h3>
+                    <p class="text-gray-400 mb-6">(10-13주차 / 160시간)</p>
+                    <div class="week-item">
+                        <div class="week-number">10-13주차</div>
+                        <div class="week-content">
+                            <b>"MovieHub" 풀스택 플랫폼 개발</b>
+                            <p class="text-gray-300 mt-2 mb-3">사용자가 영화 정보를 탐색하고, 평점과 리뷰를 남길 수 있는 소셜 영화 평점 플랫폼입니다. 이 프로젝트는 이후 AI 추천 기능의 기반이 됩니다.</p>
+                            <ul class="list-disc text-gray-400 mt-2 space-y-1">
+                                <li>요구사항 분석 및 애자일 스프린트 계획</li>
+                                <li>API 명세서 작성 및 데이터베이스 스키마 설계</li>
+                                <li>백엔드/프론트엔드 기능 구현 및 통합 테스트</li>
+                                <li>AWS EC2/Beanstalk 환경에 최종 애플리케이션 배포 및 모니터링</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Part 2 -->
+                <div class="section-card">
+                    <h3 class="text-2xl font-bold text-white mb-1"><span class="text-gold">Part 2.</span> 인텔리전스 계층 설계</h3>
+                    <p class="text-gray-400 mb-6">(14-19주차 / 240시간)</p>
+                    <div class="week-item">
+                        <div class="week-number">14주차</div>
+                        <div class="week-content">
+                            <b>Python 속성 과정</b>
+                            <ul class="list-disc text-gray-400 mt-2 space-y-1">
+                                <li>Java 개발자를 위한 Python: 동적 타이핑, 리스트 컴프리헨션</li>
+                                <li>Python 개발 환경: venv, pip, requirements.txt</li>
+                                <li>테스트 프레임워크 pytest 및 코드 스타일(PEP 8, black)</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="week-item">
+                        <div class="week-number">15-16주차</div>
+                        <div class="week-content">
+                            <b>AI 툴킷 마스터리</b>
+                            <ul class="list-disc text-gray-400 mt-2 space-y-1">
+                                <li>NumPy: 벡터화 연산, 브로드캐스팅</li>
+                                <li>Pandas: DataFrame/Series 조작, 데이터 정제, 그룹화(groupby), 병합(merge)</li>
+                                <li>Matplotlib/Seaborn을 이용한 탐색적 데이터 분석(EDA)</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="week-item">
+                        <div class="week-number">17주차</div>
+                        <div class="week-content">
+                            <b>머신러닝 모델링</b>
+                            <ul class="list-disc text-gray-400 mt-2 space-y-1">
+                                <li>Scikit-learn API: fit/transform/predict 파이프라인</li>
+                                <li>협업 필터링(Collaborative Filtering) 알고리즘 원리 이해</li>
+                                <li>사용자-아이템 행렬 생성 및 코사인 유사도(Cosine Similarity) 계산</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="week-item">
+                        <div class="week-number">18-19주차</div>
+                        <div class="week-content">
+                            <b>고성능 AI 서비스</b>
+                            <ul class="list-disc text-gray-400 mt-2 space-y-1">
+                                <li>FastAPI: Flask 대비 장점, ASGI 동작 원리</li>
+                                <li>Pydantic: 타입 힌트를 이용한 자동 데이터 유효성 검사</li>
+                                <li>Uvicorn을 이용한 모델 서빙 및 Swagger UI 자동 API 문서화</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Part 3 & 4 -->
+                <div class="section-card">
+                    <h3 class="text-2xl font-bold text-white mb-1"><span class="text-gold">Part 3 & 4.</span> 융합 및 전략 확장</h3>
+                    <p class="text-gray-400 mb-6">(20-22주차 / 120시간)</p>
+                    <div class="week-item">
+                        <div class="week-number">20주차</div>
+                        <div class="week-content">
+                            <b>리액티브 브리지</b>
+                            <ul class="list-disc text-gray-400 mt-2 space-y-1">
+                                <li>리액티브 프로그래밍: 블로킹 vs 논블로킹, Project Reactor</li>
+                                <li>Spring WebClient: Mono/Flux를 이용한 비동기 HTTP 요청</li>
+                                <li>타임아웃, 재시도 등 회복탄력성 패턴 적용</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="week-item">
+                        <div class="week-number">21주차</div>
+                        <div class="week-content">
+                            <b>엔드투엔드 통합 & 관리형 AI</b>
+                            <ul class="list-disc text-gray-400 mt-2 space-y-1">
+                                <li>Spring과 Python 서비스 간 API 호출 연동</li>
+                                <li>Java용 AWS SDK를 이용한 AWS Rekognition 연동 (이미지 태깅)</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="week-item">
+                        <div class="week-number">22주차</div>
+                        <div class="week-content">
+                            <b>관리형 AI 심화</b>
+                            <ul class="list-disc text-gray-400 mt-2 space-y-1">
+                                <li>네이버 CLOVA API 연동 (리뷰 감성 분석)</li>
+                                <li>AI 전략 토론: '구축(Build) vs 구매(Buy)' 의사결정 프레임워크</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Final Project -->
+                <div class="section-card">
+                    <h3 class="text-2xl font-bold text-white mb-1"><span class="text-gold">Final Project.</span> AI 증강 애플리케이션 완성</h3>
+                    <p class="text-gray-400 mb-6">(23-26주차 / 120시간)</p>
+                    <div class="week-item">
+                        <div class="week-number">23-26주차</div>
+                        <div class="week-content">
+                            <b>포트폴리오 프로젝트 고도화</b>
+                            <ul class="list-disc text-gray-400 mt-2 space-y-1">
+                                <li>Redis를 이용한 추천 결과 캐싱으로 API 호출 최적화</li>
+                                <li>Docker-Compose를 이용한 전체 서비스(Java, Python, DB, Redis) 관리</li>
+                                <li>MLOps 기초: 모델 재학습 및 서빙 파이프라인 개념</li>
+                                <li>최종 프로젝트 발표 및 포트폴리오 정리</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+            </section>
+
+            <section id="conclusion" class="text-center my-16">
+                <h2 class="text-3xl font-bold text-white mb-2">성공으로 이끄는 '퓨전 개발자' 로드맵</h2>
+                <div class="w-24 h-1.5 bg-gold mb-6 mx-auto"></div>
+                <p class="max-w-3xl mx-auto mb-10 text-gray-300">
+                    이 집중 과정을 통해 당신은 두 기술 세계의 언어를 모두 구사하며, 비즈니스 가치를 극대화하는 최적의 기술 솔루션을 설계하고 구현할 수 있는 핵심 인재로 거듭납니다.
+                </p>
+            </section>
+        </main>
+
+    </div>
+
+    <script>
+        const FONT_COLOR = '#E2E8F0';
+        const PALETTE = {
+            brightBlue: '#60A5FA', // blue-400
+            mediumBlue: '#2563EB', // blue-600
+            darkBlue: '#1E40AF',   // blue-800
+            navy: '#1E293B',       // slate-800
+            gold: '#FBBF24'        // amber-400
+        };
+        
+        const tooltipTitleCallback = (tooltipItems) => {
+            const item = tooltipItems[0];
+            let label = item.chart.data.labels[item.dataIndex];
+            if (Array.isArray(label)) {
+                return label.join(' ');
+            }
+            return label;
+        };
+
+        const totalHoursCtx = document.getElementById('totalHoursChart').getContext('2d');
+        new Chart(totalHoursCtx, {
+            type: 'doughnut',
+            data: {
+                labels: ['Part 1: 기반 구축 (360h)', 'Project 1 (160h)', 'Part 2: AI 개발 (240h)', 'Part 3&4: 융합 (120h)', 'Final Project (120h)'],
+                datasets: [{
+                    label: '학습 시간',
+                    data: [360, 160, 240, 120, 120],
+                    backgroundColor: [PALETTE.brightBlue, PALETTE.gold, PALETTE.mediumBlue, PALETTE.darkBlue, PALETTE.gold],
+                    borderColor: '#0F172A',
+                    borderWidth: 5
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        position: 'bottom',
+                        labels: {
+                            color: FONT_COLOR,
+                            font: { size: 12 },
+                            padding: 20
+                        }
+                    },
+                    tooltip: {
+                        callbacks: {
+                           title: (tooltipItems) => tooltipItems[0].label
+                        }
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
