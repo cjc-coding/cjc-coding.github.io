@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>미래를 준비하는 K-12 교육 로드맵</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            background-color: #f8f9fa;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 300px;
+            max-height: 400px;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 350px;
+            }
+        }
+        .flowchart-box {
+            border: 2px solid #F2A341;
+            background-color: white;
+            color: #242424;
+        }
+        .flowchart-arrow {
+            color: #F2A341;
+            font-weight: bold;
+        }
+        .kpi-card {
+            background-color: #00A6A6;
+            color: white;
+        }
+        .kpi-value {
+            font-weight: 900;
+            font-size: 3.5rem;
+            line-height: 1.2;
+        }
+        .kpi-icon {
+            font-size: 3rem;
+        }
+        .section-title {
+            color: #00A6A6;
+            font-weight: 900;
+        }
+        .accent-color {
+            color: #F2762E;
+        }
+        .card {
+            background-color: white;
+            border-radius: 0.75rem;
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+    <div class="container mx-auto p-4 md:p-8">
+
+        <header class="text-center mb-16">
+            <h1 class="text-4xl md:text-5xl font-extrabold text-[#00A6A6] mb-4">미래를 준비하는 K-12 교육 로드맵</h1>
+            <p class="text-lg md:text-xl text-gray-600">AI, 인구 절벽, 기후 위기 시대, 대한민국 교육의 새로운 길을 제시합니다.</p>
+        </header>
+
+        <section id="section1" class="mb-20">
+            <h2 class="text-3xl font-bold text-center mb-10 section-title">대전환의 서막: 왜 변화는 필수인가?</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="kpi-card rounded-lg p-6 text-center shadow-lg transform hover:scale-105 transition-transform duration-300">
+                    <div class="kpi-icon mb-4">🤖</div>
+                    <h3 class="text-2xl font-bold mb-2">디지털 쓰나미</h3>
+                    <p class="text-lg">단순 지식 암기는 AI가 대체합니다. 이제는 '정답 찾기'가 아닌 '질문하는 능력'이 인간의 새로운 경쟁력입니다.</p>
+                </div>
+                <div class="kpi-card rounded-lg p-6 text-center shadow-lg transform hover:scale-105 transition-transform duration-300">
+                    <div class="kpi-icon mb-4">📉</div>
+                    <h3 class="text-2xl font-bold mb-2">인구 절벽</h3>
+                    <p class="text-lg">학령인구 감소는 위기이자 기회입니다. 획일화된 대량 교육에서 벗어나 초개인화 맞춤형 교육으로 전환할 적기입니다.</p>
+                </div>
+                <div class="kpi-card rounded-lg p-6 text-center shadow-lg transform hover:scale-105 transition-transform duration-300">
+                    <div class="kpi-icon mb-4">🌍</div>
+                    <h3 class="text-2xl font-bold mb-2">생태 비상사태</h3>
+                    <p class="text-lg">지속가능한 미래를 위해 행동하는 '생태 시민' 양성이 시급합니다. 교육은 희망을 행동으로 바꾸는 열쇠입니다.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="section2" class="mb-20">
+            <h2 class="text-3xl font-bold text-center mb-10 section-title">패러다임 전환: '공장'에서 '미래'로</h2>
+            <div class="card md:col-span-2">
+                <p class="text-center text-gray-600 mb-8">산업화 시대의 낡은 교육 모델은 더 이상 유효하지 않습니다. 미래 교육은 학생 개개인의 잠재력을 키우는 새로운 방식으로 설계되어야 합니다.</p>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="p-6 rounded-lg border-4 border-dashed border-gray-300">
+                        <h3 class="text-2xl font-bold text-center mb-4 text-gray-500">THEN: 산업화 시대 모델</h3>
+                        <ul class="space-y-3 text-gray-600">
+                            <li class="flex items-start"><span class="text-red-500 mr-2 font-bold">✖</span> 표준화된 교육과정</li>
+                            <li class="flex items-start"><span class="text-red-500 mr-2 font-bold">✖</span> 암기 중심, 정답 찾기 학습</li>
+                            <li class="flex items-start"><span class="text-red-500 mr-2 font-bold">✖</span> 교사 중심의 지식 전달</li>
+                            <li class="flex items-start"><span class="text-red-500 mr-2 font-bold">✖</span> 결과 중심의 총괄 평가</li>
+                            <li class="flex items-start"><span class="text-red-500 mr-2 font-bold">✖</span> 경쟁과 서열 중심 문화</li>
+                        </ul>
+                    </div>
+                    <div class="p-6 rounded-lg border-4 border-[#F2A341]">
+                        <h3 class="text-2xl font-bold text-center mb-4 text-[#F2762E]">NOW: 미래 교육 모델</h3>
+                        <ul class="space-y-3 text-gray-700">
+                            <li class="flex items-start"><span class="text-green-500 mr-2 font-bold">✔</span> 개인화된 맞춤형 교육</li>
+                            <li class="flex items-start"><span class="text-green-500 mr-2 font-bold">✔</span> 역량 중심, 질문하는 학습</li>
+                            <li class="flex items-start"><span class="text-green-500 mr-2 font-bold">✔</span> 학생 주도의 탐구 활동</li>
+                            <li class="flex items-start"><span class="text-green-500 mr-2 font-bold">✔</span> 과정 중심의 형성적 피드백</li>
+                            <li class="flex items-start"><span class="text-green-500 mr-2 font-bold">✔</span> 협력과 성장 중심 문화</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <section id="section3" class="mb-20">
+            <h2 class="text-3xl font-bold text-center mb-10 section-title">미래 인재의 역량 키트</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                <div class="card">
+                    <h3 class="text-2xl font-bold mb-4 accent-color">핵심 역량, 어떻게 기를까?</h3>
+                    <p class="text-gray-600">미래 사회는 단순 지식이 아닌, 복잡한 문제를 해결하고 새로운 가치를 창출하는 역량을 요구합니다. 미래 교육은 학생들이 이 4가지 핵심 역량을 균형 있게 발전시키도록 돕는 것을 목표로 합니다.</p>
+                </div>
+                <div class="card">
+                    <div class="chart-container h-80 md:h-96">
+                        <canvas id="competencyChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="section4" class="mb-20">
+            <h2 class="text-3xl font-bold text-center mb-10 section-title">미래 교실의 혁신: 교수법과 기술</h2>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <div class="card">
+                    <h3 class="text-2xl font-bold mb-4 accent-color">AI 기반 초개인화 학습</h3>
+                    <p class="text-gray-600 mb-4">2025년 도입될 AI 디지털교과서는 학생 개개인의 학습 데이터를 분석하여 최적의 학습 경로를 제공합니다. 이를 통해 학습 효율을 극대화하고 교육 격차를 해소할 수 있습니다.</p>
+                    <div class="chart-container h-64">
+                        <canvas id="aiEffectChart"></canvas>
+                    </div>
+                </div>
+                <div class="card">
+                    <h3 class="text-2xl font-bold mb-4 accent-color">학생 주도 탐구 모델: 플립 PBL</h3>
+                    <p class="text-gray-600 mb-6">거꾸로 학습(Flipped Learning)과 프로젝트 기반 학습(PBL)을 결합하여 학습 효과를 극대화합니다. 학생들은 지식을 스스로 탐구하고, 교실에서는 심화 활동에 집중합니다.</p>
+                    <div class="flex flex-col items-center space-y-2">
+                        <div class="flowchart-box p-3 rounded-lg text-center w-4/5"><b>사전 학습 (온라인)</b><br>AI 튜터와 영상으로 기초 지식 습득</div>
+                        <div class="text-2xl flowchart-arrow">↓</div>
+                        <div class="flowchart-box p-3 rounded-lg text-center w-4/5"><b>본수업 (오프라인)</b><br>토론, 협력 프로젝트, 심화 탐구</div>
+                        <div class="text-2xl flowchart-arrow">↓</div>
+                        <div class="flowchart-box p-3 rounded-lg text-center w-4/5"><b>결과</b><br>문제해결력 및 협업 능력 향상</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="section5" class="mb-20">
+            <h2 class="text-3xl font-bold text-center mb-10 section-title">새로운 교육 생태계</h2>
+            <p class="text-center text-gray-600 mb-12 max-w-3xl mx-auto">미래 교육은 학교 담장을 넘어섭니다. 학생, 교사, 학교, 그리고 지역사회가 유기적으로 연결된 열린 학습의 허브로 진화해야 합니다.</p>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+                <div class="card transform hover:-translate-y-2 transition-transform duration-300">
+                    <div class="text-5xl mb-4">🧑‍🎓</div>
+                    <h3 class="text-2xl font-bold mb-2 accent-color">학생</h3>
+                    <p class="text-gray-600">수동적 지식 수용자에서 벗어나 자신의 학습을 스스로 설계하고 실행하는 <b class="text-[#F24B4B]">자기주도적 학습자</b>로 성장합니다.</p>
+                </div>
+                <div class="card transform hover:-translate-y-2 transition-transform duration-300">
+                    <div class="text-5xl mb-4">👩‍🏫</div>
+                    <h3 class="text-2xl font-bold mb-2 accent-color">교사</h3>
+                    <p class="text-gray-600">지식 전달자가 아닌, 학생 개개인의 성장을 돕는 <b class="text-[#F24B4B]">학습 설계자이자 촉진자</b>로 역할이 변화합니다.</p>
+                </div>
+                <div class="card transform hover:-translate-y-2 transition-transform duration-300">
+                    <div class="text-5xl mb-4">🏫</div>
+                    <h3 class="text-2xl font-bold mb-2 accent-color">학교</h3>
+                    <p class="text-gray-600">닫힌 공간에서 벗어나 지역사회와 세상을 교실로 삼는 <b class="text-[#F24B4B]">열린 학습의 허브</b>가 됩니다.</p>
+                </div>
+            </div>
+        </section>
+        
+        <section id="section6" class="mb-20">
+            <h2 class="text-3xl font-bold text-center mb-10 section-title">글로벌 벤치마크와 한국의 과제</h2>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+                <div class="card">
+                    <h3 class="text-2xl font-bold mb-4 accent-color">교육 선진국과의 정책 비교</h3>
+                    <p class="text-gray-600 mb-4">대한민국은 기술 도입에 있어 매우 미래지향적이지만, 교사 자율성과 평가 시스템 혁신 측면에서는 아직 과제가 남아있습니다. 핀란드의 교사 신뢰, 에스토니아의 디지털 생태계는 중요한 참고 모델입니다.</p>
+                    <div class="chart-container h-80 md:h-96">
+                        <canvas id="policyChart"></canvas>
+                    </div>
+                </div>
+                <div class="card">
+                    <h3 class="text-2xl font-bold mb-4 accent-color">성공을 위한 핵심 정책 제언</h3>
+                    <ol class="list-decimal list-inside space-y-3 text-gray-700">
+                        <li><b class="text-[#00A6A6]">교사 주도권 강화:</b> 교사에게 교육과정 설계 및 평가의 자율성을 부여하고 행정 업무를 경감해야 합니다.</li>
+                        <li><b class="text-[#00A6A6]">대입 제도 혁신:</b> 수능 중심의 평가에서 벗어나 학생의 역량을 다면적으로 평가하는 방향으로 전환해야 합니다.</li>
+                        <li><b class="text-[#00A6A6]">교육 형평성 확보:</b> 기술 접근성의 차이가 새로운 교육 격차로 이어지지 않도록 세심한 정책 설계가 필요합니다.</li>
+                        <li><b class="text-[#00A6A6]">국가적 학습 생태계 구축:</b> 학교, 지역사회, 대학, 연구기관이 협력하는 유기적 네트워크를 만들어야 합니다.</li>
+                    </ol>
+                </div>
+            </div>
+        </section>
+
+        <footer class="text-center mt-16 py-8 border-t border-gray-300">
+            <p class="text-gray-600">'미래를 준비하는 K-12 교육의 길: 대한민국을 위한 전략 로드맵' </p>
+        </footer>
+
+    </div>
+
+    <script>
+        const tooltipCallback = {
+            plugins: {
+                tooltip: {
+                    callbacks: {
+                        title: function(tooltipItems) {
+                            const item = tooltipItems[0];
+                            let label = item.chart.data.labels[item.dataIndex];
+                            if (Array.isArray(label)) {
+                                return label.join(' ');
+                            } else {
+                                return label;
+                            }
+                        }
+                    }
+                }
+            }
+        };
+
+        function wrapLabels(label, maxLength) {
+            if (label.length <= maxLength) {
+                return label;
+            }
+            const words = label.split(' ');
+            const lines = [];
+            let currentLine = '';
+            words.forEach(word => {
+                if ((currentLine + word).length > maxLength) {
+                    lines.push(currentLine.trim());
+                    currentLine = '';
+                }
+                currentLine += word + ' ';
+            });
+            lines.push(currentLine.trim());
+            return lines;
+        }
+
+        const competencyChartCtx = document.getElementById('competencyChart').getContext('2d');
+        new Chart(competencyChartCtx, {
+            type: 'radar',
+            data: {
+                labels: ['비판적 사고력', '디지털 리터러시', '협업 능력', '생태 시민성'],
+                datasets: [{
+                    label: '미래 핵심 역량',
+                    data: [90, 85, 95, 80],
+                    backgroundColor: 'rgba(242, 118, 46, 0.2)',
+                    borderColor: '#F2762E',
+                    pointBackgroundColor: '#F2762E',
+                    pointBorderColor: '#fff',
+                    pointHoverBackgroundColor: '#fff',
+                    pointHoverBorderColor: '#F2762E'
+                }]
+            },
+            options: {
+                maintainAspectRatio: false,
+                scales: {
+                    r: {
+                        angleLines: { color: '#cccccc' },
+                        grid: { color: '#dddddd' },
+                        pointLabels: { font: { size: 14 }, color: '#242424' },
+                        ticks: {
+                            backdropColor: 'transparent',
+                            color: '#242424',
+                            stepSize: 20
+                        },
+                        suggestedMin: 0,
+                        suggestedMax: 100
+                    }
+                },
+                plugins: {
+                    legend: {
+                        display: false
+                    }
+                }
+            }
+        });
+
+        const aiEffectChartCtx = document.getElementById('aiEffectChart').getContext('2d');
+        new Chart(aiEffectChartCtx, {
+            type: 'doughnut',
+            data: {
+                labels: ['수학 성취도 향상', '학습 시간 단축'],
+                datasets: [{
+                    label: 'Squirrel AI 효과',
+                    data: [26.7, 27],
+                    backgroundColor: ['#00A6A6', '#F2A341'],
+                    borderColor: '#ffffff',
+                    borderWidth: 2,
+                    hoverOffset: 4
+                }]
+            },
+            options: {
+                maintainAspectRatio: false,
+                responsive: true,
+                plugins: {
+                    legend: {
+                        position: 'bottom',
+                    },
+                    tooltip: {
+                        callbacks: {
+                            label: function(context) {
+                                let label = context.label || '';
+                                if (label) {
+                                    label += ': ';
+                                }
+                                if (context.parsed !== null) {
+                                    label += context.parsed + '%';
+                                }
+                                return label;
+                            }
+                        }
+                    },
+                    title: {
+                        display: true,
+                        text: '중국 Squirrel AI의 학습 효과(%)',
+                        font: { size: 14 },
+                        color: '#242424'
+                    }
+                }
+            }
+        });
+
+        const originalLabels = ['대한민국', '핀란드 (교사 신뢰 기반)', '에스토니아 (디지털 생태계)'];
+        const processedLabels = originalLabels.map(label => wrapLabels(label, 16));
+
+        const policyChartCtx = document.getElementById('policyChart').getContext('2d');
+        new Chart(policyChartCtx, {
+            type: 'bar',
+            data: {
+                labels: processedLabels,
+                datasets: [
+                    {
+                        label: '기술 도입 적극성',
+                        data: [95, 70, 90],
+                        backgroundColor: '#00A6A6',
+                    },
+                    {
+                        label: '교사 자율성',
+                        data: [60, 95, 80],
+                        backgroundColor: '#F2A341',
+                    },
+                    {
+                        label: '평가 시스템 혁신',
+                        data: [50, 90, 85],
+                        backgroundColor: '#F2762E',
+                    }
+                ]
+            },
+            options: {
+                maintainAspectRatio: false,
+                indexAxis: 'y',
+                scales: {
+                    x: {
+                        beginAtZero: true,
+                        max: 100,
+                        grid: {
+                            display: false
+                        }
+                    },
+                    y: {
+                        grid: {
+                            display: false
+                        }
+                    }
+                },
+                ...tooltipCallback
+            }
+        });
+    </script>
+</body>
+</html>
