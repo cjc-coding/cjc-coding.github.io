@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KOI 16주 완성 그랜드마스터 로드맵 | 인터랙티브 인포그래픽</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            background-color: #f0f4f8;
+        }
+       .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 400px;
+            max-height: 450px;
+        }
+        @media (min-width: 768px) {
+           .chart-container {
+                height: 450px;
+                max-height: 500px;
+            }
+        }
+       .gradient-text {
+            background: linear-gradient(to right, #2C3E50, #1ABC9C);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+       .kpi-card {
+            background-color: white;
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            text-align: center;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+       .kpi-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-gray-800">
+
+    <header class="text-center py-12 px-4 bg-white shadow-lg">
+        <h1 class="text-4xl md:text-6xl font-black gradient-text">KOI 16주 완성 그랜드마스터 로드맵</h1>
+        <p class="mt-4 text-lg md:text-xl text-slate-600 max-w-3xl mx-auto">체계적인 주차별 학습과 실전 문제 풀이를 통해 미래의 정보올림피아드 챔피언으로 성장합니다.</p>
+    </header>
+
+    <main class="container mx-auto p-4 md:p-8">
+
+        <section id="koi-info" class="mb-16">
+            <div class="bg-white rounded-lg shadow-md p-8">
+                <h2 class="text-3xl font-bold text-center mb-6">한국정보올림피아드(KOI)란?</h2>
+                <div class="grid md:grid-cols-2 gap-8 items-center">
+                    <div>
+                        <p class="text-slate-600 leading-relaxed">
+                            한국정보올림피아드(KOI)는 대한민국 초·중·고등학생들을 위한 최고의 경쟁 프로그래밍 무대입니다. 이 대회는 단순히 코딩 기술을 넘어, <strong class="text-[#1ABC9C] font-bold">논리적 사고력</strong>과 <strong class="text-[#1ABC9C] font-bold">문제 해결 능력</strong>을 종합적으로 평가하여 미래의 소프트웨어 인재를 발굴하는 것을 목표로 합니다.
+                        </p>
+                    </div>
+                    <div class="bg-slate-50 rounded-lg p-6 border border-slate-200">
+                        <h3 class="text-xl font-bold text-center mb-4 text-[#2C3E50]">핵심 정보</h3>
+                        <ul class="space-y-3 text-lg">
+                            <li class="flex items-center">
+                                <span class="text-2xl mr-3">🏆</span>
+                                <div><strong>대회 구조:</strong> 1차, 2차 대회로 구성</div>
+                            </li>
+                            <li class="flex items-center">
+                                <span class="text-2xl mr-3">💻</span>
+                                <div><strong>핵심 언어:</strong> <span class="font-bold text-red-500">C++17</span> (2차 대회)</div>
+                            </li>
+                            <li class="flex items-center">
+                                <span class="text-2xl mr-3">🎯</span>
+                                <div><strong>평가 방식:</strong> 실시간 자동 채점, 부분 점수</div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="curriculum-roadmap" class="mb-16">
+            <h2 class="text-3xl font-bold text-center mb-2">로드맵: 그랜드마스터를 향한 16주 여정</h2>
+            <p class="text-center text-slate-600 mb-8">기초 다지기부터 고급 전략까지, solved.ac 티어 시스템을 기반으로 한 체계적인 주차별 학습 로드맵을 제시합니다.</p>
+
+            <div class="bg-white rounded-lg shadow-md p-6 mb-12">
+                <h3 class="text-2xl font-bold text-center mb-4">주차별 학습 초점 변화</h3>
+                <p class="text-center text-slate-600 mb-6">초반에는 구현력에 집중하고, 중반에는 핵심 알고리즘을, 후반에는 고급 전략과 실전 훈련으로 초점을 이동합니다.</p>
+                <div class="chart-container">
+                    <canvas id="curriculumChart"></canvas>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                <div class="hidden md:grid md:grid-cols-12 bg-slate-100 font-bold text-slate-700 text-center">
+                    <div class="p-4 col-span-1">주차</div>
+                    <div class="p-4 col-span-3">핵심 목표</div>
+                    <div class="p-4 col-span-5">상세 내용</div>
+                    <div class="p-4 col-span-3">훈련 가이드</div>
+                </div>
+                <div id="roadmap-content"></div>
+            </div>
+        </section>
+
+        <section id="next-steps" class="mb-16">
+            <h2 class="text-3xl font-bold text-center mb-8">정상을 넘어: 지속적인 성장 트랙</h2>
+            <p class="text-center text-slate-600 max-w-2xl mx-auto mb-12">KOI 수상은 끝이 아닌 새로운 시작입니다. 이 경험을 바탕으로 더 높은 목표를 향해 나아가세요.</p>
+            <div class="bg-white rounded-lg shadow-md p-6">
+                <h3 class="text-2xl font-bold text-center mb-4">KOI 이후 추천 트랙</h3>
+                <p class="text-center text-slate-600 mb-8">KOI로 증명된 역량을 바탕으로, 더 전문적인 영역에 도전하여 최고의 전문가로 성장할 수 있습니다.</p>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+                    <div class="border-2 border-[#2C3E50] rounded-lg p-6">
+                        <div class="text-4xl mb-4">🌍</div>
+                        <h4 class="text-xl font-bold text-[#2C3E50] mb-2">국가대표 선발전</h4>
+                        <p class="text-slate-600">국제정보올림피아드(IOI)를 향한 다음 단계에 도전하여 세계 무대에서 실력을 겨룹니다.</p>
+                    </div>
+                    <div class="border-2 border-[#16A085] rounded-lg p-6">
+                        <div class="text-4xl mb-4">🎓</div>
+                        <h4 class="text-xl font-bold text-[#16A085] mb-2">ICPC 등 대학생 대회</h4>
+                        <p class="text-slate-600">세계적인 대학생 프로그래밍 경진대회(ICPC)에 참가하여 팀워크와 심화 알고리즘 역량을 기릅니다.</p>
+                    </div>
+                    <div class="border-2 border-[#F39C12] rounded-lg p-6">
+                        <div class="text-4xl mb-4">🚀</div>
+                        <h4 class="text-xl font-bold text-[#F39C12] mb-2">실무 프로젝트 & 연구</h4>
+                        <p class="text-slate-600">알고리즘 역량을 바탕으로 복잡한 문제를 해결하는 소프트웨어 개발자 또는 연구원으로 성장합니다.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="text-center py-8 px-4 bg-gray-800 text-white">
+        <p>'KOI 16주 완성 그랜드마스터 로드맵'</p>
+        <p class="text-sm text-gray-400 mt-2">© 2025 CodingGround. All rights reserved.</p>
+    </footer>
+
+    <script>
+        const FONT_COLOR = '#2C3E50';
+        const GRID_COLOR = '#e2e8f0';
+        const PALETTE = {
+            navy: '#2C3E50',
+            blue: '#3498DB',
+            turquoise: '#1ABC9C',
+            green: '#2ECC71',
+            yellow: '#F1C40F',
+            orange: '#F39C12',
+            red: '#E74C3C',
+        };
+
+        const curriculumData = [
+            // 1단계: 기반 구축 (브론즈 ~ 실버)
+            { week: 1, phase: '1단계: 기반 구축', theme: 'C++ 기초 및 입출력', details: ['변수, 자료형, 연산자', '조건문, 반복문', '빠른 입출력 설정 (`cin.tie`)'], practice: 'BOJ 단계별 풀기 1-3단계', color: PALETTE.blue },
+            { week: 2, phase: '1단계: 기반 구축', theme: '기본 STL 및 함수', details: ['`vector`, `string`, `pair`', '함수 정의 및 사용법', '`sort` 함수 활용'], practice: 'BOJ Class 1 문제 풀이', color: PALETTE.blue },
+            { week: 3, phase: '1단계: 기반 구축', theme: '완전 탐색과 시뮬레이션', details: ['Brute-force 개념 이해', '문제의 요구사항을 그대로 코드로 구현', '시간 복잡도 기초'], practice: 'BOJ 완전 탐색 유형 문제', color: PALETTE.blue },
+            { week: 4, phase: '1단계: 기반 구축', theme: '정렬 및 이분 탐색', details: ['다양한 정렬 기준 적용', '`lower_bound`, `upper_bound`', '매개 변수 탐색 입문'], practice: 'BOJ 이분 탐색 유형 문제', color: PALETTE.blue },
+            
+            // 2단계: 핵심 전술 마스터 (골드 ~ 플래티넘)
+            { week: 5, phase: '2단계: 핵심 전술', theme: '기초 그래프 (DFS/BFS)', details: ['인접 행렬/리스트 표현', '`stack`, `queue` 활용', '연결 요소, 최단 거리(가중치 X)'], practice: 'BOJ DFS/BFS 유형 문제', color: PALETTE.green },
+            { week: 6, phase: '2단계: 핵심 전술', theme: '그리디 알고리즘', details: ['그리디 선택의 정당성 증명', '정렬 기반 그리디', '간단한 그리디 문제 패턴 익히기'], practice: 'BOJ 그리디 유형 문제', color: PALETTE.green },
+            { week: 7, phase: '2단계: 핵심 전술', theme: '동적 계획법 (DP) 입문', details: ['Memoization vs Tabulation', '점화식 세우기', '1차원 DP (피보나치, 1로 만들기)'], practice: 'BOJ DP 입문 문제 (실버)', color: PALETTE.green },
+            { week: 8, phase: '2단계: 핵심 전술', theme: '동적 계획법 (DP) 심화 1', details: ['2차원 DP', 'LCS (최장 공통 부분 수열)', '배낭 문제 (Knapsack) 기초'], practice: 'BOJ Class 4 DP 문제', color: PALETTE.green },
+            { week: 9, phase: '2단계: 핵심 전술', theme: '최단 경로 알고리즘', details: ['다익스트라 알고리즘', '`priority_queue` 활용법', '플로이드-워셜 알고리즘'], practice: 'BOJ 다익스트라 유형 문제', color: PALETTE.green },
+            { week: 10, phase: '2단계: 핵심 전술', theme: '최소 신장 트리', details: ['MST의 개념', '크루스칼 알고리즘 (Union-Find)', '프림 알고리즘'], practice: 'BOJ MST 유형 문제', color: PALETTE.green },
+
+            // 3단계: 고급 전략의 완성 (다이아몬드 ~)
+            { week: 11, phase: '3단계: 고급 전략', theme: '세그먼트 트리', details: ['구간 쿼리 (합, 곱, 최대/최소)', '점 업데이트', 'Lazy Propagation 기초'], practice: 'BOJ 세그먼트 트리 유형 문제', color: PALETTE.orange },
+            { week: 12, phase: '3단계: 고급 전략', theme: '고급 DP', details: ['비트마스크 DP', '트리 DP', 'TSP (외판원 순회 문제)'], practice: 'BOJ 고급 DP 유형 문제', color: PALETTE.orange },
+            { week: 13, phase: '3단계: 고급 전략', theme: '문자열 알고리즘', details: ['KMP 알고리즘', '트라이 (Trie)', '해싱을 이용한 문자열 처리'], practice: 'BOJ 문자열 유형 문제', color: PALETTE.orange },
+            { week: 14, phase: '3단계: 고급 전략', theme: '고급 그래프 이론', details: ['위상 정렬', '네트워크 플로우', '이분 매칭'], practice: 'BOJ 고급 그래프 유형 문제', color: PALETTE.orange },
+            { week: 15, phase: '3단계: 고급 전략', theme: 'KOI 기출 집중 분석', details: ['최근 5개년 기출문제 풀이', '출제 경향 파악', '시간 관리 및 부분 점수 전략'], practice: 'BOJ 한국정보올림피아드 태그', color: PALETTE.red },
+            { week: 16, phase: '3단계: 고급 전략', theme: '실전 모의고사', details: ['실제 대회 환경과 동일하게 연습', '멘탈 관리 및 컨디션 조절', '오답 노트 최종 정리'], practice: 'Codeforces Div.2 등 실전 대회 참가', color: PALETTE.red },
+        ];
+
+        const roadmapContainer = document.getElementById('roadmap-content');
+        curriculumData.forEach(item => {
+            const row = `
+                <div class="grid grid-cols-1 md:grid-cols-12 border-b last:border-b-0 items-center transition-all duration-300 hover:bg-slate-50">
+                    <div class="p-4 col-span-1 md:text-center flex items-center md:justify-center bg-slate-50 md:bg-transparent">
+                        <div class="w-16 h-16 rounded-full flex items-center justify-center text-white font-black text-xl" style="background-color: ${item.color};">
+                            ${item.week}주
+                        </div>
+                        <h4 class="md:hidden text-lg font-bold ml-4" style="color: ${item.color};">${item.theme}</h4>
+                    </div>
+                    <div class="p-4 col-span-3 hidden md:block">
+                        <h4 class="text-lg font-bold" style="color: ${item.color};">${item.theme}</h4>
+                        <p class="text-sm text-slate-500 font-medium">${item.phase}</p>
+                    </div>
+                    <div class="p-4 col-span-1 md:col-span-5">
+                        <ul class="list-disc list-inside text-slate-700 space-y-1">
+                            ${item.details.map(detail => `<li>${detail}</li>`).join('')}
+                        </ul>
+                    </div>
+                    <div class="p-4 col-span-1 md:col-span-3 font-bold text-slate-800 md:text-left">
+                        <span class="md:hidden text-sm text-slate-500 font-medium">[훈련 가이드] </span>
+                        ${item.practice}
+                    </div>
+                </div>
+            `;
+            roadmapContainer.innerHTML += row;
+        });
+
+        const commonOptions = {
+            maintainAspectRatio: false,
+            responsive: true,
+            plugins: {
+                legend: {
+                    labels: {
+                        color: FONT_COLOR,
+                        font: {
+                            family: "'Noto Sans KR', sans-serif",
+                            weight: 'bold'
+                        }
+                    }
+                },
+                tooltip: {
+                    backgroundColor: 'rgba(7, 59, 76, 0.9)',
+                    titleFont: { size: 14, family: "'Noto Sans KR', sans-serif" },
+                    bodyFont: { size: 12, family: "'Noto Sans KR', sans-serif" },
+                    padding: 10,
+                    cornerRadius: 4,
+                    displayColors: true,
+                }
+            }
+        };
+
+        const curriculumCtx = document.getElementById('curriculumChart').getContext('2d');
+        new Chart(curriculumCtx, {
+            type: 'bar',
+            data: {
+                labels: curriculumData.map(d => `${d.week}주차`),
+                datasets: [
+                    {
+                        label: '기초 구현력',
+                        data: [80, 70, 60, 40, 20, 10, 10, 10, 5, 5, 0, 0, 0, 0, 0, 0],
+                        backgroundColor: PALETTE.blue,
+                    },
+                    {
+                        label: '핵심 알고리즘',
+                        data: [20, 30, 40, 60, 80, 90, 90, 90, 85, 85, 40, 30, 30, 30, 40, 20],
+                        backgroundColor: PALETTE.green,
+                    },
+                    {
+                        label: '고급 전략 & 실전',
+                        data: [0, 0, 0, 0, 0, 0, 0, 0, 10, 10, 60, 70, 70, 70, 60, 80],
+                        backgroundColor: PALETTE.orange,
+                    }
+                ]
+            },
+            options: {
+               ...commonOptions,
+                scales: {
+                    x: {
+                        stacked: true,
+                        grid: { display: false },
+                        ticks: { color: FONT_COLOR, font: { weight: 'bold' } }
+                    },
+                    y: {
+                        stacked: true,
+                        grid: { color: GRID_COLOR },
+                        ticks: {
+                            callback: function(value) {
+                                return value + '%';
+                            }
+                        }
+                    }
+                },
+                plugins: {
+                   ...commonOptions.plugins,
+                    legend: { position: 'bottom' },
+                    tooltip: {
+                        callbacks: {
+                            title: (tooltipItems) => {
+                                const item = tooltipItems[0];
+                                const weekData = curriculumData[item.dataIndex];
+                                return `${weekData.week}주차: ${weekData.theme}`;
+                            }
+                        }
+                    }
+                }
+            }
+        });
+
+    </script>
+</body>
+</html>
