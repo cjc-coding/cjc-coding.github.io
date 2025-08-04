@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>K-12 유니티 교육과정 로드맵 | 인터랙티브 인포그래픽</title>
+    <script src="[https://cdn.tailwindcss.com](https://cdn.tailwindcss.com)"></script>
+    <script src="[https://cdn.jsdelivr.net/npm/chart.js](https://cdn.jsdelivr.net/npm/chart.js)"></script>
+    <link rel="preconnect" href="[https://fonts.googleapis.com](https://fonts.googleapis.com)">
+    <link rel="preconnect" href="[https://fonts.gstatic.com](https://fonts.gstatic.com)" crossorigin>
+    <link href="[https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700;900&display=swap](https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700;900&display=swap)" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            background-color: #f0f4f8;
+        }
+       .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 400px;
+            max-height: 450px;
+        }
+        @media (min-width: 768px) {
+           .chart-container {
+                height: 450px;
+                max-height: 500px;
+            }
+        }
+       .gradient-text {
+            background: linear-gradient(to right, #000000, #434343, #2d597b);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+       .kpi-card {
+            background-color: white;
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            text-align: center;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+       .kpi-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-gray-800">
+
+    <header class="text-center py-12 px-4 bg-white shadow-lg">
+        <h1 class="text-4xl md:text-6xl font-black gradient-text">차세대 크리에이터를 위한 K-12 유니티 로드맵</h1>
+        <p class="mt-4 text-lg md:text-xl text-slate-600 max-w-3xl mx-auto">코딩 없는 상상력의 실현부터 전문적인 게임 개발까지, 단계별 학습으로 미래 역량을 키웁니다.</p>
+    </header>
+
+    <main class="container mx-auto p-4 md:p-8">
+
+        <section id="unity-info" class="mb-16">
+            <div class="bg-white rounded-lg shadow-md p-8">
+                <h2 class="text-3xl font-bold text-center mb-6">유니티(Unity)란 무엇일까요?</h2>
+                <div class="grid md:grid-cols-2 gap-8 items-center">
+                    <div>
+                        <p class="text-slate-600 leading-relaxed">
+                            유니티는 게임뿐만 아니라 건축, 영화, 자동차 등 다양한 산업에서 사용되는 <strong class="text-[#2d597b] font-bold">세계 최고의 실시간 3D 개발 플랫폼</strong>입니다. 사용자는 유니티를 통해 코딩 없이도 간단한 3D 콘텐츠를 만들 수 있고, C# 프로그래밍을 통해 복잡하고 정교한 상호작용을 구현할 수도 있습니다.
+                        </p>
+                    </div>
+                    <div class="bg-slate-50 rounded-lg p-6 border border-slate-200">
+                        <h3 class="text-xl font-bold text-center mb-4 text-[#2C3E50]">유니티의 5가지 핵심 기둥</h3>
+                        <ul class="space-y-2 text-md">
+                            <li class="flex items-start"><span class="text-xl mr-3">🏛️</span><div><strong>에디터:</strong> 모든 작업이 이루어지는 작업 공간</div></li>
+                            <li class="flex items-start"><span class="text-xl mr-3">🧱</span><div><strong>게임 오브젝트 & 컴포넌트:</strong> 기능 조립 블록</div></li>
+                            <li class="flex items-start"><span class="text-xl mr-3">🎨</span><div><strong>에셋:</strong> 3D 모델, 이미지, 사운드 등 원재료</div></li>
+                            <li class="flex items-start"><span class="text-xl mr-3">🌍</span><div><strong>피직스:</strong> 중력, 충돌 등 현실 세계의 물리 법칙</div></li>
+                            <li class="flex items-start"><span class="text-xl mr-3">💡</span><div><strong>스크립팅:</strong> C# 코드로 생명력을 불어넣는 작업</div></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="introduction" class="mb-16">
+            <h2 class="text-3xl font-bold text-center mb-8">왜 유니티를 배워야 할까요?</h2>
+            <p class="text-center text-slate-600 max-w-2xl mx-auto mb-12">유니티 학습은 단순한 기술 습득을 넘어, 21세기 핵심 역량을 기르는 가장 효과적인 방법 중 하나입니다.</p>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="kpi-card md:col-span-1">
+                    <div class="text-4xl font-extrabold text-[#2C3E50]">컴퓨팅 사고력</div>
+                    <p class="mt-4 text-slate-600">추상적인 개념을 구체적인 창작물로 실현하며 논리적 사고와 문제 분해 능력을 기릅니다.</p>
+                </div>
+                <div class="kpi-card md:col-span-1">
+                    <div class="text-4xl font-extrabold text-[#2d597b]">창의적 문제 해결</div>
+                    <p class="mt-4 text-slate-600">정해진 답이 없는 프로젝트를 통해 스스로 문제를 정의하고 해결하는 자신감을 키웁니다.</p>
+                </div>
+                <div class="kpi-card md:col-span-1">
+                    <div class="text-4xl font-extrabold text-">디지털 창작 능력</div>
+                    <p class="mt-4 text-slate-600">자신만의 게임, 애니메이션, AR/VR 콘텐츠를 만들며 미래 기술을 주도하는 크리에이터로 성장합니다.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="curriculum-roadmap" class="mb-16">
+            <h2 class="text-3xl font-bold text-center mb-2">로드맵: K-12 유니티 완전 정복</h2>
+            <p class="text-center text-slate-600 mb-8">'노코드'에서 '프로코드'로, 발달 단계에 맞춰 점진적으로 성장하는 학습 경로를 제시합니다.</p>
+
+            <div class="bg-white rounded-lg shadow-md p-6 mb-12">
+                <h3 class="text-2xl font-bold text-center mb-4">학습 단계별 역량 비중</h3>
+                <p class="text-center text-slate-600 mb-6">초등 단계에서는 시각적 창작에 집중하고, 학년이 올라갈수록 프로그래밍의 비중을 높여갑니다.</p>
+                <div class="chart-container">
+                    <canvas id="curriculumChart"></canvas>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                <div class="hidden md:grid md:grid-cols-12 bg-slate-100 font-bold text-slate-700 text-center">
+                    <div class="p-4 col-span-2">학습 단계</div>
+                    <div class="p-4 col-span-3">핵심 목표</div>
+                    <div class="p-4 col-span-4">상세 내용</div>
+                    <div class="p-4 col-span-3">대표 프로젝트</div>
+                </div>
+                <div id="roadmap-content"></div>
+            </div>
+        </section>
+
+        <section id="next-steps" class="mb-16">
+            <h2 class="text-3xl font-bold text-center mb-8">K-12, 그 이후: 미래 산업의 혁신가로</h2>
+            <p class="text-center text-slate-600 max-w-2xl mx-auto mb-12">유니티 기술은 게임을 넘어, 다양한 첨단 산업의 핵심 역량으로 이어집니다.</p>
+            <div class="bg-white rounded-lg shadow-md p-6">
+                <h3 class="text-2xl font-bold text-center mb-4">자격증 취득 후 추천 트랙</h3>
+                <p class="text-center text-slate-600 mb-8">K-12 과정에서 쌓은 역량을 바탕으로, 더 전문적인 영역에 도전하여 경쟁력을 갖출 수 있습니다.</p>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+                    <div class="border-2 border-[#2C3E50] rounded-lg p-6">
+                        <div class="text-4xl mb-4">🎮</div>
+                        <h4 class="text-xl font-bold text-[#2C3E50] mb-2">게임 개발자</h4>
+                        <p class="text-slate-600">인디 게임부터 대규모 프로젝트까지, 게임 산업의 핵심 인재로 성장합니다.</p>
+                    </div>
+                    <div class="border-2 border-[#16A085] rounded-lg p-6">
+                        <div class="text-4xl mb-4">🏙️</div>
+                        <h4 class="text-xl font-bold text-[#16A085] mb-2">산업 융합 전문가</h4>
+                        <p class="text-slate-600">건축, 의료, 제조 분야의 디지털 트윈, 시뮬레이션 등 혁신을 주도합니다.</p>
+                    </div>
+                    <div class="border-2 border- rounded-lg p-6">
+                        <div class="text-4xl mb-4">🕶️</div>
+                        <h4 class="text-xl font-bold text- mb-2">메타버스 & XR 크리에이터</h4>
+                        <p class="text-slate-600">가상현실(VR), 증강현실(AR) 콘텐츠를 제작하는 차세대 리더가 됩니다.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="text-center py-8 px-4 bg-gray-800 text-white">
+        <p>'K-12 유니티 교육과정 로드맵'</p>
+        <p class="text-sm text-gray-400 mt-2">© 2025 CodingGround. All rights reserved.</p>
+    </footer>
+
+    <script>
+        const FONT_COLOR = '#2C3E50';
+        const GRID_COLOR = '#e2e8f0';
+        const PALETTE = {
+            blue: '#3498DB',
+            turquoise: '#1ABC9C',
+            green: '#2ECC71',
+            orange: '#F39C12',
+            red: '#E74C3C',
+            purple: '#8E44AD',
+        };
+
+        const curriculumData =, practice: '나만의 3D 디지털 디오라마 만들기', color: PALETTE.blue },
+            { stage: '중등 (6-8)', theme: '개발자 수습 과정: C# 스크립팅 입문', details:, practice: '2D 플랫포머 게임 완성하기', color: PALETTE.green },
+            { stage: '고등 (9-12)', theme: '예비 전문가 과정: 포트폴리오 제작', details:, practice: '3D 1인칭 탐험 게임 제작 및 게임잼 참여', color: PALETTE.orange },
+        ];
+
+        const roadmapContainer = document.getElementById('roadmap-content');
+        curriculumData.forEach(item => {
+            const row = `
+                <div class="grid grid-cols-1 md:grid-cols-12 border-b last:border-b-0 items-center transition-all duration-300 hover:bg-slate-50">
+                    <div class="p-4 col-span-1 md:col-span-2 md:text-center flex items-center md:justify-center bg-slate-50 md:bg-transparent">
+                        <div class="w-24 h-16 rounded-lg flex items-center justify-center text-white font-black text-lg" style="background-color: ${item.color};">
+                            ${item.stage}
+                        </div>
+                        <h4 class="md:hidden text-lg font-bold ml-4" style="color: ${item.color};">${item.theme}</h4>
+                    </div>
+                    <div class="p-4 col-span-3 hidden md:block">
+                        <h4 class="text-lg font-bold" style="color: ${item.color};">${item.theme}</h4>
+                    </div>
+                    <div class="p-4 col-span-1 md:col-span-4">
+                        <ul class="list-disc list-inside text-slate-700 space-y-1">
+                            ${item.details.map(detail => `<li>${detail}</li>`).join('')}
+                        </ul>
+                    </div>
+                    <div class="p-4 col-span-1 md:col-span-3 font-bold text-slate-800 md:text-left">
+                        <span class="md:hidden text-sm text-slate-500 font-medium">[대표 프로젝트] </span>
+                        ${item.practice}
+                    </div>
+                </div>
+            `;
+            roadmapContainer.innerHTML += row;
+        });
+
+        const tooltipTitleCallback = (tooltipItems) => {
+            return tooltipItems.chart.data.labels[tooltipItems.dataIndex];
+        };
+        
+        const commonOptions = {
+            maintainAspectRatio: false,
+            responsive: true,
+            plugins: {
+                legend: {
+                    labels: {
+                        color: FONT_COLOR,
+                        font: {
+                            family: "'Noto Sans KR', sans-serif",
+                            weight: 'bold'
+                        }
+                    }
+                },
+                tooltip: {
+                    callbacks: {
+                        title: tooltipTitleCallback
+                    },
+                    backgroundColor: 'rgba(7, 59, 76, 0.9)',
+                    titleFont: { size: 14, family: "'Noto Sans KR', sans-serif" },
+                    bodyFont: { size: 12, family: "'Noto Sans KR', sans-serif" },
+                    padding: 10,
+                    cornerRadius: 4,
+                    displayColors: true,
+                }
+            }
+        };
+
+        const curriculumCtx = document.getElementById('curriculumChart').getContext('2d');
+        new Chart(curriculumCtx, {
+            type: 'bar',
+            data: {
+                labels: ['초등 (K-5)', '중등 (6-8)', '고등 (9-12)'],
+                datasets: [
+                    {
+                        label: '시각적/노코드 창작',
+                        data: ,
+                        backgroundColor: PALETTE.blue,
+                    },
+                    {
+                        label: '기초 스크립팅 (C#)',
+                        data: ,
+                        backgroundColor: PALETTE.green,
+                    },
+                    {
+                        label: '전문 프로그래밍/설계',
+                        data: ,
+                        backgroundColor: PALETTE.orange,
+                    }
+                ]
+            },
+            options: {
+               ...commonOptions,
+                scales: {
+                    x: {
+                        stacked: true,
+                        grid: { display: false },
+                        ticks: { color: FONT_COLOR, font: { weight: 'bold' } }
+                    },
+                    y: {
+                        stacked: true,
+                        grid: { color: GRID_COLOR },
+                        ticks: {
+                            callback: function(value) {
+                                return value + '%';
+                            }
+                        }
+                    }
+                },
+                plugins: {
+                   ...commonOptions.plugins,
+                    legend: { position: 'bottom' }
+                }
+            }
+        });
+
+    </script>
+</body>
+</html>
