@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>파이썬 COS Pro 2급 자격증 과정 | 인터랙티브 인포그래픽</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            background-color: #f0f4f8;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 400px;
+            max-height: 450px;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 450px;
+                max-height: 500px;
+            }
+        }
+        .gradient-text {
+            background: linear-gradient(to right, #2C3E50, #1ABC9C);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .kpi-card {
+            background-color: white;
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            text-align: center;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .kpi-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-gray-800">
+
+    <header class="text-center py-12 px-4 bg-white shadow-lg">
+        <h1 class="text-4xl md:text-6xl font-black gradient-text">파이썬 COS Pro 2급 자격증 과정</h1>
+        <p class="mt-4 text-lg md:text-xl text-slate-600 max-w-3xl mx-auto">체계적인 학습과 실전 문제 풀이를 통해 COS Pro 2급 자격증을 확실하게 취득합니다.</p>
+    </header>
+
+    <main class="container mx-auto p-4 md:p-8">
+
+        <section id="cos-pro-info" class="mb-16">
+            <div class="bg-white rounded-lg shadow-md p-8">
+                <h2 class="text-3xl font-bold text-center mb-6">COS Pro 2급 자격증이란?</h2>
+                <div class="grid md:grid-cols-2 gap-8 items-center">
+                    <div>
+                        <p class="text-slate-600 leading-relaxed">
+                            COS Pro(Coding Specialist Professional)는 YBM에서 주관하는 코딩 전문가 자격증입니다. 실제 업무 환경과 유사한 실기 시험(CBT)을 통해, 단순 문법 지식이 아닌 <strong class="text-[#1ABC9C] font-bold">실질적인 문제 해결 능력</strong>과 <strong class="text-[#1ABC9C] font-bold">프로그래밍 사고력</strong>을 검증합니다.
+                        </p>
+                    </div>
+                    <div class="bg-slate-50 rounded-lg p-6 border border-slate-200">
+                        <h3 class="text-xl font-bold text-center mb-4 text-[#2C3E50]">합격 기준</h3>
+                        <ul class="space-y-3 text-lg">
+                            <li class="flex items-center">
+                                <span class="text-2xl mr-3">💯</span>
+                                <div><strong>총점:</strong> 1,000점 만점</div>
+                            </li>
+                            <li class="flex items-center">
+                                <span class="text-2xl mr-3">🎯</span>
+                                 <div><strong>합격:</strong> <span class="font-bold text-xl text-red-500">600점</span> 이상 취득</div>
+                            </li>
+                            <li class="flex items-center">
+                                <span class="text-2xl mr-3">📝</span>
+                                <div><strong>문항:</strong> 총 10문항 (실기)</div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="introduction" class="mb-16">
+            <h2 class="text-3xl font-bold text-center mb-8">자격증 취득: 코딩 실력의 객관적인 증명</h2>
+            <p class="text-center text-slate-600 max-w-2xl mx-auto mb-12">COS Pro는 단순한 문법 지식을 넘어, 실제 문제 해결 능력을 평가하는 실기 중심의 자격증입니다. 이 과정을 통해 당신의 파이썬 실력을 증명해보세요.</p>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="kpi-card md:col-span-1">
+                    <div class="text-4xl font-extrabold text-[#2C3E50]">알고리즘 사고력</div>
+                    <p class="mt-4 text-slate-600">주어진 문제의 핵심을 파악하고, 해결을 위한 논리적 절차를 설계하는 능력을 강화합니다.</p>
+                </div>
+                <div class="kpi-card md:col-span-1">
+                    <div class="text-4xl font-extrabold text-[#1ABC9C]">문제 해결 능력</div>
+                    <p class="mt-4 text-slate-600">다양한 유형의 실전 문제를 풀면서 어떠한 문제가 나와도 당황하지 않고 해결하는 자신감을 기릅니다.</p>
+                </div>
+                <div class="kpi-card md:col-span-1">
+                    <div class="text-4xl font-extrabold text-[#3498DB]">실무 코드 구현</div>
+                    <p class="mt-4 text-slate-600">시험에서 요구하는 정확한 형식에 맞춰, 효율적이고 가독성 높은 코드를 작성하는 방법을 훈련합니다.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="curriculum-roadmap" class="mb-16">
+            <h2 class="text-3xl font-bold text-center mb-2">로드맵: 8주 완성! COS Pro 2급 합격</h2>
+            <p class="text-center text-slate-600 mb-8">기초 문법 복습부터 실전 모의고사까지, 합격을 위한 가장 효율적인 학습 로드맵을 제시합니다.</p>
+
+            <div class="bg-white rounded-lg shadow-md p-6 mb-12">
+                <h3 class="text-2xl font-bold text-center mb-4">주차별 학습 목표 비중</h3>
+                <p class="text-center text-slate-600 mb-6">기초 다지기에서 시작하여, 유형별 집중 훈련을 거쳐 실전 감각을 극대화하는 과정입니다.</p>
+                <div class="chart-container">
+                    <canvas id="curriculumChart"></canvas>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                <div class="hidden md:grid md:grid-cols-12 bg-slate-100 font-bold text-slate-700 text-center">
+                    <div class="p-4 col-span-1">주차</div>
+                    <div class="p-4 col-span-3">핵심 목표</div>
+                    <div class="p-4 col-span-5">상세 내용</div>
+                    <div class="p-4 col-span-3">실습 과제</div>
+                </div>
+                <div id="roadmap-content"></div>
+            </div>
+        </section>
+
+        <section id="next-steps" class="mb-16">
+            <h2 class="text-3xl font-bold text-center mb-8">합격, 그 이후: 더 높은 목표를 향해</h2>
+            <p class="text-center text-slate-600 max-w-2xl mx-auto mb-12">COS Pro 2급 합격은 당신의 가능성을 증명한 첫걸음입니다. 이 자신감을 바탕으로 더 높은 수준의 개발자로 성장하세요.</p>
+            <div class="bg-white rounded-lg shadow-md p-6">
+                <h3 class="text-2xl font-bold text-center mb-4">자격증 취득 후 추천 트랙</h3>
+                <p class="text-center text-slate-600 mb-8">자격증 취득으로 얻은 자신감과 실력을 바탕으로, 더 전문적인 영역에 도전하여 경쟁력을 갖출 수 있습니다.</p>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+                    <div class="border-2 border-[#2C3E50] rounded-lg p-6">
+                        <div class="text-4xl mb-4">🏆</div>
+                        <h4 class="text-xl font-bold text-[#2C3E50] mb-2">COS Pro 1급 도전</h4>
+                        <p class="text-slate-600">더 복잡한 알고리즘과 심화 문법을 학습하여, 최고 수준의 파이썬 활용 능력을 증명합니다.</p>
+                    </div>
+                    <div class="border-2 border-[#16A085] rounded-lg p-6">
+                        <div class="text-4xl mb-4">🧠</div>
+                        <h4 class="text-xl font-bold text-[#16A085] mb-2">알고리즘 심화 학습</h4>
+                        <p class="text-slate-600">백준, 프로그래머스 등의 코딩 테스트 사이트에서 더 높은 단계의 문제들을 풀며 알고리즘 역량을 강화합니다.</p>
+                    </div>
+                    <div class="border-2 border-[#F39C12] rounded-lg p-6">
+                        <div class="text-4xl mb-4">📁</div>
+                        <h4 class="text-xl font-bold text-[#F39C12] mb-2">포트폴리오 프로젝트</h4>
+                        <p class="text-slate-600">자신만의 아이디어로 실용적인 프로그램을 만들어, 자신의 기술과 경험을 보여주는 포트폴리오를 구축합니다.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="text-center py-8 px-4 bg-gray-800 text-white">
+        <p>'파이썬 COS Pro 2급 자격증 과정'</p>
+        <p class="text-sm text-gray-400 mt-2">© 2025 CodingGround. All rights reserved.</p>
+    </footer>
+
+    <script>
+        const FONT_COLOR = '#2C3E50';
+        const GRID_COLOR = '#e2e8f0';
+        const PALETTE = {
+            navy: '#2C3E50',
+            blue: '#3498DB',
+            turquoise: '#1ABC9C',
+            green: '#2ECC71',
+            yellow: '#F1C40F',
+            orange: '#F39C12',
+            red: '#E74C3C',
+        };
+
+        const curriculumData = [
+            { week: 1, theme: '자격증 소개 및 기초 복습', details: ['COS Pro 시험 유형 분석', '변수, 자료형, 연산자 복습', '기본 입출력 문제 풀이'], practice: '기초 연산 및 출력 형식 맞추기 문제', color: PALETTE.blue },
+            { week: 2, theme: '제어문과 리스트 활용', details: ['`if`, `for`, `while` 조건/반복 제어', '리스트 인덱싱, 슬라이싱, 메서드', '1차원 배열(리스트) 탐색 및 조작'], practice: '리스트 원소 합계, 평균, 최댓값 찾기 문제', color: PALETTE.blue },
+            { week: 3, theme: '함수와 문자열 처리', details: ['함수 정의 및 `return` 활용', '문자열 자르기 (`split`), 합치기 (`join`)', '문자열 검색 및 변경 (`find`, `replace`)'], practice: '특정 단어 개수 세기, 문자열 변환 문제', color: PALETTE.turquoise },
+            { week: 4, theme: '심화 자료구조', details: ['딕셔너리, 세트의 활용', '2차원 리스트(배열)의 이해', '2차원 배열 탐색 및 패턴 찾기'], practice: '좌표 이동, 숫자 세기, 2차원 배열 문제', color: PALETTE.turquoise },
+            { week: 5, theme: '유형 훈련 (1): 빈칸 채우기', details: ['전체 코드의 흐름 파악하기', '주변 코드를 통해 빈칸의 역할 추론', '변수와 함수의 관계 파악'], practice: '기출 변형 빈칸 채우기 문제 집중 풀이', color: PALETTE.green },
+            { week: 6, theme: '유형 훈련 (2): 코드 수정', details: ['오류의 원인(버그) 찾기', '조건문, 반복문의 논리적 오류 수정', '잘못된 변수 사용 및 함수 호출 수정'], practice: '기출 변형 코드 디버깅 및 수정 문제', color: PALETTE.green },
+            { week: 7, theme: '유형 훈련 (3): 함수 구현', details: ['문제의 요구사항을 함수로 변환', '입력값과 반환값 형식 맞추기', '알고리즘 설계 및 코드로 구현'], practice: '기출 변형 함수 구현 문제 집중 풀이', color: PALETTE.orange },
+            { week: 8, theme: '실전 모의고사', details: ['실제 시험과 동일한 환경에서 시간 관리', '문제 풀이 전략 점검', '오답 노트 작성 및 최종 정리'], practice: '최신 기출문제 기반 실전 모의고사 2회', color: PALETTE.red },
+        ];
+
+        const roadmapContainer = document.getElementById('roadmap-content');
+        curriculumData.forEach(item => {
+            const row = `
+                <div class="grid grid-cols-1 md:grid-cols-12 border-b last:border-b-0 items-center transition-all duration-300 hover:bg-slate-50">
+                    <div class="p-4 col-span-1 md:text-center flex items-center md:justify-center bg-slate-50 md:bg-transparent">
+                        <div class="w-16 h-16 rounded-full flex items-center justify-center text-white font-black text-xl" style="background-color: ${item.color};">
+                            ${item.week}주
+                        </div>
+                        <h4 class="md:hidden text-lg font-bold ml-4" style="color: ${item.color};">${item.theme}</h4>
+                    </div>
+                    <div class="p-4 col-span-3 hidden md:block">
+                        <h4 class="text-lg font-bold" style="color: ${item.color};">${item.theme}</h4>
+                    </div>
+                    <div class="p-4 col-span-1 md:col-span-5">
+                        <ul class="list-disc list-inside text-slate-700 space-y-1">
+                            ${item.details.map(detail => `<li>${detail}</li>`).join('')}
+                        </ul>
+                    </div>
+                    <div class="p-4 col-span-1 md:col-span-3 font-bold text-slate-800 md:text-left">
+                        <span class="md:hidden text-sm text-slate-500 font-medium">[실습 과제] </span>
+                        ${item.practice}
+                    </div>
+                </div>
+            `;
+            roadmapContainer.innerHTML += row;
+        });
+
+        const tooltipTitleCallback = (tooltipItems) => {
+            const item = tooltipItems[0];
+            let label = item.chart.data.labels[item.dataIndex];
+            if (Array.isArray(label)) {
+                return label.join(' ');
+            } else {
+                return label;
+            }
+        };
+        
+        const commonOptions = {
+            maintainAspectRatio: false,
+            responsive: true,
+            plugins: {
+                legend: {
+                    labels: {
+                        color: FONT_COLOR,
+                        font: {
+                            family: "'Noto Sans KR', sans-serif",
+                            weight: 'bold'
+                        }
+                    }
+                },
+                tooltip: {
+                    callbacks: {
+                        title: tooltipTitleCallback
+                    },
+                    backgroundColor: 'rgba(7, 59, 76, 0.9)',
+                    titleFont: {
+                        size: 14,
+                        family: "'Noto Sans KR', sans-serif",
+                    },
+                    bodyFont: {
+                        size: 12,
+                        family: "'Noto Sans KR', sans-serif",
+                    },
+                    padding: 10,
+                    cornerRadius: 4,
+                    displayColors: true,
+                }
+            }
+        };
+
+        const curriculumCtx = document.getElementById('curriculumChart').getContext('2d');
+        new Chart(curriculumCtx, {
+            type: 'bar',
+            data: {
+                labels: ['1주차', '2주차', '3주차', '4주차', '5주차', '6주차', '7주차', '8주차'],
+                datasets: [
+                    {
+                        label: '기초 문법 및 유형 파악',
+                        data: [70, 60, 50, 40, 10, 10, 10, 0],
+                        backgroundColor: PALETTE.blue,
+                    },
+                    {
+                        label: '유형별 집중 훈련',
+                        data: [30, 40, 50, 60, 90, 90, 90, 20],
+                        backgroundColor: PALETTE.turquoise,
+                    },
+                    {
+                        label: '실전 모의고사',
+                        data: [0, 0, 0, 0, 0, 0, 0, 80],
+                        backgroundColor: PALETTE.red,
+                    }
+                ]
+            },
+            options: {
+                ...commonOptions,
+                scales: {
+                    x: {
+                        stacked: true,
+                        grid: { display: false },
+                        ticks: { color: FONT_COLOR, font: { weight: 'bold' } }
+                    },
+                    y: {
+                        stacked: true,
+                        grid: { color: GRID_COLOR },
+                        ticks: {
+                            callback: function(value) {
+                                return value + '%';
+                            }
+                        }
+                    }
+                },
+                plugins: {
+                    ...commonOptions.plugins,
+                    legend: { position: 'bottom' }
+                }
+            }
+        });
+
+    </script>
+</body>
+</html>
