@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>K-12 코딩 교육 퍼실리테이터 인포그래픽</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            background-color: #F2F2F2;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 300px;
+            max-height: 400px;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 350px;
+            }
+        }
+        .gradient-text {
+            background: linear-gradient(90deg, #00A6ED, #7FB800);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .flowchart-arrow {
+            font-size: 2rem;
+            color: #FFB400;
+            line-height: 1;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+    <div class="container mx-auto p-4 md:p-8">
+
+        <header class="text-center mb-12 md:mb-16">
+            <h1 class="text-4xl md:text-6xl font-black mb-4 gradient-text">미래 혁신가 양성, 가르침을 넘어 촉진으로</h1>
+            <p class="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">K-12 코딩 교육의 새로운 패러다임: 지식 전달자에서 학습 촉진자로의 전환</p>
+        </header>
+
+        <main class="space-y-16">
+
+            <section id="role-shift">
+                <h2 class="text-3xl font-bold text-center mb-8">교육자의 새로운 역할: 무대 위의 현자 vs 곁의 안내자</h2>
+                <div class="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="bg-white rounded-lg shadow-md p-6 border-l-4 border-[#F6511D]">
+                        <h3 class="text-2xl font-bold mb-4">전통적 교사 (Sage on the Stage)</h3>
+                        <ul class="space-y-3 text-gray-700">
+                            <li class="flex items-start"><span class="mr-3 text-xl">칠판</span><p>지식의 전달자 및 전문가</p></li>
+                            <li class="flex items-start"><span class="mr-3 text-xl">책</span><p>정답과 해결책 제공</p></li>
+                            <li class="flex items-start"><span class="mr-3 text-xl">성적표</span><p>결과 중심의 평가</p></li>
+                            <li class="flex items-start"><span class="mr-3 text-xl">교실</span><p>교사 중심의 학습 환경</p></li>
+                        </ul>
+                    </div>
+                    <div class="bg-white rounded-lg shadow-md p-6 border-l-4 border-[#00A6ED]">
+                        <h3 class="text-2xl font-bold mb-4">현대적 퍼실리테이터 (Guide on the Side)</h3>
+                        <ul class="space-y-3 text-gray-700">
+                            <li class="flex items-start"><span class="mr-3 text-xl">나침반</span><p>학습 과정의 설계자 및 안내자</p></li>
+                            <li class="flex items-start"><span class="mr-3 text-xl">물음표</span><p>전략적 질문으로 사고 촉진</p></li>
+                            <li class="flex items-start"><span class="mr-3 text-xl">성장</span><p>과정 중심의 피드백</p></li>
+                            <li class="flex items-start"><span class="mr-3 text-xl">팀</span><p>학생 주도적 협력 환경 조성</p></li>
+                        </ul>
+                    </div>
+                </div>
+                <p class="text-center mt-8 text-gray-600">퍼실리테이터의 핵심은 '어떻게 배울 것인가'에 초점을 맞춰, 학생들이 스스로 답을 찾는 여정을 지원하는 것입니다.</p>
+            </section>
+
+            <section id="roadmap">
+                <h2 class="text-3xl font-bold text-center mb-8">K-12 코딩 교육 나선형 로드맵</h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="bg-white rounded-lg shadow-md p-6 text-center">
+                        <h3 class="text-2xl font-bold text-[#7FB800] mb-4">초등 (6-12세)</h3>
+                        <p class="font-bold text-lg mb-2">놀이와 발견</p>
+                        <p class="text-gray-600 mb-4 h-16">컴퓨팅 사고력의 기초를 다지고 기술에 대한 긍정적 경험을 심어줍니다.</p>
+                        <div class="text-left space-y-2">
+                            <p><span class="font-bold">도구:</span> 스크래치, 엔트리, 언플러그드 활동</p>
+                            <p><span class="font-bold">개념:</span> 순차, 반복, 조건</p>
+                            <p><span class="font-bold">역할:</span> 놀이 촉진자, 스토리텔러</p>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-lg shadow-md p-6 text-center">
+                        <h3 class="text-2xl font-bold text-[#FFB400] mb-4">중등 (13-15세)</h3>
+                        <p class="font-bold text-lg mb-2">개념과 창작의 연결</p>
+                        <p class="text-gray-600 mb-4 h-16">추상적 개념을 실제 창작물로 만들며 텍스트 코딩으로 전환합니다.</p>
+                        <div class="text-left space-y-2">
+                            <p><span class="font-bold">도구:</span> 파이썬, 아두이노, 앱 인벤터</p>
+                            <p><span class="font-bold">개념:</span> 변수, 함수, 알고리즘 기초</p>
+                            <p><span class="font-bold">역할:</span> 프로젝트 가이드, 비계 제공자</p>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-lg shadow-md p-6 text-center">
+                        <h3 class="text-2xl font-bold text-[#F6511D] mb-4">고등 (16-18세)</h3>
+                        <p class="font-bold text-lg mb-2">심화 학습과 문제 해결</p>
+                        <p class="text-gray-600 mb-4 h-16">실제 세계의 문제를 해결하며 진로와 연계된 전문 역량을 강화합니다.</p>
+                        <div class="text-left space-y-2">
+                            <p><span class="font-bold">도구:</span> 파이썬, Java, Git, 전문 IDE</p>
+                            <p><span class="font-bold">개념:</span> 자료구조, API, 데이터 분석</p>
+                            <p><span class="font-bold">역할:</span> 기술 멘토, 진로 컨설턴트</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="toolkit">
+                <h2 class="text-3xl font-bold text-center mb-8">퍼실리테이터의 핵심 교수법 Toolkit</h2>
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                    <div class="bg-white rounded-lg shadow-md p-6">
+                        <h3 class="text-2xl font-bold text-center mb-4 text-[#00A6ED]">프로젝트 기반 학습 (PBL)</h3>
+                        <p class="text-gray-600 mb-6 text-center">실제적인 문제를 해결하는 과정을 통해 지식과 핵심 역량을 함께 기릅니다.</p>
+                        <div class="flex flex-col items-center space-y-2">
+                            <div class="w-full bg-blue-100 text-blue-800 rounded-md p-3 text-center font-semibold">핵심 질문 설계</div>
+                            <div class="flowchart-arrow">⬇️</div>
+                            <div class="w-full bg-blue-100 text-blue-800 rounded-md p-3 text-center font-semibold">탐구 및 계획</div>
+                            <div class="flowchart-arrow">⬇️</div>
+                            <div class="w-full bg-blue-100 text-blue-800 rounded-md p-3 text-center font-semibold">코칭 및 피드백</div>
+                            <div class="flowchart-arrow">⬇️</div>
+                            <div class="w-full bg-blue-100 text-blue-800 rounded-md p-3 text-center font-semibold">결과물 발표 및 성찰</div>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-lg shadow-md p-6">
+                        <h3 class="text-2xl font-bold text-center mb-4 text-[#7FB800]">페어 프로그래밍</h3>
+                        <p class="text-gray-600 mb-6 text-center">두 학생이 협력하여 코드 품질과 학습 효과를 동시에 높이는 기법입니다.</p>
+                        <div class="flex items-center justify-center space-x-8 p-4 bg-green-50 rounded-lg">
+                            <div class="text-center">
+                                <p class="text-5xl">👩‍💻</p>
+                                <p class="font-bold text-green-800">드라이버</p>
+                                <p class="text-sm text-gray-600">코드 작성</p>
+                            </div>
+                            <div class="text-4xl text-green-600 font-bold">↔️</div>
+                            <div class="text-center">
+                                <p class="text-5xl">🧭</p>
+                                <p class="font-bold text-green-800">내비게이터</p>
+                                <p class="text-sm text-gray-600">전략 제시 및 검토</p>
+                            </div>
+                        </div>
+                         <p class="text-center mt-4 text-gray-600">역할을 주기적으로 교대하며 <span class="font-bold">집중력</span>과 <span class="font-bold">협업 능력</span>을 극대화합니다.</p>
+                    </div>
+                    <div class="bg-white rounded-lg shadow-md p-6">
+                        <h3 class="text-2xl font-bold text-center mb-4 text-[#FFB400]">게이미피케이션</h3>
+                        <p class="text-gray-600 mb-6 text-center">게임적 요소를 활용하여 학습 동기와 참여를 전략적으로 높입니다.</p>
+                        <div class="chart-container h-64">
+                            <canvas id="gamificationChart"></canvas>
+                        </div>
+                        <p class="text-center mt-4 text-gray-600">포인트, 배지, 순위표 등을 통해 <span class="font-bold">도전 의식</span>과 <span class="font-bold">성취감</span>을 자극합니다.</p>
+                    </div>
+                </div>
+            </section>
+            
+            <section id="challenges">
+                <h2 class="text-3xl font-bold text-center mb-8">좌절에서 성장으로: 도전 과제 극복하기</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                    <div class="bg-white rounded-lg shadow-md p-6">
+                        <h3 class="text-2xl font-bold text-center mb-4">디버깅: 실패가 아닌 탐구의 과정</h3>
+                        <p class="text-gray-600 text-center mb-4">버그는 프로그래밍의 필수적인 부분입니다. 디버깅은 코드를 이해하는 가장 좋은 학습 기회입니다.</p>
+                        <div class="chart-container h-64">
+                            <canvas id="debuggingChart"></canvas>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-lg shadow-md p-6">
+                        <h3 class="text-2xl font-bold text-center mb-4">컴퓨팅 사고력(CT) 훈련법</h3>
+                        <p class="text-gray-600 text-center mb-4">복잡한 문제를 해결하기 위한 전문가의 사고방식을 의식적으로 훈련합니다.</p>
+                        <div class="grid grid-cols-2 gap-4 text-center">
+                            <div class="bg-gray-100 p-4 rounded-lg">
+                                <p class="text-3xl mb-2">🧩</p>
+                                <p class="font-bold">분해</p>
+                                <p class="text-sm">큰 문제를 작게 나누기</p>
+                            </div>
+                            <div class="bg-gray-100 p-4 rounded-lg">
+                                <p class="text-3xl mb-2">🎨</p>
+                                <p class="font-bold">패턴 인식</p>
+                                <p class="text-sm">유사점과 규칙 찾기</p>
+                            </div>
+                            <div class="bg-gray-100 p-4 rounded-lg">
+                                <p class="text-3xl mb-2">🎯</p>
+                                <p class="font-bold">추상화</p>
+                                <p class="text-sm">핵심 원리에 집중하기</p>
+                            </div>
+                            <div class="bg-gray-100 p-4 rounded-lg">
+                                <p class="text-3xl mb-2">🗺️</p>
+                                <p class="font-bold">알고리즘</p>
+                                <p class="text-sm">단계별 절차 만들기</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="assessment">
+                <h2 class="text-3xl font-bold text-center mb-8">성장의 가치: 과정 중심 평가로의 전환</h2>
+                <p class="text-center text-gray-600 max-w-2xl mx-auto mb-8">최종 결과물만큼 중요한 것은 협업, 문제 분석, 그리고 성장 과정 그 자체입니다. 평가는 학습을 위한 강력한 도구가 됩니다.</p>
+                <div class="bg-white rounded-lg shadow-md p-6">
+                     <div class="chart-container h-96">
+                        <canvas id="assessmentChart"></canvas>
+                    </div>
+                </div>
+            </section>
+            
+            <section id="blueprints">
+                <h2 class="text-3xl font-bold text-center mb-8">현장 적용을 위한 프로젝트 청사진</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="bg-white rounded-lg shadow-md p-6 flex flex-col">
+                        <h3 class="text-2xl font-bold mb-2 text-[#00A6ED]">아두이노 스마트팜 (중등)</h3>
+                        <p class="text-gray-600 mb-4 flex-grow">"기술로 식물이 자라기 완벽한 환경을 만들 수 있을까?"</p>
+                        <ul class="space-y-2 text-gray-700">
+                            <li><span class="font-bold">융합:</span> 생물 + 공학 + 코딩</li>
+                            <li><span class="font-bold">활동:</span> 센서 연결, 자동화 코드 작성, 시스템 테스트</li>
+                            <li><span class="font-bold">학습:</span> 입출력, 조건문, 하드웨어 제어</li>
+                        </ul>
+                    </div>
+                    <div class="bg-white rounded-lg shadow-md p-6 flex flex-col">
+                        <h3 class="text-2xl font-bold mb-2 text-[#F6511D]">공공 데이터 스토리텔링 (고등)</h3>
+                        <p class="text-gray-600 mb-4 flex-grow">"우리 동네 데이터 속에 어떤 이야기가 숨어있을까?"</p>
+                        <ul class="space-y-2 text-gray-700">
+                            <li><span class="font-bold">융합:</span> 사회 + 통계 + 데이터 과학</li>
+                            <li><span class="font-bold">활동:</span> 데이터 정제, 파이썬 분석, 시각화</li>
+                            <li><span class="font-bold">학습:</span> 데이터 분석, 라이브러리 활용, 스토리텔링</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+
+        <footer class="text-center mt-16 pt-8 border-t border-gray-300">
+            <p class="text-gray-600">'K-12 코딩 교육을 위한 퍼실리테이터 플레이북'</p>
+            <p class="text-sm text-gray-500 mt-2">창의적인 미래 인재 양성을 위한 교육의 변화, 지금 시작됩니다.</p>
+        </footer>
+
+    </div>
+
+    <script>
+        const wrapLabel = (label, maxWidth) => {
+            if (label.length <= maxWidth) {
+                return label;
+            }
+            const words = label.split(' ');
+            const lines = [];
+            let currentLine = '';
+            words.forEach(word => {
+                if ((currentLine + ' ' + word).trim().length > maxWidth) {
+                    lines.push(currentLine.trim());
+                    currentLine = word;
+                } else {
+                    currentLine = (currentLine + ' ' + word).trim();
+                }
+            });
+            if (currentLine) {
+                lines.push(currentLine.trim());
+            }
+            return lines;
+        };
+        
+        const tooltipTitleCallback = (tooltipItems) => {
+            const item = tooltipItems[0];
+            let label = item.chart.data.labels[item.dataIndex];
+            if (Array.isArray(label)) {
+                return label.join(' ');
+            }
+            return label;
+        };
+
+        const energeticPlayfulPalette = {
+            blue: '#00A6ED',
+            green: '#7FB800',
+            yellow: '#FFB400',
+            red: '#F6511D',
+            lightGray: '#F2F2F2',
+            darkGray: '#333333'
+        };
+
+        const gamificationCtx = document.getElementById('gamificationChart').getContext('2d');
+        new Chart(gamificationCtx, {
+            type: 'bar',
+            data: {
+                labels: ['일반 수업', '게이미피케이션 적용'],
+                datasets: [{
+                    label: '학생 학습 동기 부여',
+                    data: [65, 92],
+                    backgroundColor: [energeticPlayfulPalette.blue, energeticPlayfulPalette.green],
+                    borderColor: [energeticPlayfulPalette.blue, energeticPlayfulPalette.green],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        max: 100,
+                        ticks: {
+                            color: energeticPlayfulPalette.darkGray
+                        }
+                    },
+                    x: {
+                       ticks: {
+                            color: energeticPlayfulPalette.darkGray
+                        }
+                    }
+                },
+                plugins: {
+                    legend: {
+                        display: false
+                    },
+                    tooltip: {
+                        callbacks: {
+                           title: tooltipTitleCallback
+                        }
+                    }
+                }
+            }
+        });
+
+        const debuggingCtx = document.getElementById('debuggingChart').getContext('2d');
+        new Chart(debuggingCtx, {
+            type: 'doughnut',
+            data: {
+                labels: ['코드 작성', '디버깅 및 테스트', '아이디어 구상'],
+                datasets: [{
+                    data: [40, 45, 15],
+                    backgroundColor: [
+                        energeticPlayfulPalette.blue,
+                        energeticPlayfulPalette.red,
+                        energeticPlayfulPalette.yellow
+                    ],
+                    hoverOffset: 4
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        position: 'bottom',
+                        labels: {
+                            color: energeticPlayfulPalette.darkGray
+                        }
+                    },
+                    tooltip: {
+                        callbacks: {
+                           title: tooltipTitleCallback
+                        }
+                    }
+                }
+            }
+        });
+
+        const assessmentCtx = document.getElementById('assessmentChart').getContext('2d');
+        const originalLabels = ['협업 및 소통 능력', '문제 분석 및 설계 과정', '최종 코드 완성도'];
+        const wrappedLabels = originalLabels.map(label => wrapLabel(label, 16));
+        
+        new Chart(assessmentCtx, {
+            type: 'bar',
+            data: {
+                labels: wrappedLabels,
+                datasets: [
+                    {
+                        label: '전통적 평가',
+                        data: [10, 20, 70],
+                        backgroundColor: energeticPlayfulPalette.blue,
+                    },
+                    {
+                        label: '과정 중심 평가',
+                        data: [40, 40, 20],
+                        backgroundColor: energeticPlayfulPalette.green,
+                    }
+                ]
+            },
+            options: {
+                indexAxis: 'y',
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    x: {
+                        stacked: true,
+                        ticks: {
+                            callback: function(value) {
+                                return value + '%'
+                            },
+                            color: energeticPlayfulPalette.darkGray
+                        }
+                    },
+                    y: {
+                        stacked: true,
+                        ticks: {
+                            color: energeticPlayfulPalette.darkGray
+                        }
+                    }
+                },
+                plugins: {
+                    title: {
+                        display: true,
+                        text: '평가 비중의 변화',
+                        font: {
+                            size: 16
+                        },
+                        color: energeticPlayfulPalette.darkGray
+                    },
+                    legend: {
+                       position: 'top',
+                       labels: {
+                           color: energeticPlayfulPalette.darkGray
+                       }
+                    },
+                    tooltip: {
+                        callbacks: {
+                           title: tooltipTitleCallback
+                        }
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
