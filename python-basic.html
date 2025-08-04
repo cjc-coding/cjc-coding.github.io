@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>파이썬 기초 마스터 과정 | 인터랙티브 인포그래픽</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            background-color: #f0f4f8;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 400px;
+            max-height: 450px;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 450px;
+                max-height: 500px;
+            }
+        }
+        .gradient-text {
+            background: linear-gradient(to right, #118AB2, #06D6A0);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .kpi-card {
+            background-color: white;
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            text-align: center;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .kpi-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-gray-800">
+
+    <header class="text-center py-12 px-4 bg-white shadow-lg">
+        <h1 class="text-4xl md:text-6xl font-black gradient-text">파이썬 기초 마스터 과정</h1>
+        <p class="mt-4 text-lg md:text-xl text-slate-600 max-w-3xl mx-auto">코딩의 첫걸음부터 견고한 애플리케이션 구축까지, 파이썬의 모든 것을 시각적으로 탐험하세요.</p>
+    </header>
+
+    <main class="container mx-auto p-4 md:p-8">
+
+        <section id="introduction" class="mb-16">
+            <h2 class="text-3xl font-bold text-center mb-8">첫걸음: 파이썬의 매력 발견하기</h2>
+            <p class="text-center text-slate-600 max-w-2xl mx-auto mb-12">모든 위대한 여정은 첫걸음부터 시작됩니다. 파이썬이 왜 오늘날 가장 사랑받는 언어 중 하나인지, 그 매력과 가능성을 먼저 알아보세요.</p>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="kpi-card md:col-span-1">
+                    <div class="text-4xl font-extrabold text-[#FF6B6B]">높은 생산성</div>
+                    <p class="mt-4 text-slate-600">간결한 문법으로 개발 속도를 극대화하여, 아이디어를 빠르게 현실로 만들 수 있습니다.</p>
+                </div>
+                <div class="kpi-card md:col-span-1">
+                    <div class="text-4xl font-extrabold text-[#FFD166]">방대한 생태계</div>
+                    <p class="mt-4 text-slate-600">수십만 개의 라이브러리를 통해 어떤 문제든 쉽게 해결할 수 있는 강력한 도구를 제공합니다.</p>
+                </div>
+                <div class="kpi-card md:col-span-1">
+                    <div class="text-4xl font-extrabold text-[#06D6A0]">뛰어난 가독성</div>
+                    <p class="mt-4 text-slate-600">영어와 유사한 문법과 강제된 들여쓰기 규칙으로 누구나 쉽게 읽고 이해할 수 있습니다.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="curriculum-roadmap" class="mb-16">
+            <h2 class="text-3xl font-bold text-center mb-2">로드맵: 8주 완성! 탄탄한 파이썬 기초</h2>
+            <p class="text-center text-slate-600 mb-8">처음 코딩을 접하는 학생들을 위해 충분한 실습과 문제 풀이 시간을 확보한 8주 완성 과정입니다.</p>
+
+            <div class="bg-white rounded-lg shadow-md p-6 mb-12">
+                <h3 class="text-2xl font-bold text-center mb-4">주차별 학습 목표 비중</h3>
+                <p class="text-center text-slate-600 mb-6">개념 학습에서 문제 해결 능력 강화, 프로젝트 완성으로 이어지는 학습 비중의 변화를 확인해보세요.</p>
+                <div class="chart-container">
+                    <canvas id="curriculumChart"></canvas>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                <div class="hidden md:grid md:grid-cols-12 bg-slate-100 font-bold text-slate-700 text-center">
+                    <div class="p-4 col-span-1">주차</div>
+                    <div class="p-4 col-span-3">핵심 목표</div>
+                    <div class="p-4 col-span-5">상세 내용</div>
+                    <div class="p-4 col-span-3">실습 과제</div>
+                </div>
+                <div id="roadmap-content"></div>
+            </div>
+        </section>
+
+        <section id="next-steps" class="mb-16">
+            <h2 class="text-3xl font-bold text-center mb-8">새로운 시작: 기초를 넘어 전문가로</h2>
+            <p class="text-center text-slate-600 max-w-2xl mx-auto mb-12">기초는 끝이 아닌 새로운 시작입니다. 파이썬이라는 강력한 도구로 당신의 아이디어를 실현할 수 있는 다양한 길을 탐험해보세요.</p>
+            <div class="bg-white rounded-lg shadow-md p-6">
+                <h3 class="text-2xl font-bold text-center mb-4">전문 분야별 학습 로드맵</h3>
+                <p class="text-center text-slate-600 mb-8">파이썬 기초를 마스터했다면, 이제 당신의 목표에 맞는 전문 분야로 나아갈 시간입니다. 각 트랙은 심화된 기술과 라이브러리 학습을 필요로 합니다.</p>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+                    <div class="border-2 border-[#118AB2] rounded-lg p-6">
+                        <div class="text-4xl mb-4">🌐</div>
+                        <h4 class="text-xl font-bold text-[#118AB2] mb-2">웹 개발</h4>
+                        <p class="text-slate-600">Django, Flask 프레임워크를 학습하여 동적인 웹 애플리케이션과 API 서버를 구축합니다.</p>
+                    </div>
+                    <div class="border-2 border-[#06D6A0] rounded-lg p-6">
+                        <div class="text-4xl mb-4">📊</div>
+                        <h4 class="text-xl font-bold text-[#06D6A0] mb-2">데이터 과학</h4>
+                        <p class="text-slate-600">NumPy, Pandas, Matplotlib를 사용하여 데이터를 분석하고 시각화하는 기술을 익힙니다.</p>
+                    </div>
+                    <div class="border-2 border-[#FFD166] rounded-lg p-6">
+                        <div class="text-4xl mb-4">🤖</div>
+                        <h4 class="text-xl font-bold text-[#FFD166] mb-2">자동화 & 스크립팅</h4>
+                        <p class="text-slate-600">Requests, Selenium 라이브러리로 웹 크롤링, 업무 자동화 등 반복 작업을 해결합니다.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="text-center py-8 px-4 bg-gray-800 text-white">
+        <p>'파이썬 기초 과정 커리큘럼'</p>
+        <p class="text-sm text-gray-400 mt-2">© 2025 CodingGround. All rights reserved.</p>
+    </footer>
+
+    <script>
+        const FONT_COLOR = '#073B4C';
+        const GRID_COLOR = '#e2e8f0';
+        const PALETTE = {
+            red: '#FF6B6B',
+            yellow: '#FFD166',
+            green: '#06D6A0',
+            blue: '#118AB2',
+            navy: '#073B4C'
+        };
+
+        const curriculumData = [
+            { week: 1, theme: '파이썬과 친해지기', details: ['파이썬 설치, VS Code 설정', '`print()`로 출력하기', '변수, 기본 자료형 (숫자, 문자열)'], practice: '자기소개 프로그램 만들기', color: PALETTE.blue },
+            { week: 2, theme: '컴퓨터와 대화하기', details: ['`input()`으로 사용자 입력받기', '산술 연산자 (+, -, *, /)', '데이터 타입 변환 (int, str, float)'], practice: '간단한 계산기, 백준 기초 입출력 문제', color: PALETTE.blue },
+            { week: 3, theme: '논리적인 생각하기', details: ['불리언 (`True`, `False`)', '비교 연산자 (==, !=, >, <)', '`if`, `elif`, `else`'], practice: '짝수/홀수 판별, 프로그래머스 Level 0', color: PALETTE.green },
+            { week: 4, theme: '컴퓨터에게 일 시키기', details: ['`for` 반복문과 `range()`', '`while` 반복문', '`break`, `continue`'], practice: '구구단 출력, 별 찍기, 기초 반복문 문제', color: PALETTE.green },
+            { week: 5, theme: '데이터 묶음 관리하기', details: ['리스트 생성, 인덱싱, 슬라이싱', '리스트 메서드 (`append`, `pop` 등)', '`for`문과 리스트 활용'], practice: '학생 명단 관리, 리스트 관련 문제', color: PALETTE.yellow },
+            { week: 6, theme: '이름표 붙여 정리하기', details: ['딕셔너리 (키-값 쌍)', '튜플 (변경 불가능한 리스트)', '언제 무엇을 쓸까?'], practice: '개인 정보 관리, 단어장 만들기', color: PALETTE.yellow },
+            { week: 7, theme: '나만의 도구 만들기', details: ['함수 정의 (`def`)와 호출', '매개변수와 반환값 (`return`)', '코드 재사용의 중요성'], practice: '이전 코드 함수로 만들기', color: PALETTE.red },
+            { week: 8, theme: '세상에 하나뿐인 프로그램', details: ['`random` 모듈 활용', '지금까지 배운 모든 것 종합', '프로젝트 기획 및 제작'], practice: '숫자 맞추기 게임 완성하기', color: PALETTE.red },
+        ];
+
+        const roadmapContainer = document.getElementById('roadmap-content');
+        curriculumData.forEach(item => {
+            const row = `
+                <div class="grid grid-cols-1 md:grid-cols-12 border-b last:border-b-0 items-center transition-all duration-300 hover:bg-slate-50">
+                    <div class="p-4 col-span-1 md:text-center flex items-center md:justify-center bg-slate-50 md:bg-transparent">
+                        <div class="w-16 h-16 rounded-full flex items-center justify-center text-white font-black text-xl" style="background-color: ${item.color};">
+                            ${item.week}주
+                        </div>
+                        <h4 class="md:hidden text-lg font-bold ml-4" style="color: ${item.color};">${item.theme}</h4>
+                    </div>
+                    <div class="p-4 col-span-3 hidden md:block">
+                        <h4 class="text-lg font-bold" style="color: ${item.color};">${item.theme}</h4>
+                    </div>
+                    <div class="p-4 col-span-1 md:col-span-5">
+                        <ul class="list-disc list-inside text-slate-700 space-y-1">
+                            ${item.details.map(detail => `<li>${detail}</li>`).join('')}
+                        </ul>
+                    </div>
+                    <div class="p-4 col-span-1 md:col-span-3 font-bold text-slate-800 md:text-left">
+                        <span class="md:hidden text-sm text-slate-500 font-medium">[실습 과제] </span>
+                        ${item.practice}
+                    </div>
+                </div>
+            `;
+            roadmapContainer.innerHTML += row;
+        });
+
+        const tooltipTitleCallback = (tooltipItems) => {
+            const item = tooltipItems[0];
+            let label = item.chart.data.labels[item.dataIndex];
+            if (Array.isArray(label)) {
+                return label.join(' ');
+            } else {
+                return label;
+            }
+        };
+        
+        const commonOptions = {
+            maintainAspectRatio: false,
+            responsive: true,
+            plugins: {
+                legend: {
+                    labels: {
+                        color: FONT_COLOR,
+                        font: {
+                            family: "'Noto Sans KR', sans-serif",
+                            weight: 'bold'
+                        }
+                    }
+                },
+                tooltip: {
+                    callbacks: {
+                        title: tooltipTitleCallback
+                    },
+                    backgroundColor: 'rgba(7, 59, 76, 0.9)',
+                    titleFont: {
+                        size: 14,
+                        family: "'Noto Sans KR', sans-serif",
+                    },
+                    bodyFont: {
+                        size: 12,
+                        family: "'Noto Sans KR', sans-serif",
+                    },
+                    padding: 10,
+                    cornerRadius: 4,
+                    displayColors: true,
+                }
+            }
+        };
+
+        const curriculumCtx = document.getElementById('curriculumChart').getContext('2d');
+        new Chart(curriculumCtx, {
+            type: 'bar',
+            data: {
+                labels: ['1주차', '2주차', '3주차', '4주차', '5주차', '6주차', '7주차', '8주차'],
+                datasets: [
+                    {
+                        label: '이론 및 개념',
+                        data: [80, 40, 30, 30, 30, 30, 20, 10],
+                        backgroundColor: PALETTE.blue,
+                    },
+                    {
+                        label: '코드 실습 및 문제 풀이',
+                        data: [20, 60, 70, 70, 70, 60, 50, 30],
+                        backgroundColor: PALETTE.green,
+                    },
+                    {
+                        label: '미니 프로젝트',
+                        data: [0, 0, 0, 0, 0, 10, 30, 60],
+                        backgroundColor: PALETTE.red,
+                    }
+                ]
+            },
+            options: {
+                ...commonOptions,
+                scales: {
+                    x: {
+                        stacked: true,
+                        grid: { display: false },
+                        ticks: { color: FONT_COLOR, font: { weight: 'bold' } }
+                    },
+                    y: {
+                        stacked: true,
+                        grid: { color: GRID_COLOR },
+                        ticks: {
+                            callback: function(value) {
+                                return value + '%';
+                            }
+                        }
+                    }
+                },
+                plugins: {
+                    ...commonOptions.plugins,
+                    legend: { position: 'bottom' }
+                }
+            }
+        });
+
+    </script>
+</body>
+</html>
