@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spring Boot 3 백엔드 마스터 플랜</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            background-color: #F8F9FA;
+        }
+        .flowchart-step {
+            border-color: #00A6A6;
+            background-color: white;
+            color: #003D3D;
+        }
+        .flowchart-arrow {
+            color: #FF9F1C;
+        }
+        .card-gradient {
+            background: linear-gradient(135deg, #00A6A6, #753A88);
+        }
+        .curriculum-card {
+            background-color: white;
+            border-left: 5px solid;
+            transition: all 0.3s ease-in-out;
+        }
+        .curriculum-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+        .detail-item {
+            display: list-item;
+            list-style-type: '✔ ';
+            margin-left: 1.5rem;
+            padding-left: 0.5rem;
+        }
+    </style>
+</head>
+<body class="text-gray-800">
+
+    <header class="card-gradient text-white text-center py-16 px-4 shadow-xl">
+        <h1 class="text-4xl md:text-6xl font-black mb-4">Spring Boot 3 백엔드 마스터 플랜</h1>
+        <p class="text-lg md:text-xl max-w-3xl mx-auto">Java 21과 최신 Spring 기술 스택으로 완성하는 24주간의 실전 개발자 성장 여정</p>
+    </header>
+
+    <main class="container mx-auto p-4 md:p-8">
+
+        <section id="tech-stack" class="my-16">
+            <h2 class="text-3xl font-bold text-center mb-2">미래를 주도할 핵심 기술 스택</h2>
+            <p class="text-center text-gray-600 mb-12 max-w-2xl mx-auto">안정성과 고성능을 모두 잡은 최신 기술 조합은 단순한 선택이 아닌, 성공적인 커리어를 위한 전략입니다.</p>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+                <div class="bg-white p-8 rounded-xl shadow-lg transform hover:scale-105 transition-transform duration-300">
+                    <div class="text-6xl mb-4" style="color: #CC2936;">☕</div>
+                    <h3 class="text-2xl font-bold mb-2">Java 21</h3>
+                    <p class="text-gray-600">가상 스레드(Virtual Threads) 도입으로 대규모 트래픽 처리 성능을 극대화하여 애플리케이션의 응답성을 혁신합니다.</p>
+                </div>
+                <div class="bg-white p-8 rounded-xl shadow-lg transform hover:scale-105 transition-transform duration-300">
+                    <div class="text-6xl mb-4" style="color: #00A6A6;">🚀</div>
+                    <h3 class="text-2xl font-bold mb-2">Spring Boot 3</h3>
+                    <p class="text-gray-600">Jakarta EE 기반으로 전환하고 GraalVM 네이티브 이미지 지원을 강화하여 더 빠른 시작 시간과 낮은 메모리 사용량을 달성합니다.</p>
+                </div>
+                <div class="bg-white p-8 rounded-xl shadow-lg transform hover:scale-105 transition-transform duration-300">
+                    <div class="text-6xl mb-4" style="color: #753A88;">🐘</div>
+                    <h3 class="text-2xl font-bold mb-2">Gradle</h3>
+                    <p class="text-gray-600">간결한 Groovy/Kotlin DSL을 통해 복잡한 의존성 관리와 빌드 프로세스를 자동화하는 현대적인 빌드 도구입니다.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="roadmap" class="my-16">
+            <h2 class="text-3xl font-bold text-center mb-2">성공을 위한 "골드 스탠더드" 학습 로드맵</h2>
+            <p class="text-center text-gray-600 mb-12 max-w-2xl mx-auto">체계적인 학습 경로를 따라가며 백엔드 개발의 모든 단계를 마스터하세요.</p>
+            <div class="flex flex-col items-center">
+                <div class="w-full max-w-4xl">
+                    <div class="flowchart-step p-4 rounded-lg shadow-md border-l-4 mb-4 text-center">
+                        <h3 class="font-bold text-lg">1. 기초 다지기</h3>
+                        <p class="text-sm">개발 환경 구축 (JDK, IDE, Git) 및 Spring Initializr 프로젝트 생성</p>
+                    </div>
+                    <div class="text-4xl text-center flowchart-arrow font-bold">↓</div>
+                    <div class="flowchart-step p-4 rounded-lg shadow-md border-l-4 my-4 text-center">
+                        <h3 class="font-bold text-lg">2. Spring 웹 & MVC</h3>
+                        <p class="text-sm">DI, 컨트롤러, REST API 설계를 통해 HTTP 요청 처리</p>
+                    </div>
+                    <div class="text-4xl text-center flowchart-arrow font-bold">↓</div>
+                    <div class="flowchart-step p-4 rounded-lg shadow-md border-l-4 my-4 text-center">
+                        <h3 class="font-bold text-lg">3. 데이터 영속성 (JPA)</h3>
+                        <p class="text-sm">ORM, Entity, Repository를 활용한 CRUD 게시판 프로젝트 구현</p>
+                    </div>
+                    <div class="text-4xl text-center flowchart-arrow font-bold">↓</div>
+                    <div class="flowchart-step p-4 rounded-lg shadow-md border-l-4 my-4 text-center">
+                        <h3 class="font-bold text-lg">4. 고급 기능</h3>
+                        <p class="text-sm">Spring Security (인증/인가), JWT, OAuth2를 통한 보안 강화</p>
+                    </div>
+                    <div class="text-4xl text-center flowchart-arrow font-bold">↓</div>
+                    <div class="flowchart-step p-4 rounded-lg shadow-md border-l-4 mt-4 text-center">
+                        <h3 class="font-bold text-lg">5. 상용화 준비 (DevOps)</h3>
+                        <p class="text-sm">TDD, AWS 배포, Docker 컨테이너화, CI/CD 파이프라인 구축</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="detailed-curriculum" class="my-16">
+            <h2 class="text-3xl font-bold text-center mb-2">24주(6개월) 완성, 주차별 커리큘럼</h2>
+            <p class="text-center text-gray-600 mb-12 max-w-2xl mx-auto">기초부터 실전 프로젝트까지, 전문 개발자로 성장하는 24주간의 상세 여정입니다.</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="curriculum-card p-6 rounded-lg shadow-md" style="border-color: #00A6A6;">
+                    <h3 class="font-bold text-xl mb-4 text-gray-800">Unit 1: Java & Spring 기초 (1-4주차)</h3>
+                    <ul class="space-y-4 text-gray-600">
+                        <li><strong class="text-gray-800">1주: Java Core & 개발 환경</strong><ul class="mt-2 space-y-1"><li class="detail-item">Java 21, OOP(상속, 다형성, 캡슐화)</li><li class="detail-item">JDK, IntelliJ, Git, GitHub 설정</li></ul></li>
+                        <li><strong class="text-gray-800">2주: Gradle & Spring Boot 입문</strong><ul class="mt-2 space-y-1"><li class="detail-item">Gradle 빌드, 의존성 관리(build.gradle)</li><li class="detail-item">Spring Initializr, 로깅(SLF4J, Logback)</li></ul></li>
+                        <li><strong class="text-gray-800">3주: Spring Core & MVC</strong><ul class="mt-2 space-y-1"><li class="detail-item">DI/IoC, Bean 생명주기, Component Scan</li><li class="detail-item">MVC 패턴, Controller, Service, Repository</li></ul></li>
+                        <li><strong class="text-gray-800">4주: REST API 설계</strong><ul class="mt-2 space-y-1"><li class="detail-item">HTTP 메서드, 상태 코드, DTO 패턴</li><li class="detail-item">@RequestBody, @ResponseBody, 유효성 검사</li></ul></li>
+                    </ul>
+                </div>
+                <div class="curriculum-card p-6 rounded-lg shadow-md" style="border-color: #753A88;">
+                    <h3 class="font-bold text-xl mb-4 text-gray-800">Unit 2: 데이터와 JPA (5-8주차)</h3>
+                    <ul class="space-y-4 text-gray-600">
+                        <li><strong class="text-gray-800">5주: 데이터베이스 기초</strong><ul class="mt-2 space-y-1"><li class="detail-item">SQL(DDL, DML), RDBMS(MySQL) 설치</li><li class="detail-item">H2 인메모리 DB, 테이블 설계</li></ul></li>
+                        <li><strong class="text-gray-800">6주: JPA & Hibernate</strong><ul class="mt-2 space-y-1"><li class="detail-item">ORM, JPA, Hibernate, Entity 생명주기</li><li class="detail-item">@Entity, @Id, @GeneratedValue, 영속성 컨텍스트</li></ul></li>
+                        <li><strong class="text-gray-800">7주: JPA 매핑과 쿼리</strong><ul class="mt-2 space-y-1"><li class="detail-item">연관관계 매핑(@OneToMany, @ManyToOne)</li><li class="detail-item">Repository, JPQL, QueryDSL 기초</li></ul></li>
+                        <li><strong class="text-gray-800">8주: 1차 미니 프로젝트</strong><ul class="mt-2 space-y-1"><li class="detail-item">CRUD 게시판 API 구현 및 데이터베이스 연동</li><li class="detail-item">Postman을 이용한 API 기능 테스트</li></ul></li>
+                    </ul>
+                </div>
+                <div class="curriculum-card p-6 rounded-lg shadow-md" style="border-color: #CC2936;">
+                    <h3 class="font-bold text-xl mb-4 text-gray-800">Unit 3: 보안과 인증 (9-12주차)</h3>
+                    <ul class="space-y-4 text-gray-600">
+                        <li><strong class="text-gray-800">9주: Spring Security</strong><ul class="mt-2 space-y-1"><li class="detail-item">Security 아키텍처, FilterChain, 인증/인가</li><li class="detail-item">PasswordEncoder, UserDetailsService</li></ul></li>
+                        <li><strong class="text-gray-800">10주: JWT 토큰 인증</strong><ul class="mt-2 space-y-1"><li class="detail-item">Stateless 인증, JWT 생성 및 검증</li><li class="detail-item">인증 필터 구현, Refresh Token 전략</li></ul></li>
+                        <li><strong class="text-gray-800">11주: OAuth2 소셜 로그인</strong><ul class="mt-2 space-y-1"><li class="detail-item">OAuth2 동작 원리, Provider(Google, Kakao)</li><li class="detail-item">소셜 로그인 연동 및 회원 정보 통합</li></ul></li>
+                        <li><strong class="text-gray-800">12주: 프로젝트 고도화 I</strong><ul class="mt-2 space-y-1"><li class="detail-item">기존 프로젝트에 회원가입/로그인 기능 추가</li><li class="detail-item">인증된 사용자만 API 접근 가능하도록 구현</li></ul></li>
+                    </ul>
+                </div>
+                <div class="curriculum-card p-6 rounded-lg shadow-md" style="border-color: #FF9F1C;">
+                    <h3 class="font-bold text-xl mb-4 text-gray-800">Unit 4: 품질과 최적화 (13-16주차)</h3>
+                    <ul class="space-y-4 text-gray-600">
+                        <li><strong class="text-gray-800">13주: 테스트 주도 개발(TDD)</strong><ul class="mt-2 space-y-1"><li class="detail-item">JUnit5, AssertJ, 단위/통합 테스트</li><li class="detail-item">Mockito를 이용한 Mocking, TDD 사이클</li></ul></li>
+                        <li><strong class="text-gray-800">14주: JPA 성능 최적화</strong><ul class="mt-2 space-y-1"><li class="detail-item">N+1 문제 원인 분석 및 해결 (Fetch Join)</li><li class="detail-item">지연/즉시 로딩 전략, Batch Size 설정</li></ul></li>
+                        <li><strong class="text-gray-800">15주: 고급 기능</strong><ul class="mt-2 space-y-1"><li class="detail-item">@Async를 이용한 비동기 처리, 스레드 풀</li><li class="detail-item">@Scheduled를 이용한 주기적 작업 실행</li></ul></li>
+                        <li><strong class="text-gray-800">16주: 프로젝트 고도화 II</strong><ul class="mt-2 space-y-1"><li class="detail-item">SOLID 원칙, 디자인 패턴 적용 리팩토링</li><li class="detail-item">동료 코드 리뷰 및 피드백 반영</li></ul></li>
+                    </ul>
+                </div>
+                <div class="curriculum-card p-6 rounded-lg shadow-md" style="border-color: #F4D35E;">
+                    <h3 class="font-bold text-xl mb-4 text-gray-800">Unit 5: DevOps와 배포 (17-20주차)</h3>
+                    <ul class="space-y-4 text-gray-600">
+                        <li><strong class="text-gray-800">17주: AWS & Linux</strong><ul class="mt-2 space-y-1"><li class="detail-item">AWS 핵심 서비스(EC2, S3, RDS) 이해</li><li class="detail-item">Linux 기본 명령어, 서버 환경 설정</li></ul></li>
+                        <li><strong class="text-gray-800">18주: Docker & Nginx</strong><ul class="mt-2 space-y-1"><li class="detail-item">Docker 컨테이너, Dockerfile 작성</li><li class="detail-item">Nginx 리버스 프록시, 로드 밸런싱</li></ul></li>
+                        <li><strong class="text-gray-800">19주: CI/CD 자동화</strong><ul class="mt-2 space-y-1"><li class="detail-item">CI/CD 개념, GitHub Actions 워크플로우</li><li class="detail-item">빌드-테스트-배포 자동화 파이프라인 구축</li></ul></li>
+                        <li><strong class="text-gray-800">20주: 프로젝트 고도화 III</strong><ul class="mt-2 space-y-1"><li class="detail-item">프로젝트 Dockerizing 및 AWS 배포</li><li class="detail-item">무중단 배포 전략 적용</li></ul></li>
+                    </ul>
+                </div>
+                <div class="curriculum-card p-6 rounded-lg shadow-md" style="border-color: #1E90FF;">
+                    <h3 class="font-bold text-xl mb-4 text-gray-800">Unit 6: 최종 팀 프로젝트 (21-24주차)</h3>
+                    <ul class="space-y-4 text-gray-600">
+                        <li><strong class="text-gray-800">21주: 기획 및 설계</strong><ul class="mt-2 space-y-1"><li class="detail-item">팀 빌딩, 아이디어 회의, 서비스 기획</li><li class="detail-item">요구사항 명세, ERD, API 명세서 작성</li></ul></li>
+                        <li><strong class="text-gray-800">22주: 개발 방법론 및 착수</strong><ul class="mt-2 space-y-1"><li class="detail-item">애자일/스크럼, 칸반 보드, Git-flow 전략</li><li class="detail-item">프론트엔드 협업 및 개발 시작</li></ul></li>
+                        <li><strong class="text-gray-800">23주: 개발 심화</strong><ul class="mt-2 space-y-1"><li class="detail-item">페어 프로그래밍, 코드 리뷰, 기능 통합</li><li class="detail-item">중간 발표 및 피드백 반영</li></ul></li>
+                        <li><strong class="text-gray-800">24주: 마무리 및 발표</strong><ul class="mt-2 space-y-1"><li class="detail-item">최종 배포, 성능 테스트, 포트폴리오 정리</li><li class="detail-item">프로젝트 최종 발표 및 회고</li></ul></li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="bg-gray-800 text-white text-center p-8 mt-16">
+        <p class="font-bold">성공적인 커리어의 시작</p>
+        <p class="text-sm text-gray-400 mt-2">Spring Boot 3와 Java 21 기술 스택은 시장에서 높은 가치를 인정받는 강력한 무기입니다. <br>올바른 경로를 선택하고 꾸준히 노력한다면, 당신도 최고의 백엔드 개발자가 될 수 있습니다.</p>
+    </footer>
+
+</body>
+</html>
