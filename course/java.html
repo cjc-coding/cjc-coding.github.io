@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자바 기초 교육과정 마스터 플랜</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            background-color: #F8F9FA;
+        }
+        .flowchart-step {
+            border-color: #00A6A6;
+            background-color: white;
+            color: #003D3D;
+        }
+        .flowchart-arrow {
+            color: #FF9F1C;
+        }
+        .card-gradient {
+            background: linear-gradient(135deg, #007BFF, #00C6A7);
+        }
+        .curriculum-card {
+            background-color: white;
+            border-left: 5px solid;
+            transition: all 0.3s ease-in-out;
+        }
+        .curriculum-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+        .detail-item {
+            display: list-item;
+            list-style-type: '✔ ';
+            margin-left: 1.5rem;
+            padding-left: 0.5rem;
+        }
+    </style>
+</head>
+<body class="text-gray-800">
+
+    <header class="card-gradient text-white text-center py-16 px-4 shadow-xl">
+        <h1 class="text-4xl md:text-6xl font-black mb-4">자바 기초 교육과정 마스터 플랜</h1>
+        <p class="text-lg md:text-xl max-w-3xl mx-auto">프로그래밍 첫걸음부터 실전 응용까지, 16주 완성 개발자 성장 로드맵</p>
+    </header>
+
+    <main class="container mx-auto p-4 md:p-8">
+
+        <section id="tech-stack" class="my-16">
+            <h2 class="text-3xl font-bold text-center mb-2">개발자의 길, 무엇부터 시작할까?</h2>
+            <p class="text-center text-gray-600 mb-12 max-w-2xl mx-auto">성공적인 개발자 커리어는 견고한 기초 위에 세워집니다. 모든 것의 시작이 되는 세 가지 핵심 요소를 마스터하세요.</p>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+                <div class="bg-white p-8 rounded-xl shadow-lg transform hover:scale-105 transition-transform duration-300">
+                    <div class="text-6xl mb-4" style="color: #f89820;">☕</div>
+                    <h3 class="text-2xl font-bold mb-2">Java 언어</h3>
+                    <p class="text-gray-600">전 세계적으로 가장 널리 사용되는 프로그래밍 언어 중 하나로, 안정성과 이식성이 높아 다양한 플랫폼에서 활용됩니다.</p>
+                </div>
+                <div class="bg-white p-8 rounded-xl shadow-lg transform hover:scale-105 transition-transform duration-300">
+                    <div class="text-6xl mb-4" style="color: #007BFF;">🧩</div>
+                    <h3 class="text-2xl font-bold mb-2">객체지향 프로그래밍</h3>
+                    <p class="text-gray-600">복잡한 문제를 작고 관리 가능한 객체들로 나누어 해결하는 현대적인 프로그래밍 패러다임입니다.</p>
+                </div>
+                <div class="bg-white p-8 rounded-xl shadow-lg transform hover:scale-105 transition-transform duration-300">
+                    <div class="text-6xl mb-4" style="color: #00C6A7;">🛠️</div>
+                    <h3 class="text-2xl font-bold mb-2">개발 도구</h3>
+                    <p class="text-gray-600">IntelliJ와 같은 IDE와 버전 관리 시스템 Git은 코드를 효율적으로 작성하고 협업하는 데 필수적인 도구입니다.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="roadmap" class="my-16">
+            <h2 class="text-3xl font-bold text-center mb-2">기초를 완성하는 4단계 학습 로드맵</h2>
+            <p class="text-center text-gray-600 mb-12 max-w-2xl mx-auto">체계적인 학습 경로를 따라가며 프로그래밍의 기초를 탄탄히 다지고, 실전 개발자로 나아가세요.</p>
+            <div class="flex flex-col items-center">
+                <div class="w-full max-w-4xl">
+                    <div class="flowchart-step p-4 rounded-lg shadow-md border-l-4 mb-4 text-center">
+                        <h3 class="font-bold text-lg">1. 프로그래밍 입문</h3>
+                        <p class="text-sm">개발 환경 설정 및 자바의 기본 문법과 구조 학습</p>
+                    </div>
+                    <div class="text-4xl text-center flowchart-arrow font-bold">↓</div>
+                    <div class="flowchart-step p-4 rounded-lg shadow-md border-l-4 my-4 text-center">
+                        <h3 class="font-bold text-lg">2. 객체지향 프로그래밍 (OOP)</h3>
+                        <p class="text-sm">클래스, 상속, 다형성 등 핵심 개념을 이해하고 적용</p>
+                    </div>
+                    <div class="text-4xl text-center flowchart-arrow font-bold">↓</div>
+                    <div class="flowchart-step p-4 rounded-lg shadow-md border-l-4 my-4 text-center">
+                        <h3 class="font-bold text-lg">3. 자바 핵심 API 활용</h3>
+                        <p class="text-sm">예외 처리, 컬렉션, 입출력 등 필수 라이브러리 마스터</p>
+                    </div>
+                    <div class="text-4xl text-center flowchart-arrow font-bold">↓</div>
+                    <div class="flowchart-step p-4 rounded-lg shadow-md border-l-4 mt-4 text-center">
+                        <h3 class="font-bold text-lg">4. 실전 응용 프로젝트</h3>
+                        <p class="text-sm">지금까지 배운 모든 기술을 종합하여 자신만의 콘솔 애플리케이션 완성</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="detailed-curriculum" class="my-16">
+            <h2 class="text-3xl font-bold text-center mb-2">16주(4개월) 완성, 주차별 커리큘럼</h2>
+            <p class="text-center text-gray-600 mb-12 max-w-2xl mx-auto">기초부터 실전 프로젝트까지, 전문 개발자로 성장하는 16주간의 상세 여정입니다.</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="curriculum-card p-6 rounded-lg shadow-md" style="border-color: #007BFF;">
+                    <h3 class="font-bold text-xl mb-4 text-gray-800">Unit 1: 프로그래밍 첫걸음 (1-4주차)</h3>
+                    <ul class="space-y-4 text-gray-600">
+                        <li><strong class="text-gray-800">1주: 개발 환경 설정</strong><ul class="mt-2 space-y-1"><li class="detail-item">JDK, IntelliJ IDEA 설치 및 사용법</li><li class="detail-item">Git, GitHub 기초</li></ul></li>
+                        <li><strong class="text-gray-800">2주: 변수, 타입, 연산자</strong><ul class="mt-2 space-y-1"><li class="detail-item">자바 기본 데이터 타입</li><li class="detail-item">산술, 비교, 논리 연산자</li></ul></li>
+                        <li><strong class="text-gray-800">3주: 조건문과 반복문</strong><ul class="mt-2 space-y-1"><li class="detail-item">if-else, switch 문</li><li class="detail-item">for, while, do-while 반복문</li></ul></li>
+                        <li><strong class="text-gray-800">4주: 배열과 메서드</strong><ul class="mt-2 space-y-1"><li class="detail-item">1차원, 2차원 배열 선언 및 활용</li><li class="detail-item">메서드 정의, 호출, 오버로딩</li></ul></li>
+                    </ul>
+                </div>
+                <div class="curriculum-card p-6 rounded-lg shadow-md" style="border-color: #00C6A7;">
+                    <h3 class="font-bold text-xl mb-4 text-gray-800">Unit 2: 객체지향 프로그래밍(OOP) (5-8주차)</h3>
+                    <ul class="space-y-4 text-gray-600">
+                        <li><strong class="text-gray-800">5주: 클래스와 객체</strong><ul class="mt-2 space-y-1"><li class="detail-item">클래스 설계, 필드, 생성자</li><li class="detail-item">객체 생성 및 멤버 접근</li></ul></li>
+                        <li><strong class="text-gray-800">6주: 상속과 다형성</strong><ul class="mt-2 space-y-1"><li class="detail-item">클래스 상속, 메서드 오버라이딩</li><li class="detail-item">업캐스팅, 다운캐스팅, instanceof</li></ul></li>
+                        <li><strong class="text-gray-800">7주: 추상 클래스와 인터페이스</strong><ul class="mt-2 space-y-1"><li class="detail-item">추상 메서드와 추상 클래스</li><li class="detail-item">인터페이스 구현 및 다중 상속</li></ul></li>
+                        <li><strong class="text-gray-800">8주: 캡슐화와 접근 제어</strong><ul class="mt-2 space-y-1"><li class="detail-item">정보 은닉, Getter/Setter</li><li class="detail-item">public, protected, private, default</li></ul></li>
+                    </ul>
+                </div>
+                <div class="curriculum-card p-6 rounded-lg shadow-md" style="border-color: #FFC107;">
+                    <h3 class="font-bold text-xl mb-4 text-gray-800">Unit 3: Java 핵심 API (9-12주차)</h3>
+                    <ul class="space-y-4 text-gray-600">
+                        <li><strong class="text-gray-800">9주: 예외 처리</strong><ul class="mt-2 space-y-1"><li class="detail-item">try-catch-finally, 예외 떠넘기기</li><li class="detail-item">사용자 정의 예외</li></ul></li>
+                        <li><strong class="text-gray-800">10주: 컬렉션 프레임워크</strong><ul class="mt-2 space-y-1"><li class="detail-item">List, Set, Map 인터페이스</li><li class="detail-item">ArrayList, HashSet, HashMap</li></ul></li>
+                        <li><strong class="text-gray-800">11주: 제네릭과 람다식 & 스트림</strong><ul class="mt-2 space-y-1"><li class="detail-item">타입 안정성을 위한 제네릭</li><li class="detail-item">함수형 프로그래밍과 스트림 API</li></ul></li>
+                        <li><strong class="text-gray-800">12주: 입출력(I/O)과 스레드</strong><ul class="mt-2 space-y-1"><li class="detail-item">File, InputStream, OutputStream</li><li class="detail-item">스레드 생성 및 동기화 기초</li></ul></li>
+                    </ul>
+                </div>
+                <div class="curriculum-card p-6 rounded-lg shadow-md" style="border-color: #DC3545;">
+                    <h3 class="font-bold text-xl mb-4 text-gray-800">Unit 4: 최종 응용 프로젝트 (13-16주차)</h3>
+                    <ul class="space-y-4 text-gray-600">
+                        <li><strong class="text-gray-800">13주: 프로젝트 기획 및 설계</strong><ul class="mt-2 space-y-1"><li class="detail-item">콘솔 기반 애플리케이션 주제 선정</li><li class="detail-item">클래스 다이어그램, 로직 흐름 설계</li></ul></li>
+                        <li><strong class="text-gray-800">14주: 핵심 기능 구현</strong><ul class="mt-2 space-y-1"><li class="detail-item">객체지향 원칙에 따른 코드 작성</li><li class="detail-item">컬렉션을 이용한 데이터 관리</li></ul></li>
+                        <li><strong class="text-gray-800">15주: 리팩토링 및 기능 확장</strong><ul class="mt-2 space-y-1"><li class="detail-item">코드 구조 개선 및 중복 제거</li><li class="detail-item">파일 입출력을 통한 데이터 영속성 구현</li></ul></li>
+                        <li><strong class="text-gray-800">16주: 완성 및 발표</strong><ul class="mt-2 space-y-1"><li class="detail-item">최종 테스트 및 버그 수정</li><li class="detail-item">프로젝트 문서화(README) 및 발표</li></ul></li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="bg-gray-800 text-white text-center p-8 mt-16">
+        <p class="font-bold">성공적인 커리어의 시작</p>
+        <p class="text-sm text-gray-400 mt-2">탄탄한 자바 기초는 어떤 기술 변화에도 흔들리지 않는 강력한 무기입니다. <br>올바른 경로를 선택하고 꾸준히 노력한다면, 당신도 최고의 개발자가 될 수 있습니다.</p>
+    </footer>
+
+</body>
+</html>
