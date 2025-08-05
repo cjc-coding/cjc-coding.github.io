@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>프론트엔드 개발자 로드맵 | 인터랙티브 인포그래픽</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            background-color: #f0f4f8;
+        }
+       .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 400px;
+            max-height: 450px;
+        }
+        @media (min-width: 768px) {
+           .chart-container {
+                height: 450px;
+                max-height: 500px;
+            }
+        }
+       .gradient-text {
+            background: linear-gradient(to right, #6a11cb, #2575fc);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+       .kpi-card {
+            background-color: white;
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            text-align: center;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+       .kpi-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-gray-800">
+
+    <header class="text-center py-12 px-4 bg-white shadow-lg">
+        <h1 class="text-4xl md:text-6xl font-black gradient-text">프론트엔드 개발자 로드맵</h1>
+        <p class="mt-4 text-lg md:text-xl text-slate-600 max-w-3xl mx-auto">기초부터 실무까지, K-12 학생을 위한 최적의 프론트엔드 학습 가이드</p>
+    </header>
+
+    <main class="container mx-auto p-4 md:p-8">
+
+        <section id="frontend-importance" class="mb-16">
+            <div class="bg-white rounded-lg shadow-md p-8">
+                <h2 class="text-3xl font-bold text-center mb-6">왜 프론트엔드 개발을 배워야 할까?</h2>
+                <div class="grid md:grid-cols-2 gap-8 items-center">
+                    <div>
+                        <p class="text-slate-600 leading-relaxed">
+                            프론트엔드 개발은 사용자가 직접 보고 상호작용하는 웹의 모든 것을 만드는 매력적인 분야입니다. 단순한 기술 학습을 넘어, <strong class="text-[#2575fc] font-bold">창의적인 아이디어를 현실로 구현</strong>하고, <strong class="text-[#2575fc] font-bold">논리적 문제 해결 능력</strong>을 기르며, 미래 커리어에 결정적인 <strong class="text-[#2575fc] font-bold">포트폴리오를 구축</strong>하는 가장 확실한 방법입니다.
+                        </p>
+                    </div>
+                    <div class="bg-slate-50 rounded-lg p-6 border border-slate-200">
+                        <h3 class="text-xl font-bold text-center mb-4 text-[#2C3E50]">프론트엔드 핵심 기술 스택</h3>
+                        <ul class="space-y-3 text-lg">
+                            <li class="flex items-center">
+                                <span class="text-2xl mr-3">뼈대</span>
+                                <div><strong>HTML:</strong> 웹의 구조 설계</div>
+                            </li>
+                            <li class="flex items-center">
+                                <span class="text-2xl mr-3">🎨</span>
+                                <div><strong>CSS:</strong> 웹의 시각적 디자인</div>
+                            </li>
+                            <li class="flex items-center">
+                                <span class="text-2xl mr-3">🧠</span>
+                                <div><strong>JavaScript:</strong> 웹의 동적 기능 구현</div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="core-competencies" class="mb-16">
+            <h2 class="text-3xl font-bold text-center mb-8">프론트엔드 학습으로 기르는 핵심 역량</h2>
+            <p class="text-center text-slate-600 max-w-2xl mx-auto mb-12">프론트엔드 개발은 코딩 기술뿐만 아니라, 미래 사회가 요구하는 다양한 핵심 역량을 길러줍니다.</p>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="kpi-card md:col-span-1">
+                    <div class="text-4xl font-extrabold text-[#6a11cb]">사용자 경험 (UX)</div>
+                    <p class="mt-4 text-slate-600">사용자 입장에서 생각하며 더 편리하고 직관적인 웹 서비스를 설계하고 구현하는 능력을 기릅니다.</p>
+                </div>
+                <div class="kpi-card md:col-span-1">
+                    <div class="text-4xl font-extrabold text-[#2575fc]">문제 해결 능력</div>
+                    <p class="mt-4 text-slate-600">화면에 보이지 않는 버그를 찾아내고, 복잡한 기능을 구현하며 논리적으로 문제를 해결하는 훈련을 합니다.</p>
+                </div>
+                <div class="kpi-card md:col-span-1">
+                    <div class="text-4xl font-extrabold text-[#6a11cb]">포트폴리오 경쟁력</div>
+                    <p class="mt-4 text-slate-600">자신만의 아이디어를 담은 독창적인 웹 애플리케이션은 대학 입시와 미래 커리어에서 강력한 차별점이 됩니다.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="curriculum-roadmap" class="mb-16">
+            <h2 class="text-3xl font-bold text-center mb-2">단계별 상세 학습 로드맵</h2>
+            <p class="text-center text-slate-600 mb-8">자신의 실력에 맞는 단계부터 시작하여, 최종 목표인 포트폴리오 완성까지 체계적으로 학습합니다.</p>
+
+            <div class="bg-white rounded-lg shadow-md p-6 mb-12">
+                <h3 class="text-2xl font-bold text-center mb-4">학습 단계별 기술 비중 (개요)</h3>
+                <p class="text-center text-slate-600 mb-6">웹의 기초를 탄탄히 다지고, JavaScript를 거쳐 React와 같은 모던 프레임워크로 전문성을 높여가는 과정입니다.</p>
+                <div class="chart-container">
+                    <canvas id="roadmapChart"></canvas>
+                </div>
+            </div>
+
+            <div id="detailed-roadmap-content"></div>
+        </section>
+
+        <section id="next-steps" class="mb-16">
+            <h2 class="text-3xl font-bold text-center mb-8">로드맵, 그 이후: 전문 개발자로의 성장</h2>
+            <p class="text-center text-slate-600 max-w-2xl mx-auto mb-12">프론트엔드 마스터는 끝이 아닌 시작입니다. 더 넓은 기술 생태계를 탐험하며 전문 개발자로 성장하세요.</p>
+            <div class="bg-white rounded-lg shadow-md p-6">
+                <h3 class="text-2xl font-bold text-center mb-4">프론트엔드 마스터 후 추천 트랙</h3>
+                <p class="text-center text-slate-600 mb-8">탄탄한 프론트엔드 기초 위에, 더 전문적인 영역에 도전하여 대체 불가능한 경쟁력을 갖출 수 있습니다.</p>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+                    <div class="border-2 border-[#007CF0] rounded-lg p-6">
+                        <div class="text-4xl mb-4">ʦ</div>
+                        <h4 class="text-xl font-bold text-[#007CF0] mb-2">TypeScript 적용</h4>
+                        <p class="text-slate-600">정적 타이핑을 도입하여 코드의 안정성과 유지보수성을 높이고, 대규모 애플리케이션 개발 역량을 갖춥니다.</p>
+                    </div>
+                    <div class="border-2 border-[#1ABC9C] rounded-lg p-6">
+                        <div class="text-4xl mb-4">🚀</div>
+                        <h4 class="text-xl font-bold text-[#1ABC9C] mb-2">Next.js 프레임워크</h4>
+                        <p class="text-slate-600">서버사이드 렌더링(SSR), 풀스택 개발 등 더 높은 수준의 웹 개발 기술을 학습하여 경쟁력을 강화합니다.</p>
+                    </div>
+                    <div class="border-2 border-[#F39C12] rounded-lg p-6">
+                        <div class="text-4xl mb-4">🔗</div>
+                        <h4 class="text-xl font-bold text-[#F39C12] mb-2">백엔드 연동</h4>
+                        <p class="text-slate-600">Node.js, 데이터베이스 기초를 학습하여 프론트엔드가 서버와 어떻게 통신하는지 이해하고 풀스택 개발자로 나아갑니다.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="text-center py-8 px-4 bg-gray-800 text-white">
+        <p>'프론트엔드 개발자 로드맵'</p>
+        <p class="text-sm text-gray-400 mt-2">© 2025 CodingGround. All rights reserved.</p>
+    </footer>
+
+    <script>
+        const FONT_COLOR = '#2C3E50';
+        const GRID_COLOR = '#e2e8f0';
+        const PALETTE = {
+            blue: '#3498DB',
+            turquoise: '#1ABC9C',
+            green: '#2ECC71',
+            orange: '#F39C12',
+            red: '#E74C3C',
+        };
+
+        const detailedRoadmapData = {
+            step1: {
+                title: 'Step 1: 웹 퍼블리싱 마스터 (HTML/CSS)',
+                color: PALETTE.blue,
+                weeks: [
+                    { week: '1-4주차', theme: 'HTML & CSS 기초 다지기', details: ['시맨틱 HTML 태그로 웹 구조 설계', 'CSS 기본 선택자와 속성 마스터'], practice: '자기소개 페이지 만들기' },
+                    { week: '5-8주차', theme: 'CSS 레이아웃 정복', details: ['박스모델, Position 심층 이해', 'Flexbox와 Grid를 활용한 반응형 레이아웃 구현'], practice: '좋아하는 웹사이트 레이아웃 클론 코딩' },
+                ]
+            },
+            step2: {
+                title: 'Step 2: JavaScript 정복',
+                color: PALETTE.turquoise,
+                weeks: [
+                    { week: '1-6주차', theme: 'JavaScript 핵심 문법', details: ['변수, 타입, 함수, 제어문, 객체', 'ES6+ 핵심 문법 (화살표 함수, 비구조화 할당 등)'], practice: '알고리즘 기초 문제 풀이 (프로그래머스 Lv.0~1)' },
+                    { week: '7-12주차', theme: '인터랙티브 웹 개발', details: ['DOM 조작 및 이벤트 처리 심화', 'fetch를 이용한 API 데이터 요청 및 처리'], practice: '순수 JS와 Open API로 만드는 미니 프로젝트 (날씨 앱 등)' },
+                ]
+            },
+            step3: {
+                title: 'Step 3: React & 포트폴리오 구축',
+                color: PALETTE.green,
+                weeks: [
+                    { week: '1-4주차', theme: 'React 첫걸음', details: ['JSX, 컴포넌트, Props, State', 'Create React App/Vite 개발 환경', '기본 Hooks (useState, useEffect)'], practice: '영화 정보 API를 활용한 영화 앱 제작' },
+                    { week: '5-10주차', theme: 'React 심화', details: ['React Router로 SPA(싱글 페이지 앱) 구현', 'Axios/React-Query로 서버 상태 관리', 'Styled-components로 컴포넌트 스타일링'], practice: '블로그 또는 간단한 쇼핑몰 레이아웃 및 기능 구현' },
+                    { week: '11-16주차', theme: '상태 관리와 프로젝트 개인화', details: ['Redux Toolkit 또는 Zustand로 전역 상태 관리', '기존 프로젝트에 자신만의 기능 추가 및 디자인 개편'], practice: '나만의 주제를 담은 포트폴리오용 프로젝트로 발전시키기' },
+                    { week: '17-20주차', theme: '배포 및 생태계 확장', details: ['Vercel/Netlify를 이용한 프로젝트 배포', 'TypeScript 기초 및 React 프로젝트 적용', 'Next.js 개념 및 장점 이해'], practice: '개인 포트폴리오 사이트를 제작하여 최종 프로젝트 배포' },
+                ]
+            }
+        };
+
+        const roadmapContainer = document.getElementById('detailed-roadmap-content');
+        Object.values(detailedRoadmapData).forEach(stage => {
+            const stageHeader = `
+                <div class="mt-12 mb-6">
+                    <h3 class="text-2xl font-bold text-center text-white p-3 rounded-lg" style="background-color: ${stage.color};">${stage.title}</h3>
+                </div>
+                <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                    <div class="hidden md:grid md:grid-cols-12 bg-slate-100 font-bold text-slate-700 text-center">
+                        <div class="p-4 col-span-2">기간</div>
+                        <div class="p-4 col-span-2">핵심 목표</div>
+                        <div class="p-4 col-span-5">주요 학습 내용</div>
+                        <div class="p-4 col-span-3">대표 실습 과제</div>
+                    </div>
+                    ${stage.weeks.map(item => `
+                        <div class="grid grid-cols-1 md:grid-cols-12 border-b last:border-b-0 items-center transition-all duration-300 hover:bg-slate-50">
+                            <div class="p-4 col-span-1 md:col-span-2 font-bold md:text-center" style="color: ${stage.color};">${item.week}</div>
+                            <div class="p-4 col-span-1 md:col-span-2 font-semibold">${item.theme}</div>
+                            <div class="p-4 col-span-1 md:col-span-5">
+                                <ul class="list-disc list-inside text-slate-700 space-y-1">
+                                    ${item.details.map(detail => `<li>${detail}</li>`).join('')}
+                                </ul>
+                            </div>
+                            <div class="p-4 col-span-1 md:col-span-3 text-slate-800 md:text-left">
+                                <span class="md:hidden text-sm text-slate-500 font-medium">[실습 과제] </span>
+                                ${item.practice}
+                            </div>
+                        </div>
+                    `).join('')}
+                </div>
+            `;
+            roadmapContainer.innerHTML += stageHeader;
+        });
+
+        const tooltipTitleCallback = (tooltipItems) => {
+            const item = tooltipItems[0];
+            let label = item.chart.data.labels[item.dataIndex];
+            if (Array.isArray(label)) {
+                return label.join(' ');
+            } else {
+                return label;
+            }
+        };
+        
+        const commonOptions = {
+            maintainAspectRatio: false,
+            responsive: true,
+            plugins: {
+                legend: {
+                    labels: {
+                        color: FONT_COLOR,
+                        font: {
+                            family: "'Noto Sans KR', sans-serif",
+                            weight: 'bold'
+                        }
+                    }
+                },
+                tooltip: {
+                    callbacks: {
+                        title: tooltipTitleCallback
+                    },
+                    backgroundColor: 'rgba(7, 59, 76, 0.9)',
+                    titleFont: { size: 14, family: "'Noto Sans KR', sans-serif" },
+                    bodyFont: { size: 12, family: "'Noto Sans KR', sans-serif" },
+                    padding: 10,
+                    cornerRadius: 4,
+                    displayColors: true,
+                }
+            }
+        };
+
+        const roadmapCtx = document.getElementById('roadmapChart').getContext('2d');
+        new Chart(roadmapCtx, {
+            type: 'bar',
+            data: {
+                labels: ['Step 1: 퍼블리싱', 'Step 2: JavaScript', 'Step 3: React 심화'],
+                datasets: [
+                    {
+                        label: 'HTML/CSS',
+                        data: [90, 15, 5],
+                        backgroundColor: PALETTE.blue,
+                    },
+                    {
+                        label: 'JavaScript',
+                        data: [10, 75, 25],
+                        backgroundColor: PALETTE.turquoise,
+                    },
+                    {
+                        label: 'React & 심화 기술',
+                        data: [0, 10, 70],
+                        backgroundColor: PALETTE.green,
+                    }
+                ]
+            },
+            options: {
+               ...commonOptions,
+                scales: {
+                    x: {
+                        stacked: true,
+                        grid: { display: false },
+                        ticks: { color: FONT_COLOR, font: { weight: 'bold' } }
+                    },
+                    y: {
+                        stacked: true,
+                        grid: { color: GRID_COLOR },
+                        ticks: {
+                            callback: function(value) {
+                                return value + '%';
+                            }
+                        }
+                    }
+                },
+                plugins: {
+                   ...commonOptions.plugins,
+                    legend: { position: 'bottom' }
+                }
+            }
+        });
+
+    </script>
+</body>
+</html>
