@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C++ 기초 교육 완전 정복</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            background-color: #F8F9FA;
+        }
+        .flowchart-step {
+            border-color: #00A6A6;
+            background-color: white;
+            color: #003D3D;
+        }
+        .flowchart-arrow {
+            color: #FF9F1C;
+        }
+        .card-gradient {
+            background: linear-gradient(135deg, #00A6A6, #753A88);
+        }
+        .curriculum-card {
+            background-color: white;
+            border-left: 5px solid;
+            transition: all 0.3s ease-in-out;
+        }
+        .curriculum-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+        .detail-item {
+            display: list-item;
+            list-style-type: '✔ ';
+            margin-left: 1.5rem;
+            padding-left: 0.5rem;
+        }
+    </style>
+</head>
+<body class="text-gray-800">
+
+    <header class="card-gradient text-white text-center py-16 px-4 shadow-xl">
+        <h1 class="text-4xl md:text-6xl font-black mb-4">C++ 기초 교육 완전 정복</h1>
+        <p class="text-lg md:text-xl max-w-3xl mx-auto">중고등학생을 위해 설계된 12주 완성 로드맵으로, 만드는 재미를 통해 프로그래밍의 핵심 원리를 배우세요.</p>
+    </header>
+
+    <main class="container mx-auto p-4 md:p-8">
+
+        <section id="core-concepts" class="my-16">
+            <h2 class="text-3xl font-bold text-center mb-2">C++ 학습의 세 가지 핵심 기둥</h2>
+            <p class="text-center text-gray-600 mb-12 max-w-2xl mx-auto">성공적인 학습은 단순한 문법 암기를 넘어, 핵심 원리를 이해하고 실제로 적용하는 능력에 달려있습니다.</p>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+                <div class="bg-white p-8 rounded-xl shadow-lg transform hover:scale-105 transition-transform duration-300">
+                    <div class="text-6xl mb-4">🧠</div>
+                    <h3 class="text-2xl font-bold mb-2">프로그래밍 기초</h3>
+                    <p class="text-gray-600">변수, 제어문, 함수 등 모든 프로그래밍 언어의 근간이 되는 보편적인 핵심 개념을 단단히 다집니다.</p>
+                </div>
+                <div class="bg-white p-8 rounded-xl shadow-lg transform hover:scale-105 transition-transform duration-300">
+                    <div class="text-6xl mb-4">💡</div>
+                    <h3 class="text-2xl font-bold mb-2">문제 해결 능력</h3>
+                    <p class="text-gray-600">작은 게임과 프로그램을 직접 만들며 논리적으로 생각하고 문제를 해결하는 실질적인 능력을 기릅니다.</p>
+                </div>
+                <div class="bg-white p-8 rounded-xl shadow-lg transform hover:scale-105 transition-transform duration-300">
+                    <div class="text-6xl mb-4">🏛️</div>
+                    <h3 class="text-2xl font-bold mb-2">객체 지향 맛보기</h3>
+                    <p class="text-gray-600">복잡한 프로그램을 체계적으로 관리하는 고급 설계 기법인 '객체 지향'의 기본 아이디어를 체험합니다.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="roadmap" class="my-16">
+            <h2 class="text-3xl font-bold text-center mb-2">12주 학습 로드맵 개요</h2>
+            <p class="text-center text-gray-600 mb-12 max-w-2xl mx-auto">체계적인 3단계 학습 경로를 따라가며 C++ 개발의 기초를 완성하세요.</p>
+            <div class="flex flex-col items-center">
+                <div class="w-full max-w-4xl">
+                    <div class="flowchart-step p-4 rounded-lg shadow-md border-l-4 mb-4 text-center">
+                        <h3 class="font-bold text-lg">1. 컴퓨터와 대화하기 (1-4주)</h3>
+                        <p class="text-sm">프로그래밍의 기본 문법을 익히고 간단한 입출력 및 제어 프로그램을 만듭니다.</p>
+                    </div>
+                    <div class="text-4xl text-center flowchart-arrow font-bold">↓</div>
+                    <div class="flowchart-step p-4 rounded-lg shadow-md border-l-4 my-4 text-center">
+                        <h3 class="font-bold text-lg">2. 똑똑한 프로그램 만들기 (5-8주)</h3>
+                        <p class="text-sm">함수와 데이터 구조를 활용하여 코드의 재사용성을 높이고, 게임을 만들며 논리를 구체화합니다.</p>
+                    </div>
+                    <div class="text-4xl text-center flowchart-arrow font-bold">↓</div>
+                    <div class="flowchart-step p-4 rounded-lg shadow-md border-l-4 mt-4 text-center">
+                        <h3 class="font-bold text-lg">3. 나만의 규칙 설계하기 (9-12주)</h3>
+                        <p class="text-sm">구조체와 클래스를 통해 자신만의 데이터 타입을 설계하고, 최종 프로젝트를 완성합니다.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="detailed-curriculum" class="my-16">
+            <h2 class="text-3xl font-bold text-center mb-2">12주 완성, 주차별 상세 커리큘럼</h2>
+            <p class="text-center text-gray-600 mb-12 max-w-2xl mx-auto">기초부터 실전 프로젝트까지, 전문 개발자로 성장하는 12주간의 상세 여정입니다.</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="curriculum-card p-6 rounded-lg shadow-md" style="border-color: #00A6A6;">
+                    <h3 class="font-bold text-xl mb-4 text-gray-800">Unit 1: 기초 다지기 (1-2주)</h3>
+                    <ul class="space-y-4 text-gray-600">
+                        <li><strong class="text-gray-800">1주: 첫 만남, 프로그래밍</strong><ul class="mt-2 space-y-1"><li class="detail-item">C++ 언어 소개 및 특징</li><li class="detail-item">개발 환경 설치 (Visual Studio Code)</li><li class="detail-item">첫 코드: `Hello, World!` 출력</li></ul></li>
+                        <li><strong class="text-gray-800">2주: 컴퓨터의 기억 장소, 변수</strong><ul class="mt-2 space-y-1"><li class="detail-item">변수 선언과 자료형 (int, double)</li><li class="detail-item">사용자에게 정보 입력받기 (`cin`)</li><li class="detail-item">변수 값 관찰 및 디버깅 기초</li></ul></li>
+                    </ul>
+                </div>
+                <div class="curriculum-card p-6 rounded-lg shadow-md" style="border-color: #753A88;">
+                    <h3 class="font-bold text-xl mb-4 text-gray-800">Unit 2: 흐름 제어 (3-4주)</h3>
+                    <ul class="space-y-4 text-gray-600">
+                        <li><strong class="text-gray-800">3주: 연산과 조건</strong><ul class="mt-2 space-y-1"><li class="detail-item">산술 연산자 (+, -, *, /, %)</li><li class="detail-item">조건문 (if, else if, else)</li><li class="detail-item">미니 프로젝트 1: 계산기 만들기</li></ul></li>
+                        <li><strong class="text-gray-800">4주: 자동화, 반복문</strong><ul class="mt-2 space-y-1"><li class="detail-item">정해진 횟수 반복 (for 루프)</li><li class="detail-item">조건 만족 시 반복 (while 루프)</li><li class="detail-item">반복문으로 별 찍기 등 패턴 그리기</li></ul></li>
+                    </ul>
+                </div>
+                <div class="curriculum-card p-6 rounded-lg shadow-md" style="border-color: #CC2936;">
+                    <h3 class="font-bold text-xl mb-4 text-gray-800">Unit 3: 구조화 (5-6주)</h3>
+                    <ul class="space-y-4 text-gray-600">
+                        <li><strong class="text-gray-800">5주: 코드 재사용, 함수</strong><ul class="mt-2 space-y-1"><li class="detail-item">함수의 필요성과 기본 구조</li><li class="detail-item">매개변수와 반환 값(return)</li><li class="detail-item">코드를 기능 단위로 나누기</li></ul></li>
+                        <li><strong class="text-gray-800">6주: 여러 데이터 묶음, 벡터</strong><ul class="mt-2 space-y-1"><li class="detail-item">배열의 한계와 `std::vector`</li><li class="detail-item">데이터 추가/접근/삭제</li><li class="detail-item">미니 프로젝트 2: 숫자 야구 게임</li></ul></li>
+                    </ul>
+                </div>
+                <div class="curriculum-card p-6 rounded-lg shadow-md" style="border-color: #FF9F1C;">
+                    <h3 class="font-bold text-xl mb-4 text-gray-800">Unit 4: 데이터 다루기 (7-8주)</h3>
+                    <ul class="space-y-4 text-gray-600">
+                        <li><strong class="text-gray-800">7주: 문자 다루기, 문자열</strong><ul class="mt-2 space-y-1"><li class="detail-item">C++ 표준 문자열 `std::string`</li><li class="detail-item">문자열 합치기, 길이 구하기</li><li class="detail-item">문자열의 특정 위치 접근</li></ul></li>
+                        <li><strong class="text-gray-800">8주: 나만의 자료형, 구조체</strong><ul class="mt-2 space-y-1"><li class="detail-item">관련 변수들을 묶는 `struct`</li><li class="detail-item">구조체 변수 선언 및 멤버 접근</li><li class="detail-item">구조체와 벡터 함께 사용하기</li></ul></li>
+                    </ul>
+                </div>
+                <div class="curriculum-card p-6 rounded-lg shadow-md" style="border-color: #F4D35E;">
+                    <h3 class="font-bold text-xl mb-4 text-gray-800">Unit 5: 객체 지향 입문 (9-10주)</h3>
+                    <ul class="space-y-4 text-gray-600">
+                        <li><strong class="text-gray-800">9주: 클래스 기초</strong><ul class="mt-2 space-y-1"><li class="detail-item">구조체와 클래스의 차이점</li><li class="detail-item">데이터 보호 (public, private)</li><li class="detail-item">멤버 변수와 멤버 함수</li></ul></li>
+                        <li><strong class="text-gray-800">10주: 객체의 탄생과 소멸</strong><ul class="mt-2 space-y-1"><li class="detail-item">객체 생성과 생성자(Constructor)</li><li class="detail-item">클래스를 이용한 코드 설계</li><li class="detail-item">객체 벡터 사용하기</li></ul></li>
+                    </ul>
+                </div>
+                <div class="curriculum-card p-6 rounded-lg shadow-md" style="border-color: #1E90FF;">
+                    <h3 class="font-bold text-xl mb-4 text-gray-800">Unit 6: 최종 프로젝트 (11-12주)</h3>
+                    <ul class="space-y-4 text-gray-600">
+                        <li><strong class="text-gray-800">11주: 파일 입출력</strong><ul class="mt-2 space-y-1"><li class="detail-item">파일 쓰기 (`ofstream`) / 읽기 (`ifstream`)</li><li class="detail-item">게임 데이터 저장 및 불러오기</li><li class="detail-item">게임 기획 및 기능 설계</li></ul></li>
+                        <li><strong class="text-gray-800">12주: 총정리 파이널 프로젝트</strong><ul class="mt-2 space-y-1"><li class="detail-item">지금까지 배운 모든 개념 활용</li><li class="detail-item">코드 구현, 디버깅, 발표</li><li class="detail-item">파이널 프로젝트: 텍스트 RPG</li></ul></li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="bg-gray-800 text-white text-center p-8 mt-16">
+        <p class="font-bold">성공적인 프로그래밍 여정의 시작</p>
+        <p class="text-sm text-gray-400 mt-2">이 로드맵은 여러분이 C++의 세계에 자신감을 갖고 첫발을 내딛도록 돕기 위해 설계되었습니다. <br>꾸준한 학습과 프로젝트를 통해 최고의 개발자로 성장하세요.</p>
+        <p class="text-xs text-gray-500 mt-4">Designed by CodingGround</p>
+    </footer>
+
+</body>
+</html>
