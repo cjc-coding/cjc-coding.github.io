@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>코드 등록 폼</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+        <h1>코드 등록하기 📝</h1>
+        <p>아래 폼에 내용을 입력하고 '파일로 저장' 버튼을 클릭하세요.</p>
+        
+        <form id="code-form">
+            <div class="form-group">
+                <label for="code-title">파일 이름 (제목)</label>
+                <input type="text" id="code-title" placeholder="예: MyFunction" required>
+            </div>
+
+            <div class="form-group">
+                <label for="code-language">파일 확장자 (언어)</label>
+                <input type="text" id="code-language" placeholder="예: js, py, txt" required>
+            </div>
+
+            <div class="form-group">
+                <label for="code-content">코드 내용</label>
+                <textarea id="code-content" rows="15" placeholder="여기에 코드를 입력하세요..."></textarea>
+            </div>
+
+            <button type="submit" class="submit-btn">파일로 저장</button>
+        </form>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
