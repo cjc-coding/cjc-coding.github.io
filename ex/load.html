@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>코드 불러오기</title>
+    <link rel="stylesheet" href="style-load.css">
+</head>
+<body>
+
+    <div class="container">
+        <h1>코드 불러오기 📂</h1>
+        <p>컴퓨터에 저장된 코드 파일(.py, .js, .txt 등)을 선택하세요.</p>
+        
+        <div class="form-group">
+            <label for="file-input">파일 선택</label>
+            <input type="file" id="file-input" class="file-input" accept=".py, .js, .txt, .html, .css">
+        </div>
+
+        <div class="form-group">
+            <label>선택한 코드 내용</label>
+            <div class="code-display-wrapper">
+                <pre><code id="code-display">파일을 선택하면 이곳에 내용이 표시됩니다.</code></pre>
+            </div>
+        </div>
+    </div>
+
+    <script src="load.js"></script>
+</body>
+</html>

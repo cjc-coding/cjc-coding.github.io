@@ -1,0 +1,145 @@
+/* 기본 스타일 초기화 및 설정 */
+:root {
+    --primary-color: #007bff;
+    --light-gray: #f4f4f4;
+    --gray: #ccc;
+    --dark-gray: #555;
+    --white: #ffffff;
+    --font-family: 'Arial', sans-serif;
+}
+
+body {
+    font-family: var(--font-family);
+    background-color: var(--light-gray);
+    color: var(--dark-gray);
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.container {
+    width: 100%;
+    max-width: 700px;
+    background-color: var(--white);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+    margin-top: 0;
+}
+
+p {
+    text-align: center;
+    color: #666;
+    margin-bottom: 30px;
+}
+
+/* 폼 그룹 스타일 (공통) */
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 8px;
+    font-size: 0.9rem;
+}
+
+/* --- 코드 등록 페이지(index.html) 스타일 --- */
+
+.form-group input[type="text"],
+.form-group textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid var(--gray);
+    border-radius: 5px;
+    box-sizing: border-box; /* 패딩이 너비에 포함되도록 설정 */
+    font-family: var(--font-family);
+    font-size: 1rem;
+}
+
+.form-group textarea {
+    font-family: 'Courier New', Courier, monospace;
+    resize: vertical; /* 세로 크기만 조절 가능 */
+    min-height: 200px;
+}
+
+/* 등록 버튼 스타일 */
+.submit-btn {
+    width: 100%;
+    padding: 15px;
+    background-color: var(--primary-color);
+    color: var(--white);
+    border: none;
+    border-radius: 5px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.submit-btn:hover {
+    background-color: #0056b3;
+}
+
+
+/* --- 코드 불러오기 페이지(load.html) 스타일 --- */
+
+/* 파일 입력 버튼 커스텀 */
+.file-input {
+    width: 100%;
+    padding: 12px;
+    border: 1px dashed var(--gray);
+    border-radius: 5px;
+    background-color: var(--light-gray);
+    cursor: pointer;
+    font-family: var(--font-family);
+    box-sizing: border-box; /* 너비 계산 일관성 */
+}
+
+/* 파일 입력 버튼의 '파일 선택' UI 커스텀 */
+.file-input::file-selector-button {
+    padding: 8px 12px;
+    border: none;
+    border-radius: 4px;
+    background-color: var(--primary-color);
+    color: var(--white);
+    font-weight: bold;
+    cursor: pointer;
+    margin-right: 10px;
+    transition: background-color 0.3s ease;
+}
+
+.file-input::file-selector-button:hover {
+    background-color: #0056b3;
+}
+
+/* 코드가 표시될 영역 래퍼 */
+.code-display-wrapper {
+    /* .form-group이 간격을 제어하므로 margin-top 제거 */
+    border: 1px solid var(--gray);
+    border-radius: 5px;
+    background-color: #f9f9f9; /* 코드 블록 배경색 */
+    max-height: 500px; /* 최대 높이 지정 */
+    overflow: auto; /* 내용이 넘칠 경우 스크롤바 생성 */
+}
+
+/* 코드 표시 <pre><code> 블록 */
+#code-display {
+    display: block;
+    padding: 20px;
+    color: #333;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    white-space: pre; /* 공백/줄바꿈 유지 */
+    margin: 0;
+}
