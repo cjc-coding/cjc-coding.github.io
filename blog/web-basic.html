@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>초등학생을 위한 웹 교육과정</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            background-color: #F8F9FA;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 300px;
+            max-height: 400px;
+        }
+        @media (min-width: 640px) {
+            .chart-container {
+                height: 350px;
+            }
+        }
+    </style>
+</head>
+<body class="text-[#073B4C]">
+
+    <div class="container mx-auto p-4 sm:p-6 md:p-8 max-w-7xl">
+
+        <header class="text-center mb-12 md:mb-16">
+            <h1 class="text-4xl sm:text-5xl md:text-6xl font-black text-[#118AB2] mb-3">12주 완성, 코딩 영웅 성장 과정</h1>
+            <p class="text-lg md:text-xl text-gray-600">초등학생을 위한 체계적인 HTML, CSS, JavaScript 커리큘럼</p>
+        </header>
+
+        <main class="space-y-8 md:space-y-12">
+
+            <section class="bg-white rounded-lg shadow-lg p-6 md:p-8 flex flex-col lg:flex-row items-center gap-8">
+                <div class="w-full lg:w-1/2">
+                    <h2 class="text-3xl font-bold text-[#118AB2] mb-4">코딩, 미래를 여는 열쇠</h2>
+                    <p class="text-base mb-6 text-gray-700">디지털 시대의 필수 언어인 코딩을 배우며 학생들은 논리력, 문제 해결 능력, 창의력을 함께 키웁니다. 12주간의 여정은 '나도 할 수 있다'는 자신감과 '만드는 즐거움'을 아이들에게 선물할 것입니다. 본 커리큘럼은 재미와 성취감이라는 두 마리 토끼를 모두 잡도록 설계되었습니다.</p>
+                    <div class="flex space-x-6">
+                         <span class="text-4xl transition-transform hover:scale-125">🚀</span>
+                         <span class="text-4xl transition-transform hover:scale-125">💡</span>
+                         <span class="text-4xl transition-transform hover:scale-125">🎨</span>
+                    </div>
+                </div>
+                <div class="w-full lg:w-1/2">
+                    <div class="chart-container h-64 sm:h-80">
+                        <canvas id="focusDonutChart"></canvas>
+                    </div>
+                     <p class="text-center text-sm text-gray-600 mt-4">이론과 실습, 창의 활동의 균형 잡힌 분배를 통해 학습 효과를 극대화합니다.</p>
+                </div>
+            </section>
+
+            <section class="bg-white rounded-lg shadow-lg p-6 md:p-8">
+                <h2 class="text-3xl font-bold text-center text-[#118AB2] mb-4">핵심 개념: 웹사이트의 세 친구</h2>
+                 <p class="text-center text-gray-700 mb-10 max-w-3xl mx-auto">학생들은 웹사이트를 만드는 세 가지 핵심 기술의 역할을 직관적인 비유를 통해 배웁니다. 이는 복잡한 개념을 쉽고 재미있게 기억하는 데 도움을 줍니다.</p>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+                    <div class="flex flex-col items-center p-6 border-2 border-dashed border-[#FF6B6B] rounded-lg">
+                        <div class="text-6xl mb-4">🦴</div>
+                        <h3 class="text-2xl font-bold text-[#FF6B6B]">HTML (뼈대)</h3>
+                        <p class="text-gray-600 mt-2 text-sm">웹페이지의 구조와 콘텐츠를 담당합니다. 글, 이미지, 비디오 등이 들어갈 자리를 정해줘요.</p>
+                    </div>
+                    <div class="flex flex-col items-center p-6 border-2 border-dashed border-[#FFD166] rounded-lg">
+                        <div class="text-6xl mb-4">👕</div>
+                        <h3 class="text-2xl font-bold text-[#FFD166]">CSS (옷과 화장)</h3>
+                        <p class="text-gray-600 mt-2 text-sm">페이지를 예쁘게 꾸며줍니다. 색상, 글꼴, 레이아웃 등 디자인을 담당해요.</p>
+                    </div>
+                    <div class="flex flex-col items-center p-6 border-2 border-dashed border-[#06D6A0] rounded-lg">
+                        <div class="text-6xl mb-4">🧠</div>
+                        <h3 class="text-2xl font-bold text-[#06D6A0]">JavaScript (두뇌)</h3>
+                        <p class="text-gray-600 mt-2 text-sm">페이지를 동적으로 만듭니다. 버튼 클릭, 애니메이션 등 상호작용을 구현해요.</p>
+                    </div>
+                </div>
+            </section>
+            
+             <section class="bg-white rounded-lg shadow-lg p-6 md:p-8">
+                <h2 class="text-3xl font-bold text-center text-[#118AB2] mb-4">12주간의 코딩 모험 로드맵</h2>
+                <p class="text-center text-gray-700 mb-12 max-w-3xl mx-auto">"나만의 인터랙티브 포트폴리오 만들기"를 목표로, 매 2주마다 새로운 기술을 습득하고 적용하며 점진적으로 실력을 쌓아갑니다.</p>
+                <div class="relative w-full">
+                    <div class="hidden md:block absolute top-8 left-0 w-full h-1 bg-[#118AB2] opacity-20"></div>
+                    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 text-center">
+                        <div class="flex flex-col items-center">
+                            <div class="w-16 h-16 bg-[#FF6B6B] rounded-full flex items-center justify-center text-white text-lg font-bold mb-3 z-10 border-4 border-white shadow">1-2주</div>
+                            <h4 class="font-bold">HTML 기초</h4>
+                            <p class="text-xs text-gray-600 mt-1">페이지 뼈대 세우기, 콘텐츠 채우기</p>
+                        </div>
+                        <div class="flex flex-col items-center">
+                            <div class="w-16 h-16 bg-[#FF9A8B] rounded-full flex items-center justify-center text-white text-lg font-bold mb-3 z-10 border-4 border-white shadow">3-4주</div>
+                            <h4 class="font-bold">CSS 첫걸음</h4>
+                            <p class="text-xs text-gray-600 mt-1">색깔, 폰트, 꾸미기</p>
+                        </div>
+                        <div class="flex flex-col items-center">
+                            <div class="w-16 h-16 bg-[#FFD166] rounded-full flex items-center justify-center text-white text-lg font-bold mb-3 z-10 border-4 border-white shadow">5-6주</div>
+                            <h4 class="font-bold">CSS 레이아웃</h4>
+                            <p class="text-xs text-gray-600 mt-1">요소 정렬, 반응형 기초</p>
+                        </div>
+                        <div class="flex flex-col items-center">
+                            <div class="w-16 h-16 bg-[#82E0AA] rounded-full flex items-center justify-center text-white text-lg font-bold mb-3 z-10 border-4 border-white shadow">7-8주</div>
+                            <h4 class="font-bold">JS 맛보기</h4>
+                            <p class="text-xs text-gray-600 mt-1">클릭 이벤트, 간단한 반응</p>
+                        </div>
+                        <div class="flex flex-col items-center">
+                            <div class="w-16 h-16 bg-[#06D6A0] rounded-full flex items-center justify-center text-white text-lg font-bold mb-3 z-10 border-4 border-white shadow">9-10주</div>
+                            <h4 class="font-bold">JS 활용</h4>
+                            <p class="text-xs text-gray-600 mt-1">DOM 조작, 동적 기능</p>
+                        </div>
+                        <div class="flex flex-col items-center">
+                            <div class="w-16 h-16 bg-[#118AB2] rounded-full flex items-center justify-center text-white text-lg font-bold mb-3 z-10 border-4 border-white shadow">11-12주</div>
+                            <h4 class="font-bold">프로젝트 완성</h4>
+                            <p class="text-xs text-gray-600 mt-1">자유 창작 및 발표</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <div class="lg:col-span-2 bg-white rounded-lg shadow-lg p-6 md:p-8">
+                     <h3 class="text-2xl font-bold text-center text-[#118AB2] mb-4">예상 학습 성장 곡선 (12주)</h3>
+                     <p class="text-center text-sm text-gray-600 mb-6">초반의 흥미가 중반의 도전 과제를 거치며 완만하게 성장하다, 프로젝트가 완성되는 후반부에 자신감과 실력이 급격히 상승합니다.</p>
+                     <div class="chart-container">
+                         <canvas id="growthLineChart"></canvas>
+                     </div>
+                </div>
+                <div class="bg-white rounded-lg shadow-lg p-6 md:p-8 flex flex-col justify-center items-center">
+                     <h3 class="text-2xl font-bold text-center text-[#118AB2] mb-4">수업 준비물</h3>
+                     <p class="text-gray-700 mb-6 text-center">별도의 설치 없이 웹 브라우저만 있으면 OK!</p>
+                     <div class="text-4xl font-black text-white bg-[#073B4C] p-6 rounded-lg shadow-inner">CodePen</div>
+                     <p class="mt-4 text-sm text-gray-500">또는 Replit 사용</p>
+                </div>
+            </section>
+
+             <section class="bg-white rounded-lg shadow-lg p-6 md:p-8">
+                 <h3 class="text-2xl font-bold text-center text-[#118AB2] mb-4">최종 프로젝트 기능 구현율</h3>
+                 <p class="text-center text-sm text-gray-600 mb-8 max-w-2xl mx-auto">12주 후, 학생들은 기본 기능은 물론, 자신만의 창의적인 아이디어를 웹페이지에 성공적으로 구현해낼 수 있습니다.</p>
+                 <div class="chart-container h-80 sm:h-96">
+                    <canvas id="featuresBarChart"></canvas>
+                 </div>
+            </section>
+
+        </main>
+
+        <footer class="text-center mt-12 md:mt-16 py-6 border-t">
+            <p class="text-gray-600">미래의 디지털 크리에이터를 응원하는 코딩 교육 커리큘럼</p>
+        </footer>
+
+    </div>
+
+    <script>
+        const FONT_COLOR = '#073B4C';
+        const GRID_COLOR = '#E9ECEF';
+        const PALETTE = {
+            red: '#FF6B6B',
+            yellow: '#FFD166',
+            green: '#06D6A0',
+            blue: '#118AB2',
+            darkBlue: '#073B4C'
+        };
+
+        Chart.defaults.color = FONT_COLOR;
+        Chart.defaults.font.family = "'Noto Sans KR', sans-serif";
+
+        function processLabels(labels) {
+            return labels.map(label => {
+                if (label.length > 16) {
+                    const words = label.split(' ');
+                    const lines = [];
+                    let currentLine = '';
+                    for (const word of words) {
+                        if ((currentLine + ' ' + word).trim().length > 16) {
+                            lines.push(currentLine.trim());
+                            currentLine = word;
+                        } else {
+                            currentLine = (currentLine + ' ' + word).trim();
+                        }
+                    }
+                    if (currentLine) {
+                        lines.push(currentLine.trim());
+                    }
+                    return lines;
+                }
+                return label;
+            });
+        }
+        
+        const tooltipTitleCallback = {
+            plugins: {
+                tooltip: {
+                    callbacks: {
+                        title: function(tooltipItems) {
+                            const item = tooltipItems[0];
+                            let label = item.chart.data.labels[item.dataIndex];
+                            if (Array.isArray(label)) {
+                              return label.join(' ');
+                            } else {
+                              return label;
+                            }
+                        }
+                    }
+                }
+            }
+        };
+
+        const focusDonutCtx = document.getElementById('focusDonutChart').getContext('2d');
+        new Chart(focusDonutCtx, {
+            type: 'doughnut',
+            data: {
+                labels: ['프로젝트 실습', '창의적 응용', '핵심 개념 이론'],
+                datasets: [{
+                    label: '수업 비중',
+                    data: [55, 25, 20],
+                    backgroundColor: [PALETTE.green, PALETTE.yellow, PALETTE.blue],
+                    borderColor: '#FFFFFF',
+                    borderWidth: 4,
+                    hoverOffset: 8
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    ...tooltipTitleCallback.plugins,
+                    legend: {
+                        position: 'bottom',
+                        labels: {
+                             font: { size: 14 }
+                        }
+                    },
+                    title: {
+                        display: true,
+                        text: '12주 커리큘럼 학습 비중',
+                        font: { size: 18, weight: 'bold' },
+                        padding: { top: 10, bottom: 20 }
+                    }
+                },
+                cutout: '60%'
+            }
+        });
+
+        const growthLineCtx = document.getElementById('growthLineChart').getContext('2d');
+        new Chart(growthLineCtx, {
+            type: 'line',
+            data: {
+                labels: ['1주', '2주', '3주', '4주', '5주', '6주', '7주', '8주', '9주', '10주', '11주', '12주'],
+                datasets: [{
+                    label: '실력과 자신감',
+                    data: [1, 2, 3, 4, 4.5, 5, 6, 6.5, 7.5, 8.5, 9.5, 10],
+                    fill: true,
+                    backgroundColor: 'rgba(255, 107, 107, 0.2)',
+                    borderColor: PALETTE.red,
+                    tension: 0.4,
+                    pointBackgroundColor: PALETTE.red,
+                    pointRadius: 4,
+                    pointHoverRadius: 7
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                ...tooltipTitleCallback,
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        max: 10,
+                        grid: { color: GRID_COLOR },
+                        ticks: { stepSize: 2 }
+                    },
+                    x: {
+                       grid: { display: false }
+                    }
+                },
+                 plugins: {
+                    ...tooltipTitleCallback.plugins,
+                    legend: { display: false }
+                }
+            }
+        });
+
+        const featuresBarCtx = document.getElementById('featuresBarChart').getContext('2d');
+        const featuresLabels = ['나만의 레이아웃 구성', '인터랙티브 버튼 제작', '다크/라이트 모드 전환', '미니 게임 또는 퀴즈', '개성있는 애니메이션 효과'];
+        new Chart(featuresBarCtx, {
+            type: 'bar',
+            data: {
+                labels: processLabels(featuresLabels),
+                datasets: [{
+                    label: '학생 구현율 (%)',
+                    data: [95, 90, 75, 80, 65],
+                    backgroundColor: [
+                        'rgba(6, 214, 160, 0.7)',
+                        'rgba(255, 209, 102, 0.7)',
+                        'rgba(7, 59, 76, 0.7)',
+                        'rgba(255, 107, 107, 0.7)',
+                        'rgba(17, 138, 178, 0.7)'
+                    ],
+                    borderColor: [
+                        PALETTE.green,
+                        PALETTE.yellow,
+                        PALETTE.darkBlue,
+                        PALETTE.red,
+                        PALETTE.blue
+                    ],
+                    borderWidth: 2,
+                    borderRadius: 5
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                indexAxis: 'y',
+                ...tooltipTitleCallback,
+                scales: {
+                    x: {
+                        beginAtZero: true,
+                        max: 100,
+                        grid: { color: GRID_COLOR },
+                        ticks: {
+                            callback: function(value) { return value + '%' }
+                        }
+                    },
+                     y: {
+                       grid: { display: false },
+                       ticks: { font: { size: 12 } }
+                    }
+                },
+                plugins: {
+                    ...tooltipTitleCallback.plugins,
+                    legend: { display: false }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
+
