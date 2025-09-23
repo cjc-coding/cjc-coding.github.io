@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>초등학교 저학년 코딩 교육: 블록 코딩 vs. 텍스트 코딩</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            background-color: #f0f4f8;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 300px;
+            max-height: 400px;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 350px;
+            }
+        }
+        .gradient-text {
+            background: linear-gradient(45deg, #118AB2, #06D6A0);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    </style>
+</head>
+<body class="text-[#073B4C]">
+
+    <div class="container mx-auto p-4 md:p-8">
+
+        <header class="text-center my-12">
+            <h1 class="text-4xl md:text-6xl font-black gradient-text">미래를 코딩하는 아이들</h1>
+            <p class="text-lg md:text-xl mt-4 text-[#073B4C]">초등 저학년을 위한 최고의 코딩 학습법: 블록 코딩 vs. 텍스트 코딩</p>
+        </header>
+
+        <main>
+            <section class="my-16">
+                 <div class="text-center bg-white rounded-lg shadow-xl p-8">
+                    <p class="text-2xl font-bold">국내 초등학생의</p>
+                    <p class="text-8xl font-black my-4" style="color: #FF6B6B;">65%</p>
+                    <p class="text-2xl font-bold">가 코딩 교육을 경험했습니다.</p>
+                    <p class="text-md mt-4 text-gray-500">하지만 어떤 방식이 우리 아이에게 가장 효과적일까요? (2024년 교육개발원 통계 기반)</p>
+                </div>
+            </section>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+
+                <div class="bg-white rounded-lg shadow-lg p-6 flex flex-col">
+                    <h2 class="text-3xl font-bold text-center mb-4" style="color: #118AB2;">🚀 블록 코딩: 쉽고 재미있는 시작</h2>
+                    <p class="text-center mb-6">블록 코딩은 명령어가 적힌 블록을 레고처럼 조립하여 프로그래밍의 기본 원리를 배우는 시각적 학습 방법입니다. 직관적이고 오류가 적어 코딩에 대한 흥미와 자신감을 키워줍니다.</p>
+                    <div class="chart-container flex-grow">
+                        <canvas id="blockCodingAdoptionChart"></canvas>
+                    </div>
+                     <p class="text-center mt-4 text-sm font-semibold">초등 코딩 교육 도입 현황</p>
+                </div>
+
+                <div class="bg-white rounded-lg shadow-lg p-6 flex flex-col">
+                    <h2 class="text-3xl font-bold text-center mb-4" style="color: #06D6A0;">💻 텍스트 코딩: 실제 프로그래밍의 세계</h2>
+                    <p class="text-center mb-6">텍스트 코딩은 파이썬, 자바스크립트처럼 실제 프로그래머들이 사용하는 언어로 직접 코드를 작성하는 방식입니다. 논리적 사고와 문제 해결 능력을 심도 있게 발전시킬 수 있습니다.</p>
+                    <div class="chart-container flex-grow">
+                        <canvas id="difficultyChart"></canvas>
+                    </div>
+                    <p class="text-center mt-4 text-sm font-semibold">초등 저학년 대상 첫 코딩 학습 시 체감 난이도</p>
+                </div>
+            </div>
+
+            <section class="my-16 bg-white rounded-lg shadow-lg p-6 md:p-8">
+                <h2 class="text-3xl font-bold text-center mb-6">한눈에 보는 역량 비교: 블록 코딩 vs 텍스트 코딩</h2>
+                <p class="text-center max-w-3xl mx-auto mb-8">두 방식은 각각 다른 영역에서 강점을 보입니다. 아이의 성향과 학습 목표에 따라 적절한 방법을 선택하는 것이 중요합니다. 아래 차트는 각 방식이 학습자의 여러 역량에 미치는 영향을 비교 분석한 결과입니다.</p>
+                <div class="chart-container h-96 md:h-[500px] max-h-[500px]">
+                    <canvas id="comparisonRadarChart"></canvas>
+                </div>
+            </section>
+            
+            <section class="my-16">
+                <h2 class="text-3xl font-bold text-center mb-8">단계별 코딩 교육 로드맵: 우리 아이 성장 가이드</h2>
+                <div class="flex flex-col md:flex-row justify-center items-center gap-4 md:gap-0">
+                    <div class="w-full md:w-1/3 bg-white p-6 rounded-lg shadow-lg border-b-8 border-[#FFD166]">
+                        <p class="text-center text-2xl font-bold">1단계</p>
+                        <p class="text-center text-lg font-semibold mt-2">입문 (초1~2)</p>
+                        <p class="text-center mt-4">시각적이고 놀이 중심의 <strong style="color: #118AB2;">블록 코딩</strong>으로 컴퓨팅 사고력의 기초를 다집니다. (스크래치 Jr, 엔트리)</p>
+                    </div>
+                    <div class="text-4xl font-bold text-gray-300 mx-4 transform rotate-90 md:rotate-0">→</div>
+                    <div class="w-full md:w-1/3 bg-white p-6 rounded-lg shadow-lg border-b-8 border-[#06D6A0]">
+                         <p class="text-center text-2xl font-bold">2단계</p>
+                        <p class="text-center text-lg font-semibold mt-2">심화 (초3~4)</p>
+                        <p class="text-center mt-4">복잡한 프로젝트를 만들며 알고리즘을 설계하고, <strong style="color: #118AB2;">블록 코딩</strong>의 심화 기능을 탐구합니다. (스크래치, 엔트리 심화)</p>
+                    </div>
+                     <div class="text-4xl font-bold text-gray-300 mx-4 transform rotate-90 md:rotate-0">→</div>
+                    <div class="w-full md:w-1/3 bg-white p-6 rounded-lg shadow-lg border-b-8 border-[#FF6B6B]">
+                        <p class="text-center text-2xl font-bold">3단계</p>
+                        <p class="text-center text-lg font-semibold mt-2">전환 (초5~)</p>
+                        <p class="text-center mt-4">블록 코딩의 원리를 바탕으로 <strong style="color: #06D6A0;">텍스트 코딩</strong>(파이썬 등)으로 자연스럽게 전환하며 프로그래밍의 폭을 넓힙니다.</p>
+                    </div>
+                </div>
+            </section>
+
+             <section class="my-16 text-center">
+                <h2 class="text-3xl font-bold mb-6">결론: 목적에 맞는 균형 잡힌 학습이 중요합니다</h2>
+                <div class="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="bg-white p-6 rounded-lg shadow-md">
+                        <p class="text-5xl mb-3">💡</p>
+                        <h3 class="text-xl font-bold mb-2">흥미 유발 우선</h3>
+                        <p>초등 저학년에게는 '정답'보다 '재미'가 중요합니다. 블록 코딩으로 성취감을 느끼게 해주세요.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-md">
+                        <p class="text-5xl mb-3">🧠</p>
+                        <h3 class="text-xl font-bold mb-2">컴퓨팅 사고력</h3>
+                        <p>코딩 교육의 핵심은 언어 자체가 아닌, 문제를 분해하고 논리적으로 해결하는 능력입니다.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-md">
+                        <p class="text-5xl mb-3">🚀</p>
+                        <h3 class="text-xl font-bold mb-2">점진적 확장</h3>
+                        <p>블록 코딩으로 다져진 기초는 텍스트 코딩으로 나아갈 때 훌륭한 디딤돌이 됩니다.</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer class="text-center py-8 mt-12 border-t">
+            <p class="text-gray-500">&copy; 2025 코딩 교육 연구소. All Rights Reserved.</p>
+        </footer>
+
+    </div>
+
+    <script>
+        const FONT_COLOR = '#073B4C';
+        const GRID_COLOR = '#e0e0e0';
+
+        const wrapLabel = (label) => {
+            const maxLength = 16;
+            if (label.length <= maxLength) {
+                return label;
+            }
+            const words = label.split(' ');
+            const lines = [];
+            let currentLine = '';
+            words.forEach(word => {
+                if ((currentLine + word).length > maxLength) {
+                    lines.push(currentLine.trim());
+                    currentLine = '';
+                }
+                currentLine += word + ' ';
+            });
+            lines.push(currentLine.trim());
+            return lines;
+        };
+        
+        const tooltipTitleCallback = (tooltipItems) => {
+            const item = tooltipItems[0];
+            let label = item.chart.data.labels[item.dataIndex];
+            if (Array.isArray(label)) {
+              return label.join(' ');
+            }
+            return label;
+        };
+        
+        const sharedChartOptions = {
+            maintainAspectRatio: false,
+            plugins: {
+                legend: {
+                    labels: {
+                        color: FONT_COLOR,
+                        font: { size: 14 }
+                    }
+                },
+                tooltip: {
+                    callbacks: {
+                        title: tooltipTitleCallback
+                    }
+                }
+            },
+            scales: {
+                y: {
+                    ticks: { color: FONT_COLOR },
+                    grid: { color: GRID_COLOR }
+                },
+                x: {
+                    ticks: { color: FONT_COLOR },
+                    grid: { color: GRID_COLOR }
+                }
+            }
+        };
+
+        const blockAdoptionCtx = document.getElementById('blockCodingAdoptionChart').getContext('2d');
+        new Chart(blockAdoptionCtx, {
+            type: 'doughnut',
+            data: {
+                labels: ['블록 코딩 활용', '텍스트 코딩 활용', '기타/미도입'],
+                datasets: [{
+                    label: '초등 코딩 교육 도입 현황',
+                    data: [85, 5, 10],
+                    backgroundColor: ['#118AB2', '#FFD166', '#E0E0E0'],
+                    borderColor: '#ffffff',
+                    borderWidth: 4,
+                }]
+            },
+            options: {
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        position: 'bottom',
+                         labels: {
+                            color: FONT_COLOR,
+                            font: { size: 14 }
+                        }
+                    },
+                    tooltip: {
+                        callbacks: {
+                            title: tooltipTitleCallback
+                        }
+                    }
+                }
+            }
+        });
+
+        const difficultyCtx = document.getElementById('difficultyChart').getContext('2d');
+        new Chart(difficultyCtx, {
+            type: 'bar',
+            data: {
+                labels: ['블록 코딩', '텍스트 코딩'],
+                datasets: [{
+                    label: '체감 난이도 (10점 만점)',
+                    data: [2.5, 8.5],
+                    backgroundColor: ['#06D6A0', '#FF6B6B'],
+                    borderRadius: 5,
+                }]
+            },
+            options: {
+                ...sharedChartOptions,
+                indexAxis: 'y',
+                plugins: {
+                     legend: { display: false },
+                     tooltip: {
+                        callbacks: {
+                            title: tooltipTitleCallback
+                        }
+                    }
+                },
+                scales: {
+                    x: {
+                        beginAtZero: true,
+                        max: 10,
+                        ticks: { color: FONT_COLOR },
+                        grid: { color: GRID_COLOR }
+                    },
+                    y: {
+                         ticks: { color: FONT_COLOR, font: { size: 16, weight: 'bold'} },
+                         grid: { display: false }
+                    }
+                }
+            }
+        });
+
+        const radarCtx = document.getElementById('comparisonRadarChart').getContext('2d');
+        new Chart(radarCtx, {
+            type: 'radar',
+            data: {
+                labels: ['쉬운 학습', '창의력 증진', '논리적 사고', '문제 해결 능력', '심화 학습 연계성'],
+                datasets: [{
+                    label: '블록 코딩',
+                    data: [9, 8, 6, 7, 5],
+                    fill: true,
+                    backgroundColor: 'rgba(17, 138, 178, 0.2)',
+                    borderColor: '#118AB2',
+                    pointBackgroundColor: '#118AB2',
+                    pointBorderColor: '#fff',
+                    pointHoverBackgroundColor: '#fff',
+                    pointHoverBorderColor: '#118AB2'
+                }, {
+                    label: '텍스트 코딩',
+                    data: [3, 6, 9, 9, 10],
+                    fill: true,
+                    backgroundColor: 'rgba(6, 214, 160, 0.2)',
+                    borderColor: '#06D6A0',
+                    pointBackgroundColor: '#06D6A0',
+                    pointBorderColor: '#fff',
+                    pointHoverBackgroundColor: '#fff',
+                    pointHoverBorderColor: '#06D6A0'
+                }]
+            },
+            options: {
+                 maintainAspectRatio: false,
+                 plugins: {
+                    legend: {
+                        position: 'top',
+                         labels: {
+                            color: FONT_COLOR,
+                            font: { size: 16 }
+                        }
+                    },
+                     tooltip: {
+                        callbacks: {
+                            title: tooltipTitleCallback
+                        }
+                    }
+                },
+                scales: {
+                    r: {
+                        angleLines: { color: GRID_COLOR },
+                        grid: { color: GRID_COLOR },
+                        pointLabels: {
+                            color: FONT_COLOR,
+                            font: { size: 14 }
+                        },
+                        ticks: {
+                            backdropColor: 'rgba(255, 255, 255, 0.75)',
+                            color: FONT_COLOR
+                        },
+                        min: 0,
+                        max: 10
+                    }
+                }
+            }
+        });
+
+    </script>
+</body>
+</html>
