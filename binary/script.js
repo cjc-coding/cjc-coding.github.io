@@ -34,7 +34,7 @@ document.addEventListener('DOMContentLoaded', () => {
             card.innerHTML = `
                 <div class="card-inner">
                     <div class="card-face card-front"></div>
-                    <div class="card-face card-back">${Math.abs(value)}</div>
+                    <div class="card-face card-back">${value}</div>
                 </div>
             `;
 
