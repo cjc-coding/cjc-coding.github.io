@@ -112,6 +112,9 @@ hr { border: 1px solid #ecf0f1; margin: 40px 0; }
     color: white;
     transform: rotateY(180deg);
 }
+.card.sign-bit .card-back {
+    background-color: #ff0000; /* 빨간색 */
+}
 /* 푸터 스타일 추가 */
 footer {
     width: 100%;
