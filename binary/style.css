@@ -1,0 +1,111 @@
+/* 기본 스타일 */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f0f2f5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    color: #333;
+}
+
+.container {
+    text-align: center;
+    background-color: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    width: 90%;
+    max-width: 800px;
+}
+
+h1 {
+    color: #2c3e50;
+    margin-bottom: 10px;
+}
+
+p {
+    color: #7f8c8d;
+    margin-bottom: 30px;
+}
+
+/* 결과 표시 영역 */
+#result-container {
+    display: flex;
+    justify-content: space-around;
+    background-color: #ecf0f1;
+    border-radius: 10px;
+    padding: 15px;
+    margin-bottom: 30px;
+}
+
+.result-box h2 {
+    margin: 0 0 5px 0;
+    font-size: 1em;
+    color: #34495e;
+}
+
+.result-box p {
+    margin: 0;
+    font-size: 2em;
+    font-weight: bold;
+    color: #2980b9;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+/* 카드 컨테이너 */
+#card-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    perspective: 1000px; /* 3D 효과를 위한 원근감 설정 */
+}
+
+/* 개별 카드 스타일 */
+.card {
+    width: 90px;
+    height: 140px;
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
+}
+
+.card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.6s;
+    transform-style: preserve-3d; /* 자식 요소의 3D 위치를 보존 */
+}
+
+/* 카드가 뒤집혔을 때의 효과 */
+.card.is-flipped .card-inner {
+    transform: rotateY(180deg);
+}
+
+.card-face {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden; /* 뒷면은 보이지 않게 처리 */
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2em;
+    font-weight: bold;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.card-front {
+    background-color: #e74c3c; /* "꺼짐" 상태 배경색 */
+    color: white;
+}
+
+.card-back {
+    background-color: #2ecc71; /* "켜짐" 상태 배경색 */
+    color: white;
+    transform: rotateY(180deg); /* 뒷면은 미리 180도 돌려놓음 */
+}
