@@ -3,29 +3,48 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>이진수 학습 도구</title>
+    <title>8비트 정수 학습 도구</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="container">
-        <h1>클릭으로 배우는 이진수</h1>
-        <p>카드를 클릭하여 뒤집어보세요. 불이 켜진 카드의 숫자를 더해 십진수 값을 만듭니다.</p>
+        <h1>클릭으로 배우는 8비트 정수</h1>
         
-        <div id="result-container">
-            <div class="result-box">
-                <h2>이진수 (Binary)</h2>
-                <p id="binary-value">00000000</p>
+        <div class="calculator-section">
+            <h2>부호 없는 정수 (Unsigned)</h2>
+            <p>0부터 255까지의 양수를 표현합니다.</p>
+            <div id="unsigned-result-container" class="result-container">
+                <div class="result-box">
+                    <h3>이진수 (Binary)</h3>
+                    <p id="unsigned-binary-value">00000000</p>
+                </div>
+                <div class="result-box">
+                    <h3>십진수 (Decimal)</h3>
+                    <p id="unsigned-decimal-value">0</p>
+                </div>
             </div>
-            <div class="result-box">
-                <h2>십진수 (Decimal)</h2>
-                <p id="decimal-value">0</p>
-            </div>
+            <div id="unsigned-card-container" class="card-container"></div>
         </div>
 
-        <div id="card-container">
-            </div>
-    </div>
+        <hr>
 
+        <div class="calculator-section">
+            <h2>부호 있는 정수 (Signed - 2's Complement)</h2>
+            <p>가장 왼쪽 비트는 부호(Sign)를 나타내며, -128의 값을 가집니다.</p>
+            <div id="signed-result-container" class="result-container">
+                <div class="result-box">
+                    <h3>이진수 (Binary)</h3>
+                    <p id="signed-binary-value">00000000</p>
+                </div>
+                <div class="result-box">
+                    <h3>십진수 (Decimal)</h3>
+                    <p id="signed-decimal-value">0</p>
+                </div>
+            </div>
+            <div id="signed-card-container" class="card-container"></div>
+        </div>
+
+    </div>
     <script src="script.js"></script>
 </body>
 </html>
