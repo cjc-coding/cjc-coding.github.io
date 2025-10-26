@@ -1,10 +1,9 @@
-
 <!DOCTYPE html>
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Java 메모리 구조 - MainTest 실행 과정</title>
+    <title>태전동코딩크루컴퓨터::Java 메모리 구조 실행 과정</title>
     <style>
         * {
             margin: 0;
@@ -843,4 +842,96 @@
                     html += `
                         <div class="var-box">
                             <div class="var-row">
-                                <span class="
+                                <span class="var-name">obj2:</span>
+                                <span class="var-ref">→ 0x2C3D</span>
+                            </div>
+                            <div class="var-note">참조변수</div>
+                        </div>
+                    `;
+                }
+                
+                html += `
+                        <div class="var-box">
+                            <div class="var-name">args: String[]</div>
+                        </div>
+                    </div>
+                `;
+            }
+            
+            // disp() 스택 프레임
+            if (currentStep === 7) {
+                html += `
+                    <div class="stack-frame highlight">
+                        <div class="frame-title">disp() 프레임</div>
+                        <div class="var-box">
+                            <div class="var-row">
+                                <span class="var-name">this:</span>
+                                <span class="var-ref">→ 0x2C3D</span>
+                            </div>
+                            <div class="var-note">현재 실행 중</div>
+                        </div>
+                    </div>
+                `;
+            }
+            
+            // 생성자 프레임
+            if (currentStep === 3 || currentStep === 6) {
+                const address = currentStep === 3 ? '0x1A2B' : '0x2C3D';
+                html += `
+                    <div class="stack-frame highlight">
+                        <div class="frame-title">Test01() 프레임</div>
+                        <div class="var-box">
+                            <div class="var-row">
+                                <span class="var-name">this:</span>
+                                <span class="var-ref">→ ${address}</span>
+                            </div>
+                            <div class="var-note">생성자 실행 중</div>
+                        </div>
+                    </div>
+                `;
+            }
+            
+            stackArea.innerHTML = html;
+        }
+
+        function updateConsole() {
+            const consoleOutput = document.getElementById('consoleOutput');
+            const step = steps[currentStep];
+            
+            if (!step.console || step.console.length === 0) {
+                consoleOutput.innerHTML = '<div class="empty-message">출력 대기 중...</div>';
+                return;
+            }
+            
+            let html = '';
+            step.console.forEach(line => {
+                html += `<div class="console-line">${line}</div>`;
+            });
+            
+            consoleOutput.innerHTML = html;
+        }
+
+        function nextStep() {
+            if (currentStep < steps.length - 1) {
+                currentStep++;
+                updateUI();
+            }
+        }
+
+        function prevStep() {
+            if (currentStep > 0) {
+                currentStep--;
+                updateUI();
+            }
+        }
+
+        function reset() {
+            currentStep = 0;
+            updateUI();
+        }
+
+        // Initialize
+        updateUI();
+    </script>
+</body>
+</html>
