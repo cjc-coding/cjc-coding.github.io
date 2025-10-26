@@ -577,7 +577,7 @@
                 
                 <div class="info-item">
                     <div class="info-subtitle green-subtitle">📌 Heap (힙 영역)</div>
-                    <p class="info-text"><span class="code-highlight green-code">new</span>로 생성된 객체가 저장됩니다. 각 객체는 고유한 인스턴스 변수를 가집니다. obj와 obj2는 서로 다른 객체이며 각자의 <span class="code-highlight">a, b, c, d</span> 값을 가집니다.</p>
+                    <p class="info-text"><span class="code-highlight green-code">new</span>로 생성된 객체가 저장됩니다. 각 객체는 <strong>객체 헤더(Object Header)</strong>와 <strong>인스턴스 필드</strong>로 구성됩니다. 객체 헤더에는 Method Area의 클래스 메타정보를 가리키는 포인터, 해시코드, GC 정보 등이 포함됩니다. obj와 obj2는 서로 다른 객체이며 각자의 인스턴스 필드를 가지지만, 같은 Test01.class를 참조합니다.</p>
                 </div>
                 
                 <div class="info-item">
@@ -603,10 +603,14 @@
                     </li>
                     <li class="point-item">
                         <span class="point-number">4.</span>
-                        <span class="point-text">인스턴스 변수는 각 객체마다 독립적으로 존재합니다</span>
+                        <span class="point-text">각 객체는 객체 헤더를 통해 Method Area의 클래스 정보를 참조합니다</span>
                     </li>
                     <li class="point-item">
                         <span class="point-number">5.</span>
+                        <span class="point-text">인스턴스 변수는 각 객체마다 독립적으로 존재합니다</span>
+                    </li>
+                    <li class="point-item">
+                        <span class="point-number">6.</span>
                         <span class="point-text">참조변수(obj, obj2)는 스택에, 실제 객체는 힙에 저장됩니다</span>
                     </li>
                 </ul>
@@ -735,7 +739,16 @@
                             <h3 class="object-title">Test01 객체 #1</h3>
                             <span class="object-address">0x1A2B</span>
                         </div>
+                        <div style="background: #fef3c7; padding: 8px; border-radius: 4px; margin-bottom: 8px; font-size: 11px; border: 1px solid #fbbf24;">
+                            <div style="font-weight: 600; color: #92400e; margin-bottom: 4px;">📋 객체 헤더 (Object Header)</div>
+                            <div style="font-family: monospace; font-size: 10px; color: #78350f;">
+                                <div>• Class Pointer → Test01.class</div>
+                                <div>• Hash Code: 0x5A7B</div>
+                                <div>• GC Age: 0</div>
+                            </div>
+                        </div>
                         <div class="object-fields">
+                            <div style="font-size: 11px; color: #166534; margin-bottom: 6px; font-weight: 600;">인스턴스 필드:</div>
                             <div class="field-row">
                                 <span class="field-name">a:</span>
                                 <span class="field-value">10</span>
@@ -767,7 +780,16 @@
                             <h3 class="object-title">Test01 객체 #2</h3>
                             <span class="object-address">0x2C3D</span>
                         </div>
+                        <div style="background: #fef3c7; padding: 8px; border-radius: 4px; margin-bottom: 8px; font-size: 11px; border: 1px solid #fbbf24;">
+                            <div style="font-weight: 600; color: #92400e; margin-bottom: 4px;">📋 객체 헤더 (Object Header)</div>
+                            <div style="font-family: monospace; font-size: 10px; color: #78350f;">
+                                <div>• Class Pointer → Test01.class</div>
+                                <div>• Hash Code: 0x8C9D</div>
+                                <div>• GC Age: 0</div>
+                            </div>
+                        </div>
                         <div class="object-fields">
+                            <div style="font-size: 11px; color: #166534; margin-bottom: 6px; font-weight: 600;">인스턴스 필드:</div>
                             <div class="field-row">
                                 <span class="field-name">a:</span>
                                 <span class="field-value">10</span>
