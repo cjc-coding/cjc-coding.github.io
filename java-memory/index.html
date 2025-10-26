@@ -1,1 +1,846 @@
 
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Java 메모리 구조 - MainTest 실행 과정</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+            padding: 24px;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            font-size: 28px;
+            font-weight: bold;
+            color: #1e293b;
+            margin-bottom: 8px;
+        }
+
+        .subtitle {
+            color: #64748b;
+            margin-bottom: 24px;
+        }
+
+        .control-panel {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            padding: 20px;
+            margin-bottom: 24px;
+        }
+
+        .button-group {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            margin-bottom: 16px;
+        }
+
+        button {
+            padding: 10px 16px;
+            border: none;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        button:disabled {
+            cursor: not-allowed;
+            opacity: 0.5;
+        }
+
+        .btn-prev {
+            background: #475569;
+            color: white;
+        }
+
+        .btn-prev:hover:not(:disabled) {
+            background: #334155;
+        }
+
+        .btn-next {
+            background: #2563eb;
+            color: white;
+        }
+
+        .btn-next:hover:not(:disabled) {
+            background: #1d4ed8;
+        }
+
+        .btn-reset {
+            background: #ea580c;
+            color: white;
+        }
+
+        .btn-reset:hover {
+            background: #c2410c;
+        }
+
+        .step-counter {
+            font-size: 14px;
+            color: #64748b;
+        }
+
+        .step-info {
+            background: #dbeafe;
+            border-left: 4px solid #3b82f6;
+            padding: 16px;
+            border-radius: 8px;
+            margin-top: 16px;
+        }
+
+        .step-title {
+            font-weight: bold;
+            color: #1e3a8a;
+            margin-bottom: 4px;
+        }
+
+        .step-desc {
+            color: #1e40af;
+            font-size: 14px;
+        }
+
+        .code-line {
+            background: white;
+            padding: 8px;
+            border-radius: 4px;
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+            color: #1e293b;
+            margin-top: 8px;
+        }
+
+        .memory-grid {
+            display: grid;
+            grid-template-columns: 1fr 2fr 1fr;
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+
+        .memory-area {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            padding: 20px;
+        }
+
+        .method-area {
+            border: 2px solid #c084fc;
+        }
+
+        .heap-area {
+            border: 2px solid #86efac;
+        }
+
+        .stack-area {
+            border: 2px solid #fdba74;
+        }
+
+        .area-header {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 16px;
+        }
+
+        .area-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+        }
+
+        .purple-dot { background: #a855f7; }
+        .green-dot { background: #22c55e; }
+        .orange-dot { background: #f97316; }
+
+        .area-title {
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .purple-title { color: #7c3aed; }
+        .green-title { color: #16a34a; }
+        .orange-title { color: #ea580c; }
+
+        .section {
+            background: #f8fafc;
+            padding: 12px;
+            border-radius: 8px;
+            margin-bottom: 12px;
+        }
+
+        .section-title {
+            font-weight: 600;
+            font-size: 14px;
+            margin-bottom: 8px;
+        }
+
+        .section-content {
+            font-size: 13px;
+            line-height: 1.6;
+        }
+
+        .highlight {
+            border: 2px solid #fbbf24;
+            box-shadow: 0 0 12px rgba(251, 191, 36, 0.5);
+        }
+
+        .object-box {
+            background: #f0fdf4;
+            padding: 16px;
+            border-radius: 8px;
+            border: 2px solid #bbf7d0;
+            margin-bottom: 16px;
+            transition: all 0.3s;
+        }
+
+        .object-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 12px;
+        }
+
+        .object-title {
+            font-weight: 600;
+            color: #166534;
+        }
+
+        .object-address {
+            font-size: 12px;
+            background: #16a34a;
+            color: white;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-family: monospace;
+        }
+
+        .object-fields {
+            background: white;
+            padding: 12px;
+            border-radius: 4px;
+            font-family: monospace;
+            font-size: 13px;
+        }
+
+        .field-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 4px;
+        }
+
+        .field-name {
+            color: #166534;
+        }
+
+        .field-value {
+            font-weight: bold;
+            color: #14532d;
+        }
+
+        .ref-indicator {
+            margin-top: 8px;
+            font-size: 12px;
+            color: #16a34a;
+            background: #fef3c7;
+            padding: 8px;
+            border-radius: 4px;
+        }
+
+        .stack-frame {
+            background: #fff7ed;
+            padding: 12px;
+            border-radius: 8px;
+            margin-bottom: 12px;
+            transition: all 0.3s;
+        }
+
+        .frame-title {
+            font-weight: 600;
+            color: #9a3412;
+            font-size: 14px;
+            margin-bottom: 8px;
+        }
+
+        .var-box {
+            background: white;
+            padding: 8px;
+            border-radius: 4px;
+            font-family: monospace;
+            font-size: 12px;
+            margin-bottom: 8px;
+        }
+
+        .var-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .var-name {
+            color: #c2410c;
+        }
+
+        .var-ref {
+            color: #2563eb;
+            font-weight: bold;
+        }
+
+        .var-note {
+            font-size: 11px;
+            color: #64748b;
+            margin-top: 4px;
+        }
+
+        .console {
+            background: #0f172a;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            padding: 20px;
+            margin-bottom: 24px;
+        }
+
+        .console-header {
+            font-size: 18px;
+            font-weight: bold;
+            color: #4ade80;
+            font-family: monospace;
+            margin-bottom: 12px;
+        }
+
+        .console-output {
+            background: #000;
+            border-radius: 8px;
+            padding: 16px;
+            font-family: monospace;
+            font-size: 14px;
+            color: #4ade80;
+            min-height: 128px;
+        }
+
+        .console-line {
+            margin-bottom: 4px;
+            animation: blink 1s ease-in-out;
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        .empty-message {
+            font-size: 11px;
+            color: #475569;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+        }
+
+        .info-box {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            padding: 20px;
+        }
+
+        .info-title {
+            font-size: 20px;
+            font-weight: bold;
+            color: #1e293b;
+            margin-bottom: 12px;
+        }
+
+        .info-item {
+            margin-bottom: 12px;
+            font-size: 14px;
+        }
+
+        .info-subtitle {
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .purple-subtitle { color: #7c3aed; }
+        .green-subtitle { color: #16a34a; }
+        .orange-subtitle { color: #ea580c; }
+
+        .info-text {
+            color: #475569;
+            line-height: 1.6;
+        }
+
+        .code-highlight {
+            font-family: monospace;
+            background: #f1f5f9;
+            padding: 2px 4px;
+            border-radius: 3px;
+        }
+
+        .purple-code { color: #7c3aed; }
+        .green-code { color: #16a34a; }
+        .orange-code { color: #ea580c; }
+
+        .point-list {
+            list-style: none;
+        }
+
+        .point-item {
+            display: flex;
+            align-items: start;
+            gap: 8px;
+            margin-bottom: 8px;
+            font-size: 14px;
+        }
+
+        .point-number {
+            color: #2563eb;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+
+        .point-text {
+            color: #475569;
+            line-height: 1.6;
+        }
+
+        .empty-state {
+            text-align: center;
+            color: #94a3b8;
+            padding: 64px 0;
+        }
+
+        .empty-title {
+            font-size: 18px;
+            margin-bottom: 8px;
+        }
+
+        .empty-subtitle {
+            font-size: 14px;
+        }
+
+        .fade-in {
+            opacity: 0.3;
+            transition: opacity 0.5s;
+        }
+
+        .fade-in.active {
+            opacity: 1;
+        }
+
+        @media (max-width: 1024px) {
+            .memory-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .info-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Java 메모리 구조 - MainTest 실행 과정</h1>
+        <p class="subtitle">각 단계별로 메모리 변화를 확인하세요</p>
+
+        <!-- Control Panel -->
+        <div class="control-panel">
+            <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap;">
+                <div class="button-group">
+                    <button class="btn-prev" id="prevBtn" onclick="prevStep()">← 이전</button>
+                    <button class="btn-next" id="nextBtn" onclick="nextStep()">다음 → ▶</button>
+                    <button class="btn-reset" onclick="reset()">↻ 처음부터</button>
+                </div>
+                <div class="step-counter" id="stepCounter">1 / 9</div>
+            </div>
+            
+            <div class="step-info">
+                <div class="step-title" id="stepTitle">시작</div>
+                <div class="step-desc" id="stepDesc">프로그램 시작 전</div>
+                <div class="code-line" id="codeLine" style="display: none;"></div>
+            </div>
+        </div>
+
+        <!-- Memory Structure -->
+        <div class="memory-grid">
+            <!-- Method Area -->
+            <div class="memory-area method-area">
+                <div class="area-header">
+                    <div class="area-dot purple-dot"></div>
+                    <h2 class="area-title purple-title">Method Area</h2>
+                </div>
+                
+                <div id="methodArea" class="fade-in">
+                    <div class="section">
+                        <div class="section-title purple-subtitle">클래스 정보</div>
+                        <div class="section-content">
+                            <div style="font-size: 12px;">Test01.class</div>
+                            <div style="font-size: 12px;">MainTest.class</div>
+                        </div>
+                    </div>
+
+                    <div class="section" id="staticVars">
+                        <div class="section-title purple-subtitle">static 변수</div>
+                        <div class="section-content" style="font-family: monospace; background: white; padding: 8px; border-radius: 4px;">
+                            <div class="field-row">
+                                <span>aa:</span>
+                                <span style="font-weight: bold; color: #7c3aed;">100</span>
+                            </div>
+                            <div class="field-row">
+                                <span>PI:</span>
+                                <span style="font-weight: bold; color: #7c3aed;">3.14</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="section">
+                        <div class="section-title purple-subtitle">메서드 코드</div>
+                        <div class="section-content" style="font-family: monospace; font-size: 12px;">
+                            <div>• main()</div>
+                            <div>• disp()</div>
+                            <div>• aaa()</div>
+                            <div>• Test01()</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Heap Area -->
+            <div class="memory-area heap-area">
+                <div class="area-header">
+                    <div class="area-dot green-dot"></div>
+                    <h2 class="area-title green-title">Heap (객체 저장 영역)</h2>
+                </div>
+                
+                <div id="heapArea">
+                    <div class="empty-state">
+                        <p class="empty-title">객체가 아직 생성되지 않았습니다</p>
+                        <p class="empty-subtitle">new 연산자로 객체 생성 시 이곳에 할당됩니다</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Stack Area -->
+            <div class="memory-area stack-area">
+                <div class="area-header">
+                    <div class="area-dot orange-dot"></div>
+                    <h2 class="area-title orange-title">Stack</h2>
+                </div>
+                
+                <div id="stackArea">
+                    <div class="empty-state">
+                        <p class="empty-subtitle">스택 비어있음</p>
+                        <p class="empty-subtitle">메서드 실행 시<br>이곳에 프레임이 생성됩니다</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Console -->
+        <div class="console">
+            <div class="console-header">Console Output</div>
+            <div class="console-output" id="consoleOutput">
+                <div class="empty-message">출력 대기 중...</div>
+            </div>
+        </div>
+
+        <!-- Info Grid -->
+        <div class="info-grid">
+            <div class="info-box">
+                <h2 class="info-title">핵심 개념</h2>
+                <div class="info-item">
+                    <div class="info-subtitle purple-subtitle">📌 Method Area (Static 영역)</div>
+                    <p class="info-text">클래스 정보와 static 변수가 저장됩니다. <span class="code-highlight purple-code">aa</span>와 <span class="code-highlight purple-code">PI</span>는 클래스당 하나만 존재하며 모든 객체가 공유합니다.</p>
+                </div>
+                
+                <div class="info-item">
+                    <div class="info-subtitle green-subtitle">📌 Heap (힙 영역)</div>
+                    <p class="info-text"><span class="code-highlight green-code">new</span>로 생성된 객체가 저장됩니다. 각 객체는 고유한 인스턴스 변수를 가집니다. obj와 obj2는 서로 다른 객체이며 각자의 <span class="code-highlight">a, b, c, d</span> 값을 가집니다.</p>
+                </div>
+                
+                <div class="info-item">
+                    <div class="info-subtitle orange-subtitle">📌 Stack (스택 영역)</div>
+                    <p class="info-text">메서드 실행 시 지역변수와 매개변수가 저장됩니다. <span class="code-highlight orange-code">obj</span>와 <span class="code-highlight orange-code">obj2</span>는 스택에 저장되며, 힙의 객체 주소를 가리킵니다.</p>
+                </div>
+            </div>
+
+            <div class="info-box">
+                <h2 class="info-title">주요 포인트</h2>
+                <ul class="point-list">
+                    <li class="point-item">
+                        <span class="point-number">1.</span>
+                        <span class="point-text">static 블록은 클래스 로딩 시 <strong>단 한 번만</strong> 실행됩니다</span>
+                    </li>
+                    <li class="point-item">
+                        <span class="point-number">2.</span>
+                        <span class="point-text">생성자는 객체 생성 시마다 실행됩니다 (obj, obj2 각각)</span>
+                    </li>
+                    <li class="point-item">
+                        <span class="point-number">3.</span>
+                        <span class="point-text">static 변수는 <span class="code-highlight" style="background: #f3e8ff; color: #7c3aed;">클래스명.변수명</span>으로 접근하는 것이 권장됩니다</span>
+                    </li>
+                    <li class="point-item">
+                        <span class="point-number">4.</span>
+                        <span class="point-text">인스턴스 변수는 각 객체마다 독립적으로 존재합니다</span>
+                    </li>
+                    <li class="point-item">
+                        <span class="point-number">5.</span>
+                        <span class="point-text">참조변수(obj, obj2)는 스택에, 실제 객체는 힙에 저장됩니다</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let currentStep = 0;
+        
+        const steps = [
+            {
+                title: "시작",
+                description: "프로그램 시작 전",
+                line: "",
+                console: []
+            },
+            {
+                title: "클래스 로딩 & static 초기화",
+                description: "Test01.class 로드 및 static 블록 실행",
+                line: "// 클래스 로딩 시점",
+                console: ["static 필드 초기화됨"]
+            },
+            {
+                title: "main() 시작",
+                description: "main 메서드 실행 시작",
+                line: "public static void main(String[] args) {",
+                console: ["static 필드 초기화됨"]
+            },
+            {
+                title: "obj 생성",
+                description: "Test01 obj = new Test01();",
+                line: "Test01 obj = new Test01();",
+                console: ["static 필드 초기화됨", "인스턴스필드 초기화"]
+            },
+            {
+                title: "obj.a 출력",
+                description: "System.out.println(obj.a);",
+                line: "System.out.println(obj.a);",
+                console: ["static 필드 초기화됨", "인스턴스필드 초기화", "10"]
+            },
+            {
+                title: "Test01.aa 출력",
+                description: "System.out.println(Test01.aa);",
+                line: "System.out.println(Test01.aa);",
+                console: ["static 필드 초기화됨", "인스턴스필드 초기화", "10", "100"]
+            },
+            {
+                title: "obj2 생성",
+                description: "Test01 obj2 = new Test01();",
+                line: "Test01 obj2 = new Test01();",
+                console: ["static 필드 초기화됨", "인스턴스필드 초기화", "10", "100", "인스턴스필드 초기화"]
+            },
+            {
+                title: "obj2.disp() 호출",
+                description: "obj2.disp();",
+                line: "obj2.disp();",
+                console: ["static 필드 초기화됨", "인스턴스필드 초기화", "10", "100", "인스턴스필드 초기화"]
+            },
+            {
+                title: "Test01.PI 출력",
+                description: "System.out.println(Test01.PI);",
+                line: "System.out.println(Test01.PI);",
+                console: ["static 필드 초기화됨", "인스턴스필드 초기화", "10", "100", "인스턴스필드 초기화", "3.14"]
+            }
+        ];
+
+        function updateUI() {
+            const step = steps[currentStep];
+            
+            // Update step info
+            document.getElementById('stepTitle').textContent = step.title;
+            document.getElementById('stepDesc').textContent = step.description;
+            document.getElementById('stepCounter').textContent = `${currentStep + 1} / ${steps.length}`;
+            
+            const codeLine = document.getElementById('codeLine');
+            if (step.line) {
+                codeLine.textContent = step.line;
+                codeLine.style.display = 'block';
+            } else {
+                codeLine.style.display = 'none';
+            }
+            
+            // Update buttons
+            document.getElementById('prevBtn').disabled = currentStep === 0;
+            document.getElementById('nextBtn').disabled = currentStep === steps.length - 1;
+            
+            // Update Method Area
+            const methodArea = document.getElementById('methodArea');
+            methodArea.className = currentStep >= 1 ? 'fade-in active' : 'fade-in';
+            
+            const staticVars = document.getElementById('staticVars');
+            staticVars.className = currentStep >= 1 ? 'section highlight' : 'section';
+            
+            // Update Heap Area
+            updateHeapArea();
+            
+            // Update Stack Area
+            updateStackArea();
+            
+            // Update Console
+            updateConsole();
+        }
+
+        function updateHeapArea() {
+            const heapArea = document.getElementById('heapArea');
+            
+            if (currentStep < 3) {
+                heapArea.innerHTML = `
+                    <div class="empty-state">
+                        <p class="empty-title">객체가 아직 생성되지 않았습니다</p>
+                        <p class="empty-subtitle">new 연산자로 객체 생성 시 이곳에 할당됩니다</p>
+                    </div>
+                `;
+                return;
+            }
+            
+            let html = '';
+            
+            // obj 객체
+            if (currentStep >= 3) {
+                const isActive = currentStep >= 3 && currentStep <= 5;
+                html += `
+                    <div class="object-box ${isActive ? 'highlight' : ''}">
+                        <div class="object-header">
+                            <h3 class="object-title">Test01 객체 #1</h3>
+                            <span class="object-address">0x1A2B</span>
+                        </div>
+                        <div class="object-fields">
+                            <div class="field-row">
+                                <span class="field-name">a:</span>
+                                <span class="field-value">10</span>
+                            </div>
+                            <div class="field-row">
+                                <span class="field-name">b:</span>
+                                <span style="color: #64748b;">0.0</span>
+                            </div>
+                            <div class="field-row">
+                                <span class="field-name">c:</span>
+                                <span style="color: #64748b;">null</span>
+                            </div>
+                            <div class="field-row">
+                                <span class="field-name">d:</span>
+                                <span style="color: #64748b;">false</span>
+                            </div>
+                        </div>
+                        ${isActive ? '<div class="ref-indicator">← obj가 참조 중</div>' : ''}
+                    </div>
+                `;
+            }
+            
+            // obj2 객체
+            if (currentStep >= 6) {
+                const isActive = currentStep >= 6;
+                html += `
+                    <div class="object-box ${isActive ? 'highlight' : ''}">
+                        <div class="object-header">
+                            <h3 class="object-title">Test01 객체 #2</h3>
+                            <span class="object-address">0x2C3D</span>
+                        </div>
+                        <div class="object-fields">
+                            <div class="field-row">
+                                <span class="field-name">a:</span>
+                                <span class="field-value">10</span>
+                            </div>
+                            <div class="field-row">
+                                <span class="field-name">b:</span>
+                                <span style="color: #64748b;">0.0</span>
+                            </div>
+                            <div class="field-row">
+                                <span class="field-name">c:</span>
+                                <span style="color: #64748b;">null</span>
+                            </div>
+                            <div class="field-row">
+                                <span class="field-name">d:</span>
+                                <span style="color: #64748b;">false</span>
+                            </div>
+                        </div>
+                        ${currentStep >= 7 ? '<div class="ref-indicator">← obj2가 참조 중</div>' : ''}
+                    </div>
+                `;
+            }
+            
+            // String Pool
+            html += `
+                <div class="section" style="background: #f0fdf4; border: 1px solid #bbf7d0;">
+                    <div class="section-title green-subtitle">String Pool</div>
+                    <div class="section-content" style="font-family: monospace; font-size: 12px;">
+                        <div>"static 필드 초기화됨"</div>
+                        <div>"인스턴스필드 초기화"</div>
+                    </div>
+                </div>
+            `;
+            
+            heapArea.innerHTML = html;
+        }
+
+        function updateStackArea() {
+            const stackArea = document.getElementById('stackArea');
+            
+            if (currentStep < 2) {
+                stackArea.innerHTML = `
+                    <div class="empty-state">
+                        <p class="empty-subtitle">스택 비어있음</p>
+                        <p class="empty-subtitle">메서드 실행 시<br>이곳에 프레임이 생성됩니다</p>
+                    </div>
+                `;
+                return;
+            }
+            
+            let html = '';
+            
+            // main() 스택 프레임
+            if (currentStep >= 2) {
+                html += `
+                    <div class="stack-frame" style="border: 2px solid #3b82f6;">
+                        <div class="frame-title">main() 프레임</div>
+                `;
+                
+                if (currentStep >= 3) {
+                    html += `
+                        <div class="var-box">
+                            <div class="var-row">
+                                <span class="var-name">obj:</span>
+                                <span class="var-ref">→ 0x1A2B</span>
+                            </div>
+                            <div class="var-note">참조변수</div>
+                        </div>
+                    `;
+                }
+                
+                if (currentStep >= 6) {
+                    html += `
+                        <div class="var-box">
+                            <div class="var-row">
+                                <span class="
